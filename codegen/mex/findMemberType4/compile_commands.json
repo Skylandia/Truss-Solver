@@ -1,0 +1,74 @@
+[
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  findMemberType4_data.cpp /Fobuild\\win64\\findMemberType4_data.obj",
+    "file": "findMemberType4_data.cpp",
+    "output": "build/win64/findMemberType4_data.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  rt_nonfinite.cpp /Fobuild\\win64\\rt_nonfinite.obj",
+    "file": "rt_nonfinite.cpp",
+    "output": "build/win64/rt_nonfinite.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  findMemberType4_initialize.cpp /Fobuild\\win64\\findMemberType4_initialize.obj",
+    "file": "findMemberType4_initialize.cpp",
+    "output": "build/win64/findMemberType4_initialize.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  findMemberType4_terminate.cpp /Fobuild\\win64\\findMemberType4_terminate.obj",
+    "file": "findMemberType4_terminate.cpp",
+    "output": "build/win64/findMemberType4_terminate.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  findMemberType4.cpp /Fobuild\\win64\\findMemberType4.obj",
+    "file": "findMemberType4.cpp",
+    "output": "build/win64/findMemberType4.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  interface\\_coder_findMemberType4_api.cpp /Fobuild\\win64\\_coder_findMemberType4_api.obj",
+    "file": "interface/_coder_findMemberType4_api.cpp",
+    "output": "build/win64/_coder_findMemberType4_api.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  interface\\_coder_findMemberType4_mex.cpp /Fobuild\\win64\\_coder_findMemberType4_mex.obj",
+    "file": "interface/_coder_findMemberType4_mex.cpp",
+    "output": "build/win64/_coder_findMemberType4_mex.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  rowNamesDim.cpp /Fobuild\\win64\\rowNamesDim.obj",
+    "file": "rowNamesDim.cpp",
+    "output": "build/win64/rowNamesDim.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  varNamesDim.cpp /Fobuild\\win64\\varNamesDim.obj",
+    "file": "varNamesDim.cpp",
+    "output": "build/win64/varNamesDim.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  table.cpp /Fobuild\\win64\\table.obj",
+    "file": "table.cpp",
+    "output": "build/win64/table.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  interface\\_coder_findMemberType4_info.cpp /Fobuild\\win64\\_coder_findMemberType4_info.obj",
+    "file": "interface/_coder_findMemberType4_info.cpp",
+    "output": "build/win64/_coder_findMemberType4_info.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\findMemberType4",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DMODEL=findMemberType4_mex -DMW_NEEDS_VERSION_H /wd4251  \"C:\\Program Files\\MATLAB\\R2021a\\extern\\version\\cpp_mexapi_version.cpp\" /Fobuild\\win64\\cpp_mexapi_version.obj",
+    "file": "C:/Program Files/MATLAB/R2021a/extern/version/cpp_mexapi_version.cpp",
+    "output": "build/win64/cpp_mexapi_version.obj"
+  }
+]

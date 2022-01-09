@@ -1,0 +1,122 @@
+[
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  tensionCalculator3_data.cpp /Fobuild\\win64\\tensionCalculator3_data.obj",
+    "file": "tensionCalculator3_data.cpp",
+    "output": "build/win64/tensionCalculator3_data.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  rt_nonfinite.cpp /Fobuild\\win64\\rt_nonfinite.obj",
+    "file": "rt_nonfinite.cpp",
+    "output": "build/win64/rt_nonfinite.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  tensionCalculator3_initialize.cpp /Fobuild\\win64\\tensionCalculator3_initialize.obj",
+    "file": "tensionCalculator3_initialize.cpp",
+    "output": "build/win64/tensionCalculator3_initialize.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  tensionCalculator3_terminate.cpp /Fobuild\\win64\\tensionCalculator3_terminate.obj",
+    "file": "tensionCalculator3_terminate.cpp",
+    "output": "build/win64/tensionCalculator3_terminate.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  tensionCalculator3.cpp /Fobuild\\win64\\tensionCalculator3.obj",
+    "file": "tensionCalculator3.cpp",
+    "output": "build/win64/tensionCalculator3.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  find.cpp /Fobuild\\win64\\find.obj",
+    "file": "find.cpp",
+    "output": "build/win64/find.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  eml_int_forloop_overflow_check.cpp /Fobuild\\win64\\eml_int_forloop_overflow_check.obj",
+    "file": "eml_int_forloop_overflow_check.cpp",
+    "output": "build/win64/eml_int_forloop_overflow_check.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  indexShapeCheck.cpp /Fobuild\\win64\\indexShapeCheck.obj",
+    "file": "indexShapeCheck.cpp",
+    "output": "build/win64/indexShapeCheck.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  warning.cpp /Fobuild\\win64\\warning.obj",
+    "file": "warning.cpp",
+    "output": "build/win64/warning.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  diag.cpp /Fobuild\\win64\\diag.obj",
+    "file": "diag.cpp",
+    "output": "build/win64/diag.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  power.cpp /Fobuild\\win64\\power.obj",
+    "file": "power.cpp",
+    "output": "build/win64/power.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  sum.cpp /Fobuild\\win64\\sum.obj",
+    "file": "sum.cpp",
+    "output": "build/win64/sum.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  mldivide.cpp /Fobuild\\win64\\mldivide.obj",
+    "file": "mldivide.cpp",
+    "output": "build/win64/mldivide.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  qrsolve.cpp /Fobuild\\win64\\qrsolve.obj",
+    "file": "qrsolve.cpp",
+    "output": "build/win64/qrsolve.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  interface\\_coder_tensionCalculator3_api.cpp /Fobuild\\win64\\_coder_tensionCalculator3_api.obj",
+    "file": "interface/_coder_tensionCalculator3_api.cpp",
+    "output": "build/win64/_coder_tensionCalculator3_api.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  interface\\_coder_tensionCalculator3_mex.cpp /Fobuild\\win64\\_coder_tensionCalculator3_mex.obj",
+    "file": "interface/_coder_tensionCalculator3_mex.cpp",
+    "output": "build/win64/_coder_tensionCalculator3_mex.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  flipud.cpp /Fobuild\\win64\\flipud.obj",
+    "file": "flipud.cpp",
+    "output": "build/win64/flipud.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  sqrt.cpp /Fobuild\\win64\\sqrt.obj",
+    "file": "sqrt.cpp",
+    "output": "build/win64/sqrt.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  interface\\_coder_tensionCalculator3_info.cpp /Fobuild\\win64\\_coder_tensionCalculator3_info.obj",
+    "file": "interface/_coder_tensionCalculator3_info.cpp",
+    "output": "build/win64/_coder_tensionCalculator3_info.obj"
+  },
+  {
+    "directory": "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\codegen\\mex\\tensionCalculator3",
+    "command": "cl /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021a\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251  \"C:\\Program Files\\MATLAB\\R2021a\\extern\\version\\cpp_mexapi_version.cpp\" /Fobuild\\win64\\cpp_mexapi_version.obj",
+    "file": "C:/Program Files/MATLAB/R2021a/extern/version/cpp_mexapi_version.cpp",
+    "output": "build/win64/cpp_mexapi_version.obj"
+  }
+]

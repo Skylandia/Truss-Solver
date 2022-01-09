@@ -1,0 +1,151 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Comparison Tool - C:\...olver\tensionCalculator3.m vs. C:\...olver\TensionCalculator2.m</title><style type="text/css">
+
+pre {
+
+  display:inline-block;
+
+}
+
+.diffnomatch {
+
+  background: #e5d5e8;
+
+     display: inline-block;
+
+}
+
+.right {
+
+  background: #dbf2fc;
+
+     display: inline-block;
+
+}
+
+.left {
+
+  background: #f3e9d1;
+
+     display: inline-block;
+
+}
+
+.diffsoft {
+
+    color: #888;
+
+}
+
+.diffskip {
+
+       color: #888;
+
+  background: #e0e0e0;
+
+     display: inline-block;
+
+}
+
+.bold {
+
+  font-weight:bold;
+
+}
+
+.merged {
+
+  background-color: #eaeaea;
+
+           display: inline-block;
+
+}
+
+</style><body><div id="allContent"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr>
+<td></td><td><a id="leftFileLink" class="bold">tensionCalculator3.m</a></td>
+<td><a id="rightFileLink" class="bold">TensionCalculator2.m</a></td>
+</tr>
+<tr>
+<td></td><td>C:\Users\Mack\Documents\MATLAB\Truss Solver\tensionCalculator3.m</td><td>C:\Users\Mack\Documents\MATLAB\Truss Solver\TensionCalculator2.m</td>
+</tr>
+<tr>
+<td></td><td>Tue Nov 02 19:59:49 NZDT 2021</td><td>Sun Oct 31 21:04:29 NZDT 2021</td>
+</tr>
+<tr>
+<td><pre>    </pre></td>
+<td><pre>                                                                                </pre></td>
+<td><pre>                                                                                </pre></td>
+</tr></tbody></table>
+<div>13 differences found.  Use the toolstrip buttons to navigate to them.</div><div id="diffstart">
+<br><pre><div id="ignorediv"><a id="ignorelink"></a></div>
+<div id="diff0"><span class="diffLine" data-left-line="1" data-right-line="1"><a>  1</a> <span class="diffnomatch">function [<span style="background: #be96c6;">tensionArray</span>] = <span style="background: #be96c6;">tensionCalculator3</span>(<span style="background: #be96c6;">nodesX</span>,<span style="background: #be96c6;">nodesY,numNodes,numEdges,end</span> x function [<span style="background: #be96c6;">trussGraphOut</span>] = <span style="background: #be96c6;">TensionCalculator2</span>(<span style="background: #be96c6;">trussGraph</span>, weightMagnitude, weigh</span> <span><a>  1</a></span></span>
+</div><span class="nodiff" data-left-line="2" data-right-line="2"><a>  2</a> %Calculates all the Tension(+) and compression(-) forces in every member         . %Calculates all the Tension(+) and compression(-) forces in every member         <span><a>  2</a></span></span>
+<span class="nodiff" data-left-line="3" data-right-line="3"><a>  3</a> %and enters them into the 'Force in Member' column in the trussGraph table       . %and enters them into the 'Force in Member' column in the trussGraph table       <span><a>  3</a></span></span>
+<span class="nodiff" data-left-line="4" data-right-line="4"><a>  4</a> %   trussGraph: must be created by GenerateTrussGraph                            . %   trussGraph: must be created by GenerateTrussGraph                            <span><a>  4</a></span></span>
+                                                                       <span class="diffskip">[3 unmodified lines hidden]</span>
+<span class="nodiff" data-left-line="8" data-right-line="8"><a>  8</a>                                                                                  .                                                                                  <span><a>  8</a></span></span>
+<span class="nodiff" data-left-line="9" data-right-line="9"><a>  9</a> % Locations of pin and roller nodes, pin is the left node and roller is the      . % Locations of pin and roller nodes, pin is the left node and roller is the      <span><a>  9</a></span></span>
+<span class="nodiff" data-left-line="10" data-right-line="10"><a> 10</a> % right                                                                          . % right                                                                          <span><a> 10</a></span></span>
+<div id="diff1"><span class="diffLine" data-left-line="11" data-right-line="11"><a> 11</a> <span class="diffnomatch">baseIndx=find(<span style="background: #be96c6;">nodesY</span>==0);                                                        x baseIndx=find(<span style="background: #be96c6;">trussGraph.Nodes.y</span>==0);                                           </span> <span><a> 11</a></span></span>
+<span class="diffLine" data-left-line="12" data-right-line="12"><a> 12</a> <span class="diffnomatch">maximum=max(max(<span style="background: #be96c6;">nodesX</span>(baseIndx)));                                              x maximum=max(max(<span style="background: #be96c6;">trussGraph.Nodes.x</span>(baseIndx)));                                 </span> <span><a> 12</a></span></span>
+<span class="diffLine" data-left-line="13" data-right-line="13"><a> 13</a> <span class="diffnomatch">minimum=min(min(<span style="background: #be96c6;">nodesX</span>(baseIndx)));                                              x minimum=min(min(<span style="background: #be96c6;">trussGraph.Nodes.x</span>(baseIndx)));                                 </span> <span><a> 13</a></span></span>
+<span class="diffLine" data-left-line="14" data-right-line="14"><a> 14</a> <span class="diffnomatch">rollerNode=baseIndx(<span style="background: #be96c6;">nodesX</span>(baseIndx)==maximum);                                  x rollerNode=baseIndx(<span style="background: #be96c6;">trussGraph.Nodes.x</span>(baseIndx)==maximum);                     </span> <span><a> 14</a></span></span>
+<span class="diffLine" data-left-line="15" data-right-line="15"><a> 15</a> <span class="diffnomatch">pinNode=baseIndx(<span style="background: #be96c6;">nodesX</span>(baseIndx)==minimum);                                     x pinNode=baseIndx(<span style="background: #be96c6;">trussGraph.Nodes.x</span>(baseIndx)==minimum);                        </span> <span><a> 15</a></span></span>
+</div><span class="nodiff" data-left-line="16" data-right-line="16"><a> 16</a>                                                                                  .                                                                                  <span><a> 16</a></span></span>
+<div id="diff2"><span class="diffLine" data-left-line="17" data-right-line="16"><a> 17</a> <span class="diffnew left">nodeEquationArray=zeros(numNodes*2,numEdges+3);                                  &lt; </span><span class="diffold">                                                                                </span> <span class="diffsoft">  -</span></span>
+</div><span class="nodiff" data-left-line="18" data-right-line="17"><a> 18</a>                                                                                  .                                                                                  <span><a> 17</a></span></span>
+<div id="diff3"><span class="diffLine" data-left-line="19" data-right-line="17"><a> 19</a> <span class="diffnew left">xEquationArray = zeros(numNodes,numEdges);                                       &lt; </span><span class="diffold">                                                                                </span> <span class="diffsoft">  -</span></span>
+<span class="diffLine" data-left-line="20" data-right-line="17"><a> 20</a> <span class="diffnew left">yEquationArray = zeros(numNodes,numEdges);                                       &lt; </span><span class="diffold">                                                                                </span> <span class="diffsoft">  -</span></span>
+</div><span class="nodiff" data-left-line="21" data-right-line="18"><a> 21</a>                                                                                  .                                                                                  <span><a> 18</a></span></span>
+<div id="diff4"><span class="diffLine" data-left-line="21" data-right-line="19"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; r=trussGraph.numnodes;                                                          </span> <span><a> 19</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="20"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; c=trussGraph.numedges;                                                          </span> <span><a> 20</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="21"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; nodeEquationArray=zeros(r*2,c+3);                                               </span> <span><a> 21</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="22"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt;                                                                                 </span> <span><a> 22</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="23"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; xEquationArray = zeros(r,c);                                                    </span> <span><a> 23</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="24"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; yEquationArray = zeros(r,c);                                                    </span> <span><a> 24</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="25"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; endNodes = trussGraph.Edges.EndNodes;                                           </span> <span><a> 25</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="26"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; yVector = trussGraph.Nodes.y;                                                   </span> <span><a> 26</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="27"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; xVector = trussGraph.Nodes.x;                                                   </span> <span><a> 27</a></span></span>
+<span class="diffLine" data-left-line="21" data-right-line="28"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt;                                                                                 </span> <span><a> 28</a></span></span>
+</div><span class="nodiff" data-left-line="22" data-right-line="29"><a> 22</a> % NodeX then NodeY                                                               . % NodeX then NodeY                                                               <span><a> 29</a></span></span>
+<span class="nodiff" data-left-line="23" data-right-line="30"><a> 23</a> % columns are members then FPin then FRoller                                     . % columns are members then FPin then FRoller                                     <span><a> 30</a></span></span>
+<span class="nodiff" data-left-line="24" data-right-line="31"><a> 24</a> % array dimensions are members x nodes +2                                        . % array dimensions are members x nodes +2                                        <span><a> 31</a></span></span>
+                                                                       <span class="diffskip">[5 unmodified lines hidden]</span>
+<span class="nodiff" data-left-line="30" data-right-line="37"><a> 30</a> % Node2x                                                                         . % Node2x                                                                         <span><a> 37</a></span></span>
+<span class="nodiff" data-left-line="31" data-right-line="38"><a> 31</a> % ...                                                                            . % ...                                                                            <span><a> 38</a></span></span>
+<span class="nodiff" data-left-line="32" data-right-line="39"><a> 32</a>                                                                                  .                                                                                  <span><a> 39</a></span></span>
+<div id="diff5"><span class="diffLine" data-left-line="33" data-right-line="40"><a> 33</a> <span class="diffnomatch">forceArray=zeros(<span style="background: #be96c6;">numNodes</span>*2,1);                                                  x forceArray=zeros(<span style="background: #be96c6;">r</span>*2,1);                                                        </span> <span><a> 40</a></span></span>
+</div><span class="nodiff" data-left-line="34" data-right-line="41"><a> 34</a> forceArray(weightNode*2)=abs(weightMagnitude);                                   . forceArray(weightNode*2)=abs(weightMagnitude);                                   <span><a> 41</a></span></span>
+<span class="nodiff" data-left-line="35" data-right-line="42"><a> 35</a>                                                                                  .                                                                                  <span><a> 42</a></span></span>
+<span class="nodiff" data-left-line="36" data-right-line="43"><a> 36</a> % Setting supports for pin and roller nodes                                      . % Setting supports for pin and roller nodes                                      <span><a> 43</a></span></span>
+<div id="diff6"><span class="diffLine" data-left-line="37" data-right-line="44"><a> 37</a> <span class="diffnomatch">nodeEquationArray(pinNode(1)*2, <span style="background: #be96c6;">numEdges</span>+1)=1;                                   x nodeEquationArray(pinNode(1)*2, <span style="background: #be96c6;">c</span>+1)=1;                                         </span> <span><a> 44</a></span></span>
+<span class="diffLine" data-left-line="38" data-right-line="45"><a> 38</a> <span class="diffnomatch">nodeEquationArray(rollerNode(1)*2,<span style="background: #be96c6;">numEdges</span>+2)=1;                                 x nodeEquationArray(rollerNode(1)*2,<span style="background: #be96c6;">c</span>+2)=1;                                       </span> <span><a> 45</a></span></span>
+</div><span class="nodiff" data-left-line="39" data-right-line="46"><a> 39</a>                                                                                  .                                                                                  <span><a> 46</a></span></span>
+<span class="nodiff" data-left-line="40" data-right-line="47"><a> 40</a> % force x on pin which will be 0                                                 . % force x on pin which will be 0                                                 <span><a> 47</a></span></span>
+<div id="diff7"><span class="diffLine" data-left-line="41" data-right-line="48"><a> 41</a> <span class="diffnomatch">nodeEquationArray(pinNode(1)*2-1,<span style="background: #be96c6;">numEdges</span>+3)=1;                                  x nodeEquationArray(pinNode(1)*2-1,<span style="background: #be96c6;">c</span>+3)=1;                                        </span> <span><a> 48</a></span></span>
+</div><span class="nodiff" data-left-line="42" data-right-line="49"><a> 42</a>                                                                                  .                                                                                  <span><a> 49</a></span></span>
+<span class="nodiff" data-left-line="43" data-right-line="50"><a> 43</a>                                                                                  .                                                                                  <span><a> 50</a></span></span>
+<span class="nodiff" data-left-line="44" data-right-line="51"><a> 44</a> % For every node                                                                 . % For every node                                                                 <span><a> 51</a></span></span>
+<div id="diff8"><span class="diffLine" data-left-line="45" data-right-line="52"><a> 45</a> <span class="diffnomatch">parfor i=1:<span style="background: #be96c6;">numNodes</span>                                                              x parfor i=1:<span style="background: #be96c6;">r</span>                                                                    </span> <span><a> 52</a></span></span>
+</div><span class="nodiff" data-left-line="46" data-right-line="53"><a> 46</a>                                                                                  .                                                                                  <span><a> 53</a></span></span>
+<div id="diff9"><span class="diffLine" data-left-line="47" data-right-line="54"><a> 47</a> <span class="diffnomatch">    tempX = zeros(1,<span style="background: #be96c6;">numEdges</span>);                                                   x     tempX = zeros(1,<span style="background: #be96c6;">c</span>);                                                         </span> <span><a> 54</a></span></span>
+<span class="diffLine" data-left-line="48" data-right-line="55"><a> 48</a> <span class="diffnomatch">    tempY = zeros(1,<span style="background: #be96c6;">numEdges</span>);                                                   x     tempY = zeros(1,<span style="background: #be96c6;">c</span>);                                                         </span> <span><a> 55</a></span></span>
+<span class="diffLine" data-left-line="49" data-right-line="56"><a> 49</a> <span class="diffnomatch">    yVectorLoop = <span style="background: #be96c6;">nodesY</span>;                                                        x     yVectorLoop = <span style="background: #be96c6;">yVector</span>;                                                      </span> <span><a> 56</a></span></span>
+<span class="diffLine" data-left-line="50" data-right-line="57"><a> 50</a> <span class="diffnomatch">    xVectorLoop = <span style="background: #be96c6;">nodesX</span>;                                                        x     xVectorLoop = <span style="background: #be96c6;">xVector</span>;                                                      </span> <span><a> 57</a></span></span>
+</div><span class="nodiff" data-left-line="51" data-right-line="58"><a> 51</a>     [row,~] = find(endNodes==i);                                                 .     [row,~] = find(endNodes==i);                                                 <span><a> 58</a></span></span>
+<span class="nodiff" data-left-line="52" data-right-line="59"><a> 52</a>     [~,col] = find(endNodes(row,:)~=i);                                          .     [~,col] = find(endNodes(row,:)~=i);                                          <span><a> 59</a></span></span>
+<span class="nodiff" data-left-line="53" data-right-line="60"><a> 53</a>     col=flipud(col); % I have no clue why the column data is upside down         .     col=flipud(col); % I have no clue why the column data is upside down         <span><a> 60</a></span></span>
+                                                                      <span class="diffskip">[14 unmodified lines hidden]</span>
+<span class="nodiff" data-left-line="68" data-right-line="75"><a> 68</a>                                                                                  .                                                                                  <span><a> 75</a></span></span>
+<span class="nodiff" data-left-line="69" data-right-line="76"><a> 69</a> end                                                                              . end                                                                              <span><a> 76</a></span></span>
+<span class="nodiff" data-left-line="70" data-right-line="77"><a> 70</a>                                                                                  .                                                                                  <span><a> 77</a></span></span>
+<div id="diff10"><span class="diffLine" data-left-line="71" data-right-line="78"><a> 71</a> <span class="diffnomatch">nodeEquationArray(1:2:2*<span style="background: #be96c6;">numNodes</span>,1:<span style="background: #be96c6;">numEdges</span>) = xEquationArray(1:1:<span style="background: #be96c6;">numNodes</span>,:);   x nodeEquationArray(1:2:2*<span style="background: #be96c6;">r</span>,1:<span style="background: #be96c6;">c</span>) = xEquationArray(1:1:<span style="background: #be96c6;">r</span>,:);                       </span> <span><a> 78</a></span></span>
+<span class="diffLine" data-left-line="72" data-right-line="79"><a> 72</a> <span class="diffnomatch">nodeEquationArray(2:2:2*<span style="background: #be96c6;">numNodes</span>,1:<span style="background: #be96c6;">numEdges</span>) = yEquationArray(1:1:<span style="background: #be96c6;">numNodes</span>,:);   x nodeEquationArray(2:2:2*<span style="background: #be96c6;">r</span>,1:<span style="background: #be96c6;">c</span>) = yEquationArray(1:1:<span style="background: #be96c6;">r</span>,:);                       </span> <span><a> 79</a></span></span>
+<span class="diffLine" data-left-line="73" data-right-line="80"><a> 73</a> <span class="diffnomatch"><span style="background: #be96c6;">tensionArray</span>=nodeEquationArray\forceArray; %Solving the systems to find the tens x <span style="background: #be96c6;">TensionArray</span>=nodeEquationArray\forceArray; %Solving the systems to find the tens</span> <span><a> 80</a></span></span>
+</div><span class="nodiff" data-left-line="74" data-right-line="81"><a> 74</a>                                                                                  .                                                                                  <span><a> 81</a></span></span>
+<div id="diff11"><span class="diffLine" data-left-line="74" data-right-line="82"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; trussGraphOut = trussGraph;                                                     </span> <span><a> 82</a></span></span>
+<span class="diffLine" data-left-line="74" data-right-line="83"><span class="diffsoft">  -</span><span class="diffold">                                                                                 </span><span class="diffnew right"> &gt; trussGraphOut.Edges.("Force in member") = TensionArray(1:end-3);                </span> <span><a> 83</a></span></span>
+</div><span class="nodiff" data-left-line="75" data-right-line="84"><a> 75</a> end                                                                              . end                                                                              <span><a> 84</a></span></span>
+<div id="diff12"><span class="diffLine" data-left-line="76" data-right-line="84"><a> 76</a> <span class="diffnew left">                                                                                 &lt; </span><span class="diffold">                                                                                </span> <span class="diffsoft">  -</span></span>
+</div></pre></div></div><div id="bottom"><p>Number of matching lines: 54</p><p>Number of unmatched lines in left file: 22</p>
+<p>Number of unmatched lines in right file: 30</p>
+</div></body></head>

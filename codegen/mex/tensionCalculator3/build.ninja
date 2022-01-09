@@ -1,0 +1,61 @@
+# CompilerName=msvcpp160
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2021a
+startdir = C:\Users\Mack\Documents\MATLAB\Truss Solver
+
+# Toolchain information
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
+
+cflags =  /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251 
+
+cxxflags =   /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251 
+
+ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libMatlabDataArray.lib libMatlabEngine.lib  /out:"tensionCalculator3_mex.mexw64" /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmwlapack.lib libmwblas.lib libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib libiomp5md.lib /nodefaultlib:vcomp /LIBPATH:"$matlabdir\bin\win64"
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in /Fo$out
+
+rule cxx
+    command = $cxx $cxxflags $in /Fo$out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir\tensionCalculator3_data.obj : cxx $root\tensionCalculator3_data.cpp
+build $builddir\rt_nonfinite.obj : cxx $root\rt_nonfinite.cpp
+build $builddir\tensionCalculator3_initialize.obj : cxx $root\tensionCalculator3_initialize.cpp
+build $builddir\tensionCalculator3_terminate.obj : cxx $root\tensionCalculator3_terminate.cpp
+build $builddir\tensionCalculator3.obj : cxx $root\tensionCalculator3.cpp
+build $builddir\find.obj : cxx $root\find.cpp
+build $builddir\eml_int_forloop_overflow_check.obj : cxx $root\eml_int_forloop_overflow_check.cpp
+build $builddir\indexShapeCheck.obj : cxx $root\indexShapeCheck.cpp
+build $builddir\warning.obj : cxx $root\warning.cpp
+build $builddir\diag.obj : cxx $root\diag.cpp
+build $builddir\power.obj : cxx $root\power.cpp
+build $builddir\sum.obj : cxx $root\sum.cpp
+build $builddir\mldivide.obj : cxx $root\mldivide.cpp
+build $builddir\qrsolve.obj : cxx $root\qrsolve.cpp
+build $builddir\_coder_tensionCalculator3_api.obj : cxx $root\interface\_coder_tensionCalculator3_api.cpp
+build $builddir\_coder_tensionCalculator3_mex.obj : cxx $root\interface\_coder_tensionCalculator3_mex.cpp
+build $builddir\flipud.obj : cxx $root\flipud.cpp
+build $builddir\sqrt.obj : cxx $root\sqrt.cpp
+build $builddir\_coder_tensionCalculator3_info.obj : cxx $root\interface\_coder_tensionCalculator3_info.cpp
+build $builddir\cpp_mexapi_version.obj : cxx $matlabdir\extern\version\cpp_mexapi_version.cpp
+
+# Link
+build $root\tensionCalculator3_mex.mexw64 : linkxx $builddir\tensionCalculator3_data.obj $builddir\rt_nonfinite.obj $builddir\tensionCalculator3_initialize.obj $builddir\tensionCalculator3_terminate.obj $builddir\tensionCalculator3.obj $builddir\find.obj $builddir\eml_int_forloop_overflow_check.obj $builddir\indexShapeCheck.obj $builddir\warning.obj $builddir\diag.obj $builddir\power.obj $builddir\sum.obj $builddir\mldivide.obj $builddir\qrsolve.obj $builddir\_coder_tensionCalculator3_api.obj $builddir\_coder_tensionCalculator3_mex.obj $builddir\flipud.obj $builddir\sqrt.obj $builddir\_coder_tensionCalculator3_info.obj $builddir\cpp_mexapi_version.obj 
