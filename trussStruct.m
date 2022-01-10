@@ -3,18 +3,18 @@ classdef trussStruct
     %   It's a truss, but matlab coder won't cry itself to sleep
     
     properties
-        Edges
-        Nodes
-        Cost
-        Capasity
+        edgesArray
+        nodesArray
+        cost
+        capasity
     end
     
     methods
-        function obj = trussGraph2Struct(trussGraph)
+        function obj = trussStruct(trussGraph)
             %trussStruct Construct an instance of this class
             %   Detailed explanation goes here
-            obj.Edges = trussGraph.Edges;
-            obj.Nodes = trussGraph.Nodes;
+            obj.Edges = trussGraph.edgesArray;
+            obj.Nodes = trussGraph.nodesArray;
             
         end
         
