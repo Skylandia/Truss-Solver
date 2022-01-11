@@ -3,8 +3,8 @@ classdef Nodes
     %   Detailed explanation goes here
     
     properties
-        x
-        y
+        x {double}
+        y {double}
         ID %Propritary for old functions
         Thiccness
     end
@@ -14,12 +14,18 @@ classdef Nodes
             %Nodes Construct an instance of this class
             %   Makes ONE node, to create an array do:
             %   a(x,y) = Nodes() then fill the array
+            %   Nodes(x,y,0) doesn't assign an ID
             if nargin == 0
-                obj;
+                obj.x = 0;
+                obj.y = 0;
+                obj.ID = -1;
+            elseif ID ~= 0
+                obj.x = x;
+                obj.y = y;
+                obj.ID = ID;
             else
-            obj.x = x;
-            obj.y = y;
-            obj.ID = ID;
+                obj.x = x;
+                obj.y = y;
             end
         end
     end

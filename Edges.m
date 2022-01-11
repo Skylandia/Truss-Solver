@@ -3,25 +3,26 @@ classdef Edges
     %   Detailed explanation goes here
     
     properties
-        endNodes
+        endNodes 
         beamType
-        safteyFactor
-        forceInMember
-        memberLength
+        safteyFactor {double}
+        forceInMember {double}
+        memberLength {double}
     end
     
     methods
-        function obj = Edges(inputArg1,inputArg2)
+        function obj = Edges(endNodes)
             %Edges Construct an instance of an Edges object array
-            %   Converts a propriatary Edges table to an array of Edges
-            %   objects
-            obj.Property1 = inputArg1 + inputArg2;
-        end
-        
-        function outputArg = method1(obj,inputArg)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
-            outputArg = obj.Property1 + inputArg;
+            %   Input: a 1*2 array of Nodes
+            obj.beamType = 'Type 1 * 1'; %Soon to be replaced with beamType Object
+            obj.safteyFactor = NaN;
+            obj.forceInMember = NaN;
+            
+            %Now for the fun parts
+            obj.endNodes = endNodes;
+            obj.memberLength = norm([...
+                endNodes(1).x-endNodes(2).x;
+                endNodes(1).y-endNodes(2).y]);
         end
     end
 end
