@@ -19,16 +19,44 @@ classdef trussStruct
         end
         
         function numNodes = numNodes(obj)
-            %METHOD1 Summary of this method goes here
+            %numNodes The number of nodes in this truss
             %   Detailed explanation goes here
             numNodes = length(obj.nodesArray);
         end
         
         function numEdges = numEdges(obj)
-            %METHOD1 Summary of this method goes here
+            %numEdges The number of edges in this truss
             %   Detailed explanation goes here
             numEdges = length(obj.edgesArray);
         end
+        
+        function endNodes = endNodes(obj)
+            %endNodes Makes a matrix in the format of the old endNode
+            %system for compatibility
+            endNodes = [obj.edgesArray.endNodes];
+            endNodes = (reshape([endNodes.ID],[2,obj.numEdges]))';
+        end
+        
+        function obj = tensionCalculator(obj, weightMagnitude, weightNode)
+            [tensionArray] = tensionCalculator3_mex(...
+                [obj.nodesArray.x]',...
+                [obj.nodesArray.y]',...
+                obj.numNodes,...
+                obj.numEdges,...
+                obj.endNodes,...
+                weightMagnitude,...
+                weightNode);
+            for i = 1:length(tensionArray)-3
+                obj.edgesArray(i).forceInMember = tensionArray(i);
+            end 
+        end
+        
+        function obj = findMemberTypes(obj, safteyFactor)
+            for i = 1:obj.numEdges
+                obj.edgesArray(i).findMemberType(safteyFactor);
+            end
+        end
+        
     end
 end
 

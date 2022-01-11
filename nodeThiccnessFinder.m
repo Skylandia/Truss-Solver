@@ -1,4 +1,4 @@
-function [trussGraphOut] = nodeThiccnessFinder(trussGraph)
+ function [trussGraphOut] = nodeThiccnessFinder(trussGraph)
 %nodeThiccnessFinder does stuff to find what balt to use
 %   https://scryfall.com/card/sok/84/one-with-nothing
 [compressionTable, tensionTable, ~, ~] = generateTrussTables();

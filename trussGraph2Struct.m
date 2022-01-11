@@ -4,7 +4,7 @@ function [trussStructOut] = trussGraph2Struct(trussGraph)
 edgeTable = trussGraph.Edges;
 nodeArray = nodeTable2Nodes(trussGraph.Nodes);
 edgesArrayLength = size(edgeTable.EndNodes,1);
-edgesArray(1,edgesArrayLength) = Edges();
+edgesArray(edgesArrayLength,1) = Edges();
 for i = 1:edgesArrayLength
     edgesArray(i) = Edges([...
         nodeArray(edgeTable.EndNodes(i,1)),...
