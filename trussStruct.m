@@ -10,18 +10,24 @@ classdef trussStruct
     end
     
     methods
-        function obj = trussStruct(trussGraph)
+        function obj = trussStruct(edgesArray,nodesArray)
             %trussStruct Construct an instance of this class
             %   Detailed explanation goes here
-            obj.Edges = trussGraph.edgesArray;
-            obj.Nodes = trussGraph.nodesArray;
+            obj.edgesArray = edgesArray;
+            obj.nodesArray = nodesArray;
             
         end
         
         function numNodes = numNodes(obj)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
-            numNodes = obj.Property1 + inputArg;
+            numNodes = length(obj.nodesArray);
+        end
+        
+        function numEdges = numEdges(obj)
+            %METHOD1 Summary of this method goes here
+            %   Detailed explanation goes here
+            numEdges = length(obj.edgesArray);
         end
     end
 end
