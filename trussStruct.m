@@ -53,12 +53,33 @@ classdef trussStruct
         
         function obj = findMemberTypes(obj, safteyFactor)
             for i = 1:obj.numEdges
-                obj.edgesArray(i).findMemberType(safteyFactor);
+                obj.edgesArray(i) = obj.edgesArray(i).findMemberType(safteyFactor);
             end
         end
         
         function obj = nodeThiccnessFinder2(obj)
             [compressionTable, tensionTable, ~, ~] = generateTrussTables();
+            for i = 1:obj.numEdges
+                if obj.edgesArray(i).forceInMember <= 0
+                    beamThicc = compressionTable.("Joint Thickness")...
+                        (contains(compressionTable.("Member Type"),obj.edgesArray(i).beamType));
+                    obj.nodesArray(obj.edgesArray(i).endNodes(1)).Thiccness =...
+                        obj.nodesArray(obj.edgesArray(i).endNodes(1)).Thiccness +...
+                        beamThicc;
+                    obj.nodesArray(obj.edgesArray(i).endNodes(2)).Thiccness =...
+                        obj.nodesArray(obj.edgesArray(i).endNodes(2)).Thiccness +...
+                        beamThicc;
+                else
+                    beamThicc = tensionTable.("Joint Thickness")...
+                        (contains(tensionTable.("Member Type"),obj.edgesArray(i).beamType));
+                    obj.nodesArray(obj.edgesArray(i).endNodes(1)).Thiccness =...
+                        obj.nodesArray(obj.edgesArray(i).endNodes(1)).Thiccness +...
+                        beamThicc;
+                    obj.nodesArray(obj.edgesArray(i).endNodes(2)).Thiccness =...
+                        obj.nodesArray(obj.edgesArray(i).endNodes(2)).Thiccness +...
+                        beamThicc;
+                end
+            end
         end
         
     end
