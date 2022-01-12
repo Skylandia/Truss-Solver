@@ -34,7 +34,7 @@ classdef trussStruct
             %endNodes Makes a matrix in the format of the old endNode
             %system for compatibility
             endNodes = [obj.edgesArray.endNodes];
-            endNodes = (reshape([endNodes.ID],[2,obj.numEdges]))';
+            endNodes = (reshape(endNodes,[2,obj.numEdges]))';
         end
         
         function obj = tensionCalculator(obj, weightMagnitude, weightNode)
@@ -55,6 +55,10 @@ classdef trussStruct
             for i = 1:obj.numEdges
                 obj.edgesArray(i).findMemberType(safteyFactor);
             end
+        end
+        
+        function obj = nodeThiccnessFinder2(obj)
+            [compressionTable, tensionTable, ~, ~] = generateTrussTables();
         end
         
     end

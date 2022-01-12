@@ -22,7 +22,7 @@ classdef Edges
             obj.forceInMember = NaN;
             
             %Now for the fun parts
-            obj.endNodes = endNodes;
+            obj.endNodes = [endNodes.ID];
             obj.memberLength = norm([...
                 endNodes(1).x-endNodes(2).x;
                 endNodes(1).y-endNodes(2).y]);

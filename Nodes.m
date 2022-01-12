@@ -6,7 +6,7 @@ classdef Nodes
         x {double}
         y {double}
         ID %Propritary for old functions
-        Thiccness
+        Thiccness = 0;
     end
     
     methods
