@@ -102,7 +102,7 @@ classdef trussStruct
         function cost = generateCost(obj)
             [~, ~, ~, member_table]= generateTrussTables();
             nodeThiccArray = [obj.nodesArray.Thiccness];
-            nodeThiccerThan5 = sum(nodeThiccArray(nodeThiccArray>5));
+            nodeThiccerThan5 = sum(nodeThiccArray>5);
             runningTotal = nodeThiccerThan5 * 300 + (obj.numNodes - nodeThiccerThan5) * 150;
             
             for i = 1:obj.numEdges
