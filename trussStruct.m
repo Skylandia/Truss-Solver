@@ -5,8 +5,8 @@ classdef trussStruct
     properties
         edgesArray
         nodesArray
-        cost
-        capasity
+        cost = 0
+        capasity = 1
     end
     
     methods
@@ -59,6 +59,9 @@ classdef trussStruct
         
         function obj = nodeThiccnessFinder2(obj)
             [compressionTable, tensionTable, ~, ~] = generateTrussTables();
+            for i = 1:obj.numNodes
+                obj.nodesArray(i).Thiccness = 0;
+            end
             for i = 1:obj.numEdges
                 if obj.edgesArray(i).forceInMember <= 0
                     beamThicc = compressionTable.("Joint Thickness")...
@@ -82,6 +85,63 @@ classdef trussStruct
             end
         end
         
+        function isPossible = validateNodeThiccs(obj, boltMax)
+            isPossible = false;
+            if max([obj.nodesArray.Thiccness]) <= boltMax
+                isPossible = true;
+            end
+        end
+        
+        function isPossible = validateEdgeLengths(obj, maxLength)
+            isPossible = false;
+            if max([obj.edgesArray.memberLength]) <= maxLength
+                isPossible = true;
+            end
+        end
+        
+        function cost = generateCost(obj)
+            [~, ~, ~, member_table]= generateTrussTables();
+            nodeThiccArray = [obj.nodesArray.Thiccness];
+            nodeThiccerThan5 = sum(nodeThiccArray(nodeThiccArray>5));
+            runningTotal = nodeThiccerThan5 * 300 + (obj.numNodes - nodeThiccerThan5) * 150;
+            
+            for i = 1:obj.numEdges
+                typeIndx=find(contains(member_table.("Member Type"),obj.edgesArray(i).beamType));
+                if obj.edgesArray(i).memberLength<= 0.09
+                    runningTotal = runningTotal+member_table.("<= 90mm long")(typeIndx);
+                else
+                    runningTotal = runningTotal+member_table.("> 90mm long")(typeIndx);
+                end
+            end
+            cost = runningTotal*2;
+        end
+        
+        function obj = optimiseTrussCapasity(obj, weightNode, safteyFactor, maxCost)
+            isPossible = obj.validateEdgeLengths(0.150);
+            if ~isPossible
+                obj.cost = 0;
+                obj.capasity = 0;
+            else
+                obj = obj.tensionCalculator(obj.capasity, weightNode);
+                while isPossible
+                    obj = obj.findMemberTypes(safteyFactor);
+                    obj = obj.nodeThiccnessFinder2;
+                    tempCost = obj.generateCost;
+                    if obj.validateNodeThiccs(7) && (tempCost <= maxCost)
+                        obj.cost = tempCost;
+                        minSafteyFactor = min([obj.edgesArray.safteyFactor]);
+                        obj.capasity = obj.capasity * minSafteyFactor;
+                        for i = 1:obj.numEdges
+                            obj.edgesArray(i).forceInMember =...
+                                obj.edgesArray(i).forceInMember * minSafteyFactor;
+                        end
+                    else
+                        isPossible = false;
+                    end
+                end
+                obj.capasity = obj.capasity * 2 * minSafteyFactor;
+            end
+        end
     end
 end
 
