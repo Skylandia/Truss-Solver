@@ -133,7 +133,7 @@ classdef trussStruct
                     tempCost = obj.generateCost;
                     if obj.validateNodeThiccs(7) && (tempCost <= maxCost)
                         obj.cost = tempCost;
-                        minSafteyFactor = min([obj.edgesArray.safteyFactor]);
+                        minSafteyFactor = min([obj.edgesArray.safteyFactor])
                         obj.capasity = obj.capasity * minSafteyFactor;
                         for i = 1:obj.numEdges
                             obj.edgesArray(i).forceInMember =...
