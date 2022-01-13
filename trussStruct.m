@@ -128,12 +128,12 @@ classdef trussStruct
             else
                 obj = obj.tensionCalculator(obj.capasity, weightNode);
                 while isPossible
-                    obj = obj.findMemberTypes(safteyFactor);
-                    obj = obj.nodeThiccnessFinder2;
-                    tempCost = obj.generateCost;
-                    if obj.validateNodeThiccs(7) && (tempCost <= maxCost)
-                        obj.cost = tempCost;
-                        minSafteyFactor = min([obj.edgesArray.safteyFactor])
+                    tempObj = obj.findMemberTypes(safteyFactor);
+                    tempObj = tempObj.nodeThiccnessFinder2;
+                    tempObj.cost = tempObj.generateCost;
+                    if tempObj.validateNodeThiccs(7) && (tempObj.cost <= maxCost)
+                        obj = tempObj;
+                        minSafteyFactor = min([obj.edgesArray.safteyFactor]);
                         obj.capasity = obj.capasity * minSafteyFactor;
                         for i = 1:obj.numEdges
                             obj.edgesArray(i).forceInMember =...
@@ -143,7 +143,16 @@ classdef trussStruct
                         isPossible = false;
                     end
                 end
-                obj.capasity = obj.capasity * 2 * minSafteyFactor;
+                minSafteyFactor = min([obj.edgesArray.safteyFactor]);
+                obj.capasity = obj.capasity * minSafteyFactor * 2;
+                
+                for i = 1:obj.numEdges
+                    obj.edgesArray(i).forceInMember =...
+                        obj.edgesArray(i).forceInMember * minSafteyFactor;
+                    obj.edgesArray(i).safteyFactor = ...
+                        obj.edgesArray(i).safteyFactor / minSafteyFactor;
+                end
+                
             end
         end
     end
