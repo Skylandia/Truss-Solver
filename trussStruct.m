@@ -141,6 +141,12 @@ classdef trussStruct
                         end
                     else
                         isPossible = false;
+                        minSafteyFactor = min([obj.edgesArray.safteyFactor]);
+                        obj.capasity = obj.capasity / minSafteyFactor;
+                        for i = 1:obj.numEdges
+                            obj.edgesArray(i).forceInMember =...
+                                obj.edgesArray(i).forceInMember / minSafteyFactor;
+                        end
                     end
                 end
                 minSafteyFactor = min([obj.edgesArray.safteyFactor]);
