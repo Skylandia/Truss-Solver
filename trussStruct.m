@@ -13,8 +13,12 @@ classdef trussStruct
         function obj = trussStruct(edgesArray,nodesArray)
             %trussStruct Construct an instance of this class
             %   Detailed explanation goes here
-            obj.edgesArray = edgesArray;
-            obj.nodesArray = nodesArray;
+            if nargin == 0
+                obj;
+            else
+                obj.edgesArray = edgesArray;
+                obj.nodesArray = nodesArray;
+            end
             
         end
         
