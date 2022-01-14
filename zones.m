@@ -5,20 +5,26 @@ classdef zones
     properties
         shape
         zoneType
-        coords
+        location
     end
     
     methods
         function obj = zones(coords, shapeType, zoneType)
             %ZONES Construct an instance of this class
             %   Detailed explanation goes here
+            %   Rectanges are defined by a 2*2 matrix, the top left and
+            %   bottom right corner
+            %   Triangels are defined by a 3*2 matrix, the 3 coords of the 
+            %   3 points
+            %   Circles are defined by a 1*3 vector, the radius, the x
+            %   value of the center, then the y value
             
-            obj.coords = coords;
+            obj.location = coords;
             obj.shape = shapeType;
             obj.zoneType = zoneType;
         end
         
-        function isPossible = isRestricted(obj,edge)
+        function isPossible = isRestricted(obj,edgesArray)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
             switch(obj.shape)
