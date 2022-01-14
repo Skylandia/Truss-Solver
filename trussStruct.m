@@ -5,12 +5,13 @@ classdef trussStruct
     properties
         edgesArray
         nodesArray
+        weightNode = 2
         cost = 0
         capasity = 1
     end
     
     methods
-        function obj = trussStruct(edgesArray,nodesArray)
+        function obj = trussStruct(edgesArray,nodesArray,weightNode)
             %trussStruct Construct an instance of this class
             %   Detailed explanation goes here
             if nargin == 0
@@ -18,6 +19,7 @@ classdef trussStruct
             else
                 obj.edgesArray = edgesArray;
                 obj.nodesArray = nodesArray;
+                obj.weightNode = weightNode;
             end
             
         end
@@ -41,7 +43,7 @@ classdef trussStruct
             endNodes = (reshape(endNodes,[2,obj.numEdges]))';
         end
         
-        function obj = tensionCalculator(obj, weightMagnitude, weightNode)
+        function obj = tensionCalculator(obj, weightMagnitude)
             [tensionArray] = tensionCalculator3_mex(...
                 [obj.nodesArray.x]',...
                 [obj.nodesArray.y]',...
@@ -49,7 +51,7 @@ classdef trussStruct
                 obj.numEdges,...
                 obj.endNodes,...
                 weightMagnitude,...
-                weightNode);
+                obj.weightNode);
             for i = 1:length(tensionArray)-3
                 obj.edgesArray(i).forceInMember = tensionArray(i);
             end 
@@ -120,13 +122,13 @@ classdef trussStruct
             cost = runningTotal*2;
         end
         
-        function obj = optimiseTrussCapasity(obj, weightNode, safteyFactor, maxCost)
+        function obj = optimiseTrussCapasity(obj, safteyFactor, maxCost)
             isPossible = obj.validateEdgeLengths(0.150);
             if ~isPossible
                 obj.cost = 0;
                 obj.capasity = 0;
             else
-                obj = obj.tensionCalculator(obj.capasity, weightNode);
+                obj = obj.tensionCalculator(obj.capasity);
                 while isPossible
                     tempObj = obj.findMemberTypes(safteyFactor);
                     tempObj = tempObj.nodeThiccnessFinder2;

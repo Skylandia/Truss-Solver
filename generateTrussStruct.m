@@ -1,4 +1,4 @@
-function [trussStructOut] = generateTrussStruct(nodeLocations, connectionsMatrix)
+function [trussStructOut] = generateTrussStruct(nodeLocations, connectionsMatrix, weightNode)
 %GENERATETRUSSSTRUCT Summary of this function goes here
 %   Detailed explanation goes here
 numNodes = size(nodeLocations,1);
@@ -18,6 +18,6 @@ for i = 1:numEdges
         nodesArray(connectionsMatrix(i,2))]);
 end
 
-trussStructOut = trussStruct(edgesArray, nodesArray);
+trussStructOut = trussStruct(edgesArray, nodesArray, weightNode);
 end
 

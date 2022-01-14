@@ -1,4 +1,4 @@
-function [trussStructOut] = trussGraph2Struct(trussGraph)
+function [trussStructOut] = trussGraph2Struct(trussGraph, weightNode)
 %TRUSSGRAPH2STRUCT Converts trussGraph to trussStruct
 %   Detailed explanation goes here
 edgeTable = trussGraph.Edges;
@@ -10,5 +10,5 @@ for i = 1:edgesArrayLength
         nodeArray(edgeTable.EndNodes(i,1)),...
         nodeArray(edgeTable.EndNodes(i,2))]);
 end
-trussStructOut = trussStruct(edgesArray, nodeArray);
+trussStructOut = trussStruct(edgesArray, nodeArray, weightNode);
 end
