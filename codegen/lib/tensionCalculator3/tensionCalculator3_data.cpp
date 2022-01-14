@@ -12,7 +12,7 @@
 #include "tensionCalculator3_data.h"
 
 // Variable Definitions
-omp_nest_lock_t emlrtNestLockGlobal;
+omp_nest_lock_t tensionCalculator3_nestLockGlobal;
 
 boolean_T isInitialized_tensionCalculator3{false};
 

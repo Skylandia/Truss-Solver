@@ -1,52 +1,50 @@
-# CompilerName=msvcpp160
+# CompilerName=clang
 # Mode=optim
 ninja_required_version = 1.3
 
 # Basic folders
 root = .
-builddir = $root\build\win64
-matlabdir = C:\Program Files\MATLAB\R2021a
-startdir = C:\Users\Mack\Documents\MATLAB\Truss Solver
+builddir = $root/build/maci64
+matlabdir = /Applications/MATLAB_R2021b.app
+startdir = /Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver
 
 # Toolchain information
-cc = cl
-cxx = cl
-linker = link
-linkerxx = link
+cc = /usr/bin/xcrun -sdk macosx12.1 clang
+cxx = /usr/bin/xcrun -sdk macosx12.1 clang++
+linker = /usr/bin/xcrun -sdk macosx12.1 clang
+linkerxx = /usr/bin/xcrun -sdk macosx12.1 clang++
 
-cflags =  /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMODEL=findMemberType5_mex -DMW_NEEDS_VERSION_H /wd4251 
+cflags =  -fno-common -arch x86_64 -mmacosx-version-min=10.15 -fexceptions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c99 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=findMemberType5_mex -DMW_NEEDS_VERSION_H -c 
 
-cxxflags =   /c /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMODEL=findMemberType5_mex -DMW_NEEDS_VERSION_H /wd4251 
+cxxflags =  -fno-common -arch x86_64 -mmacosx-version-min=10.15 -fexceptions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=findMemberType5_mex -DMW_NEEDS_VERSION_H -c 
 
-ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libMatlabDataArray.lib libMatlabEngine.lib  /out:"findMemberType5_mex.mexw64" libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib 
+ldflags =  -Wl,-twolevel_namespace -undefined error -arch x86_64 -mmacosx-version-min=10.15 -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -framework Cocoa -bundle  -stdlib=libc++ -L"$matlabdir/bin/maci64" -lmx -lmex -lmat -L"$matlabdir/extern/bin/maci64" -lMatlabDataArray -lMatlabEngine  -Wl,-rpath,@loader_path -o findMemberType5_mex.mexmaci64 -lemlrt -lcovrt -lut -lmwmathutil 
 
 # Build Rules
 rule cc
-    command = $cc $cflags $in /Fo$out
+    command = $cc $cflags $in -o $out
 
 rule cxx
-    command = $cxx $cxxflags $in /Fo$out
+    command = $cxx $cxxflags $in -o $out
 
 rule link
-    command = $linker @$out.rsp $ldflags
-    rspfile = $out.rsp
-    rspfile_content = $in
+    command = $linker $in $ldflags
 
 rule linkxx
     command = $linkerxx $in $ldflags
 
 # Build
-build $builddir\findMemberType5_data.obj : cxx $root\findMemberType5_data.cpp
-build $builddir\rt_nonfinite.obj : cxx $root\rt_nonfinite.cpp
-build $builddir\findMemberType5_initialize.obj : cxx $root\findMemberType5_initialize.cpp
-build $builddir\findMemberType5_terminate.obj : cxx $root\findMemberType5_terminate.cpp
-build $builddir\_coder_findMemberType5_api.obj : cxx $root\interface\_coder_findMemberType5_api.cpp
-build $builddir\_coder_findMemberType5_mex.obj : cxx $root\interface\_coder_findMemberType5_mex.cpp
-build $builddir\findMemberType5.obj : cxx $root\findMemberType5.cpp
-build $builddir\varNamesDim.obj : cxx $root\varNamesDim.cpp
-build $builddir\rowNamesDim.obj : cxx $root\rowNamesDim.cpp
-build $builddir\_coder_findMemberType5_info.obj : cxx $root\interface\_coder_findMemberType5_info.cpp
-build $builddir\cpp_mexapi_version.obj : cxx $matlabdir\extern\version\cpp_mexapi_version.cpp
+build $builddir/findMemberType5_data.o : cxx $root/findMemberType5_data.cpp
+build $builddir/rt_nonfinite.o : cxx $root/rt_nonfinite.cpp
+build $builddir/findMemberType5_initialize.o : cxx $root/findMemberType5_initialize.cpp
+build $builddir/findMemberType5_terminate.o : cxx $root/findMemberType5_terminate.cpp
+build $builddir/_coder_findMemberType5_api.o : cxx $root/interface/_coder_findMemberType5_api.cpp
+build $builddir/_coder_findMemberType5_mex.o : cxx $root/interface/_coder_findMemberType5_mex.cpp
+build $builddir/findMemberType5.o : cxx $root/findMemberType5.cpp
+build $builddir/varNamesDim.o : cxx $root/varNamesDim.cpp
+build $builddir/rowNamesDim.o : cxx $root/rowNamesDim.cpp
+build $builddir/_coder_findMemberType5_info.o : cxx $root/interface/_coder_findMemberType5_info.cpp
+build $builddir/cpp_mexapi_version.o : cxx $matlabdir/extern/version/cpp_mexapi_version.cpp
 
 # Link
-build $root\findMemberType5_mex.mexw64 : linkxx $builddir\findMemberType5_data.obj $builddir\rt_nonfinite.obj $builddir\findMemberType5_initialize.obj $builddir\findMemberType5_terminate.obj $builddir\_coder_findMemberType5_api.obj $builddir\_coder_findMemberType5_mex.obj $builddir\findMemberType5.obj $builddir\varNamesDim.obj $builddir\rowNamesDim.obj $builddir\_coder_findMemberType5_info.obj $builddir\cpp_mexapi_version.obj 
+build $root/findMemberType5_mex.mexmaci64 : linkxx $builddir/findMemberType5_data.o $builddir/rt_nonfinite.o $builddir/findMemberType5_initialize.o $builddir/findMemberType5_terminate.o $builddir/_coder_findMemberType5_api.o $builddir/_coder_findMemberType5_mex.o $builddir/findMemberType5.o $builddir/varNamesDim.o $builddir/rowNamesDim.o $builddir/_coder_findMemberType5_info.o $builddir/cpp_mexapi_version.o 

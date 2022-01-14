@@ -15,7 +15,7 @@
 // Function Definitions
 void tensionCalculator3_terminate()
 {
-  omp_destroy_nest_lock(&emlrtNestLockGlobal);
+  omp_destroy_nest_lock(&tensionCalculator3_nestLockGlobal);
   isInitialized_tensionCalculator3 = false;
 }
 

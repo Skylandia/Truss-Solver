@@ -23,4 +23,11 @@ struct rtDesignRangeCheckInfo {
   const char_T *pName;
 };
 
+struct rtRunTimeErrorInfo {
+  int32_T lineNo;
+  int32_T colNo;
+  const char_T *fName;
+  const char_T *pName;
+};
+
 // End of code generation (tensionCalculator3_internal_types.h)

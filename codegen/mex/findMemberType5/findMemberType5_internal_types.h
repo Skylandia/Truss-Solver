@@ -16,7 +16,43 @@
 #include "emlrt.h"
 
 // Type Definitions
+struct cell_wrap_7 {
+  char_T f1[10];
+};
+
+struct cell_8 {
+  cell_wrap_7 f1[6];
+  real_T f2[6];
+  real_T f3[6];
+};
+
+struct emxArray_char_T_1x10 {
+  char_T data[10];
+  int32_T size[2];
+};
+
+struct cell_wrap_5 {
+  emxArray_char_T_1x10 f1;
+};
+
+struct cell_6 {
+  cell_wrap_5 f1[6];
+  real_T f2[6];
+  real_T f3[6];
+};
+
+struct emxArray_char_T_1x0 {
+  int32_T size[2];
+};
+
 struct rtDesignRangeCheckInfo {
+  int32_T lineNo;
+  int32_T colNo;
+  const char_T *fName;
+  const char_T *pName;
+};
+
+struct rtRunTimeErrorInfo {
   int32_T lineNo;
   int32_T colNo;
   const char_T *fName;

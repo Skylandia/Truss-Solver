@@ -18,66 +18,57 @@
 static emlrtRSInfo m_emlrtRSI{
     144,        // lineNo
     "eml_find", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo o_emlrtRSI{
     402,                  // lineNo
     "find_first_indices", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo y_emlrtRSI{
     138,        // lineNo
     "eml_find", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo ab_emlrtRSI{
     158,        // lineNo
     "eml_find", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo bb_emlrtRSI{
     253,                           // lineNo
     "find_first_nonempty_triples", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo cb_emlrtRSI{
     254,                           // lineNo
     "find_first_nonempty_triples", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo db_emlrtRSI{
     255,                           // lineNo
     "find_first_nonempty_triples", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
-static emlrtRTEInfo f_emlrtRTEI{
+static emlrtRTEInfo e_emlrtRTEI{
     392,                  // lineNo
     1,                    // colNo
     "find_first_indices", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pName
 };
 
-static emlrtRTEInfo i_emlrtRTEI{
+static emlrtRTEInfo g_emlrtRTEI{
     239,                           // lineNo
     1,                             // colNo
     "find_first_nonempty_triples", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pName
 };
 
 // Function Definitions
@@ -134,7 +125,7 @@ void b_eml_find(const emlrtStack *sp, const boolean_T x_data[],
       }
     }
     if (idx > nx) {
-      emlrtErrorWithMessageIdR2018a(&st, &i_emlrtRTEI,
+      emlrtErrorWithMessageIdR2018a(&st, &g_emlrtRTEI,
                                     "Coder:builtins:AssertionFailed",
                                     "Coder:builtins:AssertionFailed", 0);
     }
@@ -212,7 +203,7 @@ void eml_find(const emlrtStack *sp, const boolean_T x_data[], int32_T x_size,
     }
   }
   if (idx > x_size) {
-    emlrtErrorWithMessageIdR2018a(&st, &f_emlrtRTEI,
+    emlrtErrorWithMessageIdR2018a(&st, &e_emlrtRTEI,
                                   "Coder:builtins:AssertionFailed",
                                   "Coder:builtins:AssertionFailed", 0);
   }

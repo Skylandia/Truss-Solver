@@ -17,80 +17,76 @@ static emlrtRTEInfo emlrtRTEI{
     14,        // lineNo
     15,        // colNo
     "warning", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
-    "internal\\warning.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
+    "+internal/warning.m" // pName
 };
 
 static emlrtMCInfo emlrtMCI{
     14,        // lineNo
     25,        // colNo
     "warning", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
-    "internal\\warning.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
+    "+internal/warning.m" // pName
 };
 
 static emlrtMCInfo b_emlrtMCI{
     14,        // lineNo
     9,         // colNo
     "warning", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
-    "internal\\warning.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
+    "+internal/warning.m" // pName
 };
 
-static emlrtRSInfo dd_emlrtRSI{
+static emlrtRSInfo xc_emlrtRSI{
     14,        // lineNo
     "warning", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
-    "internal\\warning.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
+    "+internal/warning.m" // pathName
 };
 
 // Function Declarations
-static void b_feval(const emlrtStack *sp, const mxArray *b, const mxArray *c,
+static void b_feval(const emlrtStack *sp, const mxArray *m, const mxArray *m1,
                     emlrtMCInfo *location);
 
-static const mxArray *feval(const emlrtStack *sp, const mxArray *b,
-                            const mxArray *c, const mxArray *d,
-                            const mxArray *e, emlrtMCInfo *location);
+static const mxArray *feval(const emlrtStack *sp, const mxArray *m1,
+                            const mxArray *m2, const mxArray *m3,
+                            const mxArray *m4, emlrtMCInfo *location);
 
-static const mxArray *feval(const emlrtStack *sp, const mxArray *b,
-                            const mxArray *c, emlrtMCInfo *location);
+static const mxArray *feval(const emlrtStack *sp, const mxArray *m1,
+                            const mxArray *m2, emlrtMCInfo *location);
 
 // Function Definitions
-static void b_feval(const emlrtStack *sp, const mxArray *b, const mxArray *c,
+static void b_feval(const emlrtStack *sp, const mxArray *m, const mxArray *m1,
                     emlrtMCInfo *location)
 {
   const mxArray *pArrays[2];
-  pArrays[0] = b;
-  pArrays[1] = c;
+  pArrays[0] = m;
+  pArrays[1] = m1;
   emlrtCallMATLABR2012b((emlrtCTX)sp, 0, nullptr, 2, &pArrays[0],
                         (const char_T *)"feval", true, location);
 }
 
-static const mxArray *feval(const emlrtStack *sp, const mxArray *b,
-                            const mxArray *c, const mxArray *d,
-                            const mxArray *e, emlrtMCInfo *location)
+static const mxArray *feval(const emlrtStack *sp, const mxArray *m1,
+                            const mxArray *m2, const mxArray *m3,
+                            const mxArray *m4, emlrtMCInfo *location)
 {
   const mxArray *pArrays[4];
   const mxArray *m;
-  pArrays[0] = b;
-  pArrays[1] = c;
-  pArrays[2] = d;
-  pArrays[3] = e;
+  pArrays[0] = m1;
+  pArrays[1] = m2;
+  pArrays[2] = m3;
+  pArrays[3] = m4;
   return emlrtCallMATLABR2012b((emlrtCTX)sp, 1, &m, 4, &pArrays[0],
                                (const char_T *)"feval", true, location);
 }
 
-static const mxArray *feval(const emlrtStack *sp, const mxArray *b,
-                            const mxArray *c, emlrtMCInfo *location)
+static const mxArray *feval(const emlrtStack *sp, const mxArray *m1,
+                            const mxArray *m2, emlrtMCInfo *location)
 {
   const mxArray *pArrays[2];
   const mxArray *m;
-  pArrays[0] = b;
-  pArrays[1] = c;
+  pArrays[0] = m1;
+  pArrays[1] = m2;
   return emlrtCallMATLABR2012b((emlrtCTX)sp, 1, &m, 2, &pArrays[0],
                                (const char_T *)"feval", true, location);
 }
@@ -126,7 +122,7 @@ void b_warning(const emlrtStack *sp)
   m = emlrtCreateCharArray(2, &iv2[0]);
   emlrtInitCharArrayR2013a((emlrtCTX)sp, 21, m, &msgID[0]);
   emlrtAssign(&c_y, m);
-  st.site = &dd_emlrtRSI;
+  st.site = &xc_emlrtRSI;
   b_feval(&st, y, feval(&st, b_y, c_y, &emlrtMCI), &b_emlrtMCI);
 }
 
@@ -161,7 +157,7 @@ void warning(const emlrtStack *sp)
   m = emlrtCreateCharArray(2, &iv2[0]);
   emlrtInitCharArrayR2013a((emlrtCTX)sp, 43, m, &msgID[0]);
   emlrtAssign(&c_y, m);
-  st.site = &dd_emlrtRSI;
+  st.site = &xc_emlrtRSI;
   b_feval(&st, y, feval(&st, b_y, c_y, &emlrtMCI), &b_emlrtMCI);
 }
 
@@ -207,7 +203,7 @@ void warning(const emlrtStack *sp, int32_T varargin_1,
   m = emlrtCreateCharArray(2, &iv3[0]);
   emlrtInitCharArrayR2013a((emlrtCTX)sp, 14, m, &varargin_2[0]);
   emlrtAssign(&e_y, m);
-  st.site = &dd_emlrtRSI;
+  st.site = &xc_emlrtRSI;
   b_feval(&st, y, feval(&st, b_y, c_y, d_y, e_y, &emlrtMCI), &b_emlrtMCI);
 }
 

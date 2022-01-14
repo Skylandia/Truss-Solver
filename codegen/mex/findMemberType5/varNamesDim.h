@@ -11,9 +11,9 @@
 #pragma once
 
 // Include files
+#include "findMemberType5_internal_types.h"
 #include "rtwtypes.h"
 #include "coder_array.h"
-#include "coder_bounded_array.h"
 #include "emlrt.h"
 #include "mex.h"
 #include <cmath>
@@ -27,7 +27,7 @@ namespace matlab {
 namespace internal {
 namespace coder {
 namespace tabular {
-enum Continuity
+enum Continuity : int32_T
 {
   unset = 0, // Default value
   continuous,
@@ -41,7 +41,7 @@ enum Continuity
 } // namespace matlab
 } // namespace coder
 struct cell_wrap_4 {
-  coder::empty_bounded_array<char_T, 2U> f1;
+  emxArray_char_T_1x0 f1;
 };
 
 namespace coder {

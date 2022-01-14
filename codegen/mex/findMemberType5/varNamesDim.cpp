@@ -10,9 +10,9 @@
 
 // Include files
 #include "varNamesDim.h"
+#include "findMemberType5_internal_types.h"
 #include "rt_nonfinite.h"
 #include "coder_array.h"
-#include "coder_bounded_array.h"
 
 // Variable Definitions
 static emlrtBCInfo emlrtBCI{
@@ -22,42 +22,29 @@ static emlrtBCInfo emlrtBCI{
     40,                                   // colNo
     "",                                   // aName
     "varNamesDim/logicalIndices2Numeric", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\+tabular\\+private\\varNamesDim.m", // pName
-    0                                                               // checkKind
+    "/Applications/MATLAB_R2021b.app/toolbox/matlab/datatypes/codegen/tabular/"
+    "+matlab/+internal/+coder/+tabular/+private/varNamesDim."
+    "m", // pName
+    0    // checkKind
 };
 
 static emlrtDCInfo emlrtDCI{
     802,                                  // lineNo
     42,                                   // colNo
     "varNamesDim/logicalIndices2Numeric", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\+tabular\\+private\\varNamesDim.m", // pName
-    4                                                               // checkKind
-};
-
-static emlrtBCInfo b_emlrtBCI{
-    -1,                                   // iFirst
-    -1,                                   // iLast
-    807,                                  // lineNo
-    25,                                   // colNo
-    "",                                   // aName
-    "varNamesDim/logicalIndices2Numeric", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\+tabular\\+private\\varNamesDim.m", // pName
-    0                                                               // checkKind
+    "/Applications/MATLAB_R2021b.app/toolbox/matlab/datatypes/codegen/tabular/"
+    "+matlab/+internal/+coder/+tabular/+private/varNamesDim."
+    "m", // pName
+    4    // checkKind
 };
 
 static emlrtRTEInfo b_emlrtRTEI{
     802,           // lineNo
     17,            // colNo
     "varNamesDim", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\+tabular\\+private\\varNamesDim.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/matlab/datatypes/codegen/tabular/"
+    "+matlab/+internal/+coder/+tabular/+private/varNamesDim."
+    "m" // pName
 };
 
 // Function Definitions
@@ -96,39 +83,39 @@ void varNamesDim::logicalIndices2Numeric(
   }
   if (logicalIndices[1]) {
     if (count > nz) {
-      emlrtDynamicBoundsCheckR2012b(count, 1, nz, &b_emlrtBCI, (emlrtCTX)sp);
+      emlrtDynamicBoundsCheckR2012b(count, 1, nz, &emlrtBCI, (emlrtCTX)sp);
     }
     numericIndices[count - 1] = 2.0;
     count++;
   }
   if (logicalIndices[2]) {
     if (count > numericIndices.size(1)) {
-      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1),
-                                    &b_emlrtBCI, (emlrtCTX)sp);
+      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1), &emlrtBCI,
+                                    (emlrtCTX)sp);
     }
     numericIndices[count - 1] = 3.0;
     count++;
   }
   if (logicalIndices[3]) {
     if (count > numericIndices.size(1)) {
-      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1),
-                                    &b_emlrtBCI, (emlrtCTX)sp);
+      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1), &emlrtBCI,
+                                    (emlrtCTX)sp);
     }
     numericIndices[count - 1] = 4.0;
     count++;
   }
   if (logicalIndices[4]) {
     if (count > numericIndices.size(1)) {
-      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1),
-                                    &b_emlrtBCI, (emlrtCTX)sp);
+      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1), &emlrtBCI,
+                                    (emlrtCTX)sp);
     }
     numericIndices[count - 1] = 5.0;
     count++;
   }
   if (logicalIndices[5]) {
     if (count > numericIndices.size(1)) {
-      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1),
-                                    &b_emlrtBCI, (emlrtCTX)sp);
+      emlrtDynamicBoundsCheckR2012b(count, 1, numericIndices.size(1), &emlrtBCI,
+                                    (emlrtCTX)sp);
     }
     numericIndices[count - 1] = 6.0;
   }

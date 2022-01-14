@@ -42,11 +42,11 @@ void mldivide(const ::coder::array<double, 2U> &A,
     int u0;
     u0 = A.size(0);
     n = A.size(1);
-    if (u0 < n) {
+    if (u0 <= n) {
       n = u0;
     }
     u0 = B.size(0);
-    if (u0 < n) {
+    if (u0 <= n) {
       n = u0;
     }
     LDA = A.size(0);
@@ -73,7 +73,7 @@ void mldivide(const ::coder::array<double, 2U> &A,
       int ldap1;
       ldap1 = A.size(0);
       u0 = n - 1;
-      if (u0 >= n) {
+      if (u0 > n) {
         u0 = n;
       }
       for (int j{0}; j < u0; j++) {
@@ -209,7 +209,7 @@ void mldivide(const ::coder::array<double, 2U> &A,
     minmn = b_A.size(0);
     u0 = b_A.size(0);
     maxmn = b_A.size(1);
-    if (u0 < maxmn) {
+    if (u0 <= maxmn) {
       maxmn = u0;
     }
     for (j = 0; j < maxmn; j++) {

@@ -69,10 +69,12 @@ static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *endNodes,
                                int32_T y_size[2])
 {
   emlrtMsgIdentifier thisId;
+  real_T *r;
   thisId.fIdentifier = const_cast<const char_T *>(identifier);
   thisId.fParent = nullptr;
   thisId.bParentIsCell = false;
-  b_emlrt_marshallIn(sp, emlrtAlias(endNodes), &thisId, y_data, y_size);
+  b_emlrt_marshallIn(sp, emlrtAlias(endNodes), &thisId, &r, y_size);
+  *y_data = r;
   emlrtDestroyArray(&endNodes);
 }
 
@@ -116,10 +118,12 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray *nodesX,
                              int32_T *y_size)
 {
   emlrtMsgIdentifier thisId;
+  real_T *r;
   thisId.fIdentifier = const_cast<const char_T *>(identifier);
   thisId.fParent = nullptr;
   thisId.bParentIsCell = false;
-  emlrt_marshallIn(sp, emlrtAlias(nodesX), &thisId, y_data, y_size);
+  emlrt_marshallIn(sp, emlrtAlias(nodesX), &thisId, &r, y_size);
+  *y_data = r;
   emlrtDestroyArray(&nodesX);
 }
 

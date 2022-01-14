@@ -12,12 +12,16 @@
 
 // Include files
 #include "rtwtypes.h"
-#include "coder_bounded_array.h"
 #include "emlrt.h"
 
 // Type Definitions
+struct emxArray_char_T_1x25 {
+  char_T data[25];
+  int32_T size[2];
+};
+
 struct cell_wrap_0 {
-  coder::bounded_array<char_T, 25U, 2U> f1;
+  emxArray_char_T_1x25 f1;
 };
 
 // End of code generation (findMemberType5_types.h)
