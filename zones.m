@@ -50,16 +50,16 @@ classdef zones
                             ((trussStrust.nodesArray(n1).y && trussSTruct.nodesArray(n2).y) < BR(2)))
                             for i=1:4
                                 switch(i)
-                                    case i == 1
+                                    case 1
                                         p1=TL;
                                         p2=BL;
-                                    case i == 2
+                                    case 2
                                         p1=TL;
                                         p2=TR;
-                                    case i == 3
+                                    case 3
                                         p1=TR;
                                         p2=BR;
-                                    case i == 4
+                                    case 4
                                         p1=BL;
                                         p2=BR;
                                 end
@@ -73,8 +73,6 @@ classdef zones
                         end
                     end
                     
-
-                    h1 = [];
                 case shapes.circle
                     2;
                 case shapes.triangle
