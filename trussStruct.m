@@ -148,6 +148,7 @@ classdef trussStruct
                     obj.capasity = obj.capasity * 2;                
             end
         end
+        
     end
 end
 
