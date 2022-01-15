@@ -42,14 +42,14 @@ classdef zones
                     TR = [obj.location(2,1), obj.location(1,2)];
                     BR = [obj.location(2,1), obj.location(2,2)];
                     for i = 1:length(TrussStruct.edgesArray)
-                        n1=trussStruct.edgesArray(edgeIndex).endNodes(1);
-                        n2=trussStruct.edgesArray(edgeIndex).endNodes(2);
+                        n1=trussStruct.edgesArray(i).endNodes(1);
+                        n2=trussStruct.edgesArray(i).endNodes(2);
                         if ~(((trussStruct.nodesArray(n1).x && trussStruct.nodesArray(n2).x) < TL(1)) ||...
                             ((trussStruct.nodesArray(n1).x && trussStruct.nodesArray(n2).x) > BR(1)) ||...
                             ((trussStruct.nodesArray(n1).y && trussStruct.nodesArray(n2).y) > TL(2)) ||...
                             ((trussStrust.nodesArray(n1).y && trussSTruct.nodesArray(n2).y) < BR(2)))
-                            for i=1:4
-                                switch(i)
+                            for j=1:4
+                                switch(j)
                                     case 1
                                         p1=TL;
                                         p2=BL;
