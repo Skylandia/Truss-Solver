@@ -66,8 +66,9 @@ classdef zones
                                 d = (p2(1)*p1(2)-p1(1)*p2(2));
                                 s = (1/d)*((trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p1(2) - (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(1));
                                 t = (1/d)*-(-(trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p2(2) + (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(2));
-                                if (0<=s && s <=1 && 0<=t && t<=1)
+                                if ~(0<=s && s <=1 && 0<=t && t<=1)
                                     isForbidden=true;
+                                    break
                                 end
                             end
                         end
