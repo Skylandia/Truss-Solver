@@ -48,7 +48,10 @@ classdef zones
                             ((trussStruct.nodesArray(n1).x && trussStruct.nodesArray(n2).x) > BR(1)) ||...
                             ((trussStruct.nodesArray(n1).y && trussStruct.nodesArray(n2).y) > TL(2)) ||...
                             ((trussStrust.nodesArray(n1).y && trussSTruct.nodesArray(n2).y) < BR(2)))
-                            for j=1:4
+
+                            j=1;
+                            broken = false;
+                            while (j<5 && broken == false)
                                 switch(j)
                                     case 1
                                         p1=TL;
@@ -67,9 +70,10 @@ classdef zones
                                 s = (1/d)*((trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p1(2) - (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(1));
                                 t = (1/d)*-(-(trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p2(2) + (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(2));
                                 if ~(0<=s && s <=1 && 0<=t && t<=1)
-                                    isForbidden=true;
-                                    break
+                                    isForbidden = true;
+                                    broken = true;
                                 end
+                                j=j+1;
                             end
                         end
                     end
