@@ -1,13 +1,35 @@
-figure
 trussArray = prepTrussArray(100, [0,0],[0.450,0]);
 trussArray = testTrussArray(trussArray, 0.8, 280000);
 maxArray = zeros(1,100);
 meanArray = zeros(1,100);
-for i = 1:3
+Video = VideoWriter('DP3 4','MPEG-4'); 
+Video.FrameRate = 6; 
+open(Video)
+for i = 1:360
     maxArray(i) = max([trussArray.capasity]);
     meanArray(i) = mean([trussArray.capasity]);
+    subplot(2,1,1);
     plot(1:i, maxArray(1:i), 1:i, meanArray(1:i))
+    legend({['Highest Truss Capacity: ', num2str(maxArray(i))],['Mean Truss Capacity: ', num2str(meanArray(i))]},...
+        'Location','southeast')
+    set(gca,'XAxisLocation','top','YAxisLocation','left');
+    xlabel('Number of Generations')
+    ylabel('Truss Capacity')
+    subplot(2,1,2);
+    t = trussArray(1);
+    endNodes = t.endNodes;
+    nodes = [[t.nodesArray.x];[t.nodesArray.y]]';
+    graph = generateTrussGraph2(nodes, endNodes);
+    plotImageGraph(graph)
+    title('Current Best Truss Design')
+    dim = [.15 .2 .2 .2];
+    str = {['Cost: ', num2str(t.cost)], ['Capacity: ', num2str(t.capasity)]};
+    cur_plot = gca;
+    cur_plot.YDir = 'normal';
+    frame = getframe(gcf); %get frame
+    writeVideo(Video, frame);
     trussArray = sortTrussArray(trussArray);
     trussArray = thanosArray(trussArray);
-    trussArray(51:100) = testTrussArray(trussArray(51:100), 0.8, 280000);
+    trussArray(100) = trussArray(1);
+    trussArray(51:99) = testTrussArray(trussArray(51:99), 0.8, 280000);
 end

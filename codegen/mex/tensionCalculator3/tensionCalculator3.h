@@ -27,10 +27,9 @@ emlrtCTX emlrtGetRootTLSGlobal();
 void emlrtLockerFunction(EmlrtLockeeFunction aLockee, emlrtConstCTX aTLS,
                          void *aData);
 
-void tensionCalculator3(const emlrtStack *sp, const real_T nodesX_data[],
-                        const int32_T nodesX_size[1],
-                        const real_T nodesY_data[],
-                        const int32_T nodesY_size[1], real_T numNodes,
+void tensionCalculator3(const emlrtStack *sp,
+                        const coder::array<real_T, 1U> &nodesX,
+                        const coder::array<real_T, 1U> &nodesY, real_T numNodes,
                         real_T numEdges, const real_T endNodes_data[],
                         const int32_T endNodes_size[2], real_T weightMagnitude,
                         real_T weightNode,

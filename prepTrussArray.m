@@ -10,7 +10,7 @@ for i = 1:length(trussArray)
     valid = false;
     while ~valid
         trussArray(i) = randomTruss(leftMostPoint, rightMostPoint);
-        valid = trussArray(i).validateEdgeLengths(0.150);
+        valid = trussArray(i).validateEdgeLengths(0.150) && (trussArray(i).numNodes < 100);
     end
 end
 end

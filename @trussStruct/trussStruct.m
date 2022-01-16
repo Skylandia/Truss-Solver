@@ -163,7 +163,7 @@ classdef trussStruct
 %                 end
 %             end
                 
-        function obj = mutateTruss(obj)
+        function obj = mutateTruss(obj, bestObj)
 %             for i = 2:obj.numNodes-1
 %                 obj.nodesArray(i).x = obj.nodesArray(i).x + normrnd(0,0.00512);
 %                 obj.nodesArray(i).y = obj.nodesArray(i).y + normrnd(0,0.00512);
@@ -171,6 +171,9 @@ classdef trussStruct
             nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.00512, obj.numNodes-2, 2);[0,0]];
             connectionsMatrix = obj.endNodes;
             obj = generateTrussStruct(nodeLocations, connectionsMatrix, obj.weightNode);
+            if ~obj.validateEdgeLengths(0.150)
+                obj = bestObj;
+            end
         end
     end
 end

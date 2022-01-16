@@ -1,11 +1,13 @@
 function [trussStructOut] = randomTruss(leftMostPoint,rightMostPoint)
 %RANDOMTRUSS Generates a random truss
 %   Detailed explanation goes here
-
+baseNodeCount = -1;
 trussLength = norm(rightMostPoint - leftMostPoint);
-baseNodeCount = ceil(trussLength / normrnd(0.09,0.027));
+while (baseNodeCount < 3) || (baseNodeCount > 49)
+    baseNodeCount = ceil(trussLength / normrnd(0.09,0.027));
+end
 nodeGap = trussLength / baseNodeCount;
-weightNode = randi([2,2*baseNodeCount-2]);
+weightNode = randi([0,1]) + baseNodeCount;
     
 %assemble node array
 nodeArray = zeros(2*baseNodeCount-1, 2);

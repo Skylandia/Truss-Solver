@@ -14,7 +14,7 @@ else
             [tempObj, isPossible] = obj.findMemberTypes(safteyFactor);
             tempObj = tempObj.nodeThiccnessFinder2;
             tempObj.cost = tempObj.generateCost;
-            if tempObj.validateNodeThiccs(7) && (tempObj.cost <= maxCost)
+            if tempObj.validateNodeThiccs(7) && (tempObj.cost <= maxCost) && isPossible
                 obj = tempObj;
                 minSafteyFactor = min([obj.edgesArray.safteyFactor]);
                 obj.capasity = obj.capasity * minSafteyFactor;

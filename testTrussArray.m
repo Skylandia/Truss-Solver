@@ -9,7 +9,7 @@ function [trussArray] = testTrussArray(trussArray, safteyFactor, maxCost)
 %     firstTest = (length(trussArray)/2)+1;
 % end
 %tests a lot of trusses
-for i = 1:length(trussArray)
+parfor i = 1:length(trussArray)
         trussArray(i) = trussArray(i).optimiseTrussCapasity(safteyFactor, maxCost);
 end
 
