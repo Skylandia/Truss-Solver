@@ -168,7 +168,7 @@ classdef trussStruct
 %                 obj.nodesArray(i).x = obj.nodesArray(i).x + normrnd(0,0.00512);
 %                 obj.nodesArray(i).y = obj.nodesArray(i).y + normrnd(0,0.00512);
 %             end
-            nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.00512, obj.numNodes-2, 2);[0,0]];
+            nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.003, obj.numNodes-2, 2);[0,0]];
             connectionsMatrix = obj.endNodes;
             obj = generateTrussStruct(nodeLocations, connectionsMatrix, obj.weightNode);
             if ~obj.validateEdgeLengths(0.150)
