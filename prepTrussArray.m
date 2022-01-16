@@ -7,7 +7,11 @@ if mod(numTrusses,2) == 1
 end
 trussArray(1:numTrusses) = trussStruct();
 for i = 1:length(trussArray)
-    trussArray(i) = randomTruss(leftMostPoint, rightMostPoint) ;
+    valid = false;
+    while ~valid
+        trussArray(i) = randomTruss(leftMostPoint, rightMostPoint);
+        valid = trussArray(i).validateEdgeLengths(0.150);
+    end
 end
 end
 

@@ -57,9 +57,13 @@ classdef trussStruct
             end 
         end
         
-        function obj = findMemberTypes(obj, safteyFactor)
+        function [obj, isPossible] = findMemberTypes(obj, safteyFactor)
+            isPossible = true;
             for i = 1:obj.numEdges
-                obj.edgesArray(i) = obj.edgesArray(i).findMemberType(safteyFactor);
+                [obj.edgesArray(i), isPTemp] = obj.edgesArray(i).findMemberType(safteyFactor);
+                if ~isPTemp
+                    isPossible = false;
+                end
             end
         end
         
@@ -129,26 +133,46 @@ classdef trussStruct
                 obj.capasity = 0;
             else
                 obj = obj.tensionCalculator(obj.capasity);
-                while isPossible
-                    tempObj = obj.findMemberTypes(safteyFactor);
-                    tempObj = tempObj.nodeThiccnessFinder2;
-                    tempObj.cost = tempObj.generateCost;
-                    if tempObj.validateNodeThiccs(7) && (tempObj.cost <= maxCost)
-                        obj = tempObj;
-                        minSafteyFactor = min([obj.edgesArray.safteyFactor]);
-                        obj.capasity = obj.capasity * minSafteyFactor;
-                        for i = 1:obj.numEdges
-                            obj.edgesArray(i).forceInMember =...
-                                obj.edgesArray(i).forceInMember * minSafteyFactor;
+                [~, isPossible] = obj.findMemberTypes(safteyFactor);
+                if ~isPossible
+                    obj.cost = 0;
+                    obj.capasity = 0;
+                else
+                    while isPossible
+                        [tempObj, isPossible] = obj.findMemberTypes(safteyFactor);
+                        tempObj = tempObj.nodeThiccnessFinder2;
+                        tempObj.cost = tempObj.generateCost;
+                        if tempObj.validateNodeThiccs(7) && (tempObj.cost <= maxCost)
+                            obj = tempObj;
+                            minSafteyFactor = min([obj.edgesArray.safteyFactor]);
+                            obj.capasity = obj.capasity * minSafteyFactor;
+                            for i = 1:obj.numEdges
+                                obj.edgesArray(i).forceInMember =...
+                                    obj.edgesArray(i).forceInMember * minSafteyFactor;
+                            end
+                        else
+                            isPossible = false;
                         end
+                    end
+                    if isnan(obj.capasity)
+                        obj.capasity = 0;
+                        obj.cost = 0;
                     else
-                        isPossible = false;
+                        obj.capasity = obj.capasity * 2;
                     end
                 end
-                    obj.capasity = obj.capasity * 2;                
             end
         end
         
+        function obj = mutateTruss(obj)
+%             for i = 2:obj.numNodes-1
+%                 obj.nodesArray(i).x = obj.nodesArray(i).x + normrnd(0,0.00512);
+%                 obj.nodesArray(i).y = obj.nodesArray(i).y + normrnd(0,0.00512);
+%             end
+            nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.00512, obj.numNodes-2, 2);[0,0]];
+            connectionsMatrix = obj.endNodes;
+            obj = generateTrussStruct(nodeLocations, connectionsMatrix, obj.weightNode);
+        end
     end
 end
 
