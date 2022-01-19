@@ -2,8 +2,8 @@
 ## Makefile generated for component 'tensionCalculator3'. 
 ## 
 ## Makefile     : tensionCalculator3_rtw.mk
-## Generated on : Tue Nov 16 15:48:53 2021
-## Final product: ./tensionCalculator3.lib
+## Generated on : Fri Jan 14 14:13:27 2022
+## Final product: ./tensionCalculator3.a
 ## Product type : static-library
 ## 
 ###########################################################################
@@ -15,34 +15,30 @@
 # Macro Descriptions:
 # PRODUCT_NAME            Name of the system to build
 # MAKEFILE                Name of this makefile
-# COMPILER_COMMAND_FILE   Compiler command listing model reference header paths
-# CMD_FILE                Command file
 # MODELLIB                Static library target
 
 PRODUCT_NAME              = tensionCalculator3
 MAKEFILE                  = tensionCalculator3_rtw.mk
-MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2021a
-MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2021a/bin
-MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/Mack/DOCUME~1/MATLAB/TRUSSS~1/codegen/lib/TENSIO~1
+MATLAB_ROOT               = /Applications/MATLAB_R2021b.app
+MATLAB_BIN                = /Applications/MATLAB_R2021b.app/bin
+MATLAB_ARCH_BIN           = $(MATLAB_BIN)/maci64
+START_DIR                 = /Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver
 TGT_FCN_LIB               = ISO_C++11
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 
-RELATIVE_PATH_TO_ANCHOR   = .
-COMPILER_COMMAND_FILE     = tensionCalculator3_rtw_comp.rsp
-CMD_FILE                  = tensionCalculator3_rtw.rsp
-C_STANDARD_OPTS           = -fwrapv
-CPP_STANDARD_OPTS         = -fwrapv
-MODELLIB                  = tensionCalculator3.lib
+RELATIVE_PATH_TO_ANCHOR   = ../../..
+C_STANDARD_OPTS           = -fno-common -fexceptions
+CPP_STANDARD_OPTS         = -std=c++14 -fno-common -fexceptions
+MODELLIB                  = tensionCalculator3.a
 
 ###########################################################################
 ## TOOLCHAIN SPECIFICATIONS
 ###########################################################################
 
-# Toolchain Name:          MinGW64 | gmake (64-bit Windows)
-# Supported Version(s):    6.x
-# ToolchainInfo Version:   2021a
+# Toolchain Name:          Clang v3.1 | gmake (64-bit Mac)
+# Supported Version(s):    3.1
+# ToolchainInfo Version:   2021b
 # Specification Revision:  1.0
 # 
 #-------------------------------------------
@@ -51,47 +47,39 @@ MODELLIB                  = tensionCalculator3.lib
 
 # C_STANDARD_OPTS
 # CPP_STANDARD_OPTS
-# MINGW_ROOT
-# MINGW_C_STANDARD_OPTS
 
 #-----------
 # MACROS
 #-----------
 
-WARN_FLAGS            = -Wall -W -Wwrite-strings -Winline -Wstrict-prototypes -Wnested-externs -Wpointer-arith -Wcast-align
-WARN_FLAGS_MAX        = $(WARN_FLAGS) -Wcast-qual -Wshadow
-CPP_WARN_FLAGS        = -Wall -W -Wwrite-strings -Winline -Wpointer-arith -Wcast-align
-CPP_WARN_FLAGS_MAX    = $(CPP_WARN_FLAGS) -Wcast-qual -Wshadow
-MW_EXTERNLIB_DIR      = $(MATLAB_ROOT)/extern/lib/win64/mingw64
-SHELL                 = %SystemRoot%/system32/cmd.exe
+ARCHS             = x86_64
+XCODE_SDK_VER     = $(shell perl $(MATLAB_ROOT)/rtw/c/tools/macsdkver.pl)
+XCODE_SDK         = MacOSX$(XCODE_SDK_VER).sdk
+XCODE_DEVEL_DIR   = $(shell xcode-select -print-path)
+XCODE_SDK_ROOT    = $(XCODE_DEVEL_DIR)/Platforms/MacOSX.platform/Developer/SDKs/$(XCODE_SDK)
 
 TOOLCHAIN_SRCS = 
 TOOLCHAIN_INCS = 
-TOOLCHAIN_LIBS = -lws2_32
+TOOLCHAIN_LIBS = 
 
 #------------------------
 # BUILD TOOL COMMANDS
 #------------------------
 
-# C Compiler: GNU C Compiler
-CC_PATH = $(MINGW_ROOT)
-CC = "$(CC_PATH)/gcc"
+# C Compiler: Clang C Compiler
+CC = xcrun clang
 
-# Linker: GNU Linker
-LD_PATH = $(MINGW_ROOT)
-LD = "$(LD_PATH)/g++"
+# Linker: Clang Linker
+LD = xcrun clang++
 
-# C++ Compiler: GNU C++ Compiler
-CPP_PATH = $(MINGW_ROOT)
-CPP = "$(CPP_PATH)/g++"
+# C++ Compiler: Clang C++ Compiler
+CPP = xcrun clang++
 
-# C++ Linker: GNU C++ Linker
-CPP_LD_PATH = $(MINGW_ROOT)
-CPP_LD = "$(CPP_LD_PATH)/g++"
+# C++ Linker: Clang C++ Linker
+CPP_LD = xcrun clang++
 
-# Archiver: GNU Archiver
-AR_PATH = $(MINGW_ROOT)
-AR = "$(AR_PATH)/ar"
+# Archiver: Clang Archiver
+AR = xcrun ar
 
 # MEX Tool: MEX Tool
 MEX_PATH = $(MATLAB_ARCH_BIN)
@@ -104,7 +92,7 @@ DOWNLOAD =
 EXECUTE = $(PRODUCT)
 
 # Builder: GMAKE Utility
-MAKE_PATH = %MATLAB%/bin/win64
+MAKE_PATH = %MATLAB%/bin/maci64
 MAKE = "$(MAKE_PATH)/gmake"
 
 
@@ -123,9 +111,9 @@ OUTPUT_FLAG         = -o
 ARDEBUG             =
 STATICLIB_OUTPUT_FLAG =
 MEX_DEBUG           = -g
-RM                  = @del
+RM                  = @rm -f
 ECHO                = @echo
-MV                  = @move
+MV                  = @mv
 RUN                 =
 
 #--------------------------------------
@@ -133,23 +121,23 @@ RUN                 =
 #--------------------------------------
 
 ARFLAGS              = ruvs
-CFLAGS               = -c $(MINGW_C_STANDARD_OPTS) -m64 \
-                       -O3 -fno-loop-optimize -fno-aggressive-loop-optimizations
-CPPFLAGS             = -c $(CPP_STANDARD_OPTS) -m64 \
-                       -O3 -fno-loop-optimize -fno-aggressive-loop-optimizations
-CPP_LDFLAGS          =  -static -m64
-CPP_SHAREDLIB_LDFLAGS  = -shared -Wl,--no-undefined \
-                         -Wl,--out-implib,$(basename $(PRODUCT)).lib
+CFLAGS               = -c -isysroot $(XCODE_SDK_ROOT) -arch $(ARCHS) $(C_STANDARD_OPTS) -mmacosx-version-min=10.15 \
+                       -O3
+CPPFLAGS             = -c -isysroot $(XCODE_SDK_ROOT) -arch $(ARCHS) $(CPP_STANDARD_OPTS) -mmacosx-version-min=10.15 \
+                       -O3
+CPP_LDFLAGS          = -arch $(ARCHS) -isysroot $(XCODE_SDK_ROOT) -Wl,-rpath,@executable_path -Wl,-rpath,@executable_path/$(RELATIVE_PATH_TO_ANCHOR)
+CPP_SHAREDLIB_LDFLAGS  = -dynamiclib -install_name @rpath/$(notdir $(PRODUCT)) -isysroot $(XCODE_SDK_ROOT) \
+                         -Wl,$(LD_NAMESPACE) $(LD_UNDEFS)
 DOWNLOAD_FLAGS       =
 EXECUTE_FLAGS        =
-LDFLAGS              =  -static -m64
+LDFLAGS              = -arch $(ARCHS) -isysroot $(XCODE_SDK_ROOT) -Wl,-rpath,@executable_path -Wl,-rpath,@executable_path/$(RELATIVE_PATH_TO_ANCHOR)
 MEX_CPPFLAGS         =
 MEX_CPPLDFLAGS       =
 MEX_CFLAGS           =
 MEX_LDFLAGS          =
 MAKE_FLAGS           = -f $(MAKEFILE)
-SHAREDLIB_LDFLAGS    = -shared -Wl,--no-undefined \
-                       -Wl,--out-implib,$(basename $(PRODUCT)).lib
+SHAREDLIB_LDFLAGS    = -dynamiclib -install_name @rpath/$(notdir $(PRODUCT)) -isysroot $(XCODE_SDK_ROOT) \
+                       -Wl,$(LD_NAMESPACE) $(LD_UNDEFS)
 
 
 
@@ -157,7 +145,7 @@ SHAREDLIB_LDFLAGS    = -shared -Wl,--no-undefined \
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = ./tensionCalculator3.lib
+PRODUCT = ./tensionCalculator3.a
 PRODUCT_TYPE = "static-library"
 BUILD_TYPE = "Static Library"
 
@@ -165,7 +153,7 @@ BUILD_TYPE = "Static Library"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = 
+INCLUDES_BUILDINFO = -I$(START_DIR)/codegen/lib/tensionCalculator3 -I$(START_DIR) -I$(MATLAB_ROOT)/extern/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -173,17 +161,16 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 ## DEFINES
 ###########################################################################
 
-DEFINES_ = -D__USE_MINGW_ANSI_STDIO=1
 DEFINES_CUSTOM = 
 DEFINES_STANDARD = -DMODEL=tensionCalculator3
 
-DEFINES = $(DEFINES_) $(DEFINES_CUSTOM) $(DEFINES_STANDARD)
+DEFINES = $(DEFINES_CUSTOM) $(DEFINES_STANDARD)
 
 ###########################################################################
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/tensionCalculator3_data.cpp $(START_DIR)/tensionCalculator3_initialize.cpp $(START_DIR)/tensionCalculator3_terminate.cpp $(START_DIR)/tensionCalculator3.cpp $(START_DIR)/find.cpp $(START_DIR)/sum.cpp $(START_DIR)/xnrm2.cpp $(START_DIR)/mldivide.cpp $(START_DIR)/xgeqp3.cpp
+SRCS = $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3_data.cpp $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3_initialize.cpp $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3_terminate.cpp $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3.cpp $(START_DIR)/codegen/lib/tensionCalculator3/find.cpp $(START_DIR)/codegen/lib/tensionCalculator3/sum.cpp $(START_DIR)/codegen/lib/tensionCalculator3/xnrm2.cpp $(START_DIR)/codegen/lib/tensionCalculator3/mldivide.cpp $(START_DIR)/codegen/lib/tensionCalculator3/xgeqp3.cpp $(START_DIR)/codegen/lib/tensionCalculator3/div.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -191,7 +178,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = tensionCalculator3_data.obj tensionCalculator3_initialize.obj tensionCalculator3_terminate.obj tensionCalculator3.obj find.obj sum.obj xnrm2.obj mldivide.obj xgeqp3.obj
+OBJS = tensionCalculator3_data.o tensionCalculator3_initialize.o tensionCalculator3_terminate.o tensionCalculator3.o find.o sum.o xnrm2.o mldivide.o xgeqp3.o div.o
 
 ALL_OBJS = $(OBJS)
 
@@ -211,7 +198,7 @@ LIBS =
 ## SYSTEM LIBRARIES
 ###########################################################################
 
-SYSTEM_LIBS = 
+SYSTEM_LIBS =  -L"$(MATLAB_ROOT)/sys/os/maci64" -lm -lstdc++ -liomp5
 
 ###########################################################################
 ## ADDITIONAL TOOLCHAIN FLAGS
@@ -221,8 +208,8 @@ SYSTEM_LIBS =
 # C Compiler
 #---------------
 
-CFLAGS_OPTS = -fopenmp
-CFLAGS_BASIC = $(DEFINES) $(INCLUDES) @$(COMPILER_COMMAND_FILE)
+CFLAGS_OPTS = -Xpreprocessor -fopenmp -I/Applications/MATLAB_R2021b.app/toolbox/eml/externalDependency/omp/maci64/include -DOpenMP_omp_LIBRARY=/Applications/MATLAB_R2021b.app/sys/os/maci64/libiomp5.dylib
+CFLAGS_BASIC = $(DEFINES) $(INCLUDES)
 
 CFLAGS += $(CFLAGS_OPTS) $(CFLAGS_BASIC)
 
@@ -230,8 +217,8 @@ CFLAGS += $(CFLAGS_OPTS) $(CFLAGS_BASIC)
 # C++ Compiler
 #-----------------
 
-CPPFLAGS_OPTS = -fopenmp
-CPPFLAGS_BASIC = $(DEFINES) $(INCLUDES) @$(COMPILER_COMMAND_FILE)
+CPPFLAGS_OPTS = -Xpreprocessor -fopenmp -I/Applications/MATLAB_R2021b.app/toolbox/eml/externalDependency/omp/maci64/include -DOpenMP_omp_LIBRARY=/Applications/MATLAB_R2021b.app/sys/os/maci64/libiomp5.dylib
+CPPFLAGS_BASIC = $(DEFINES) $(INCLUDES)
 
 CPPFLAGS += $(CPPFLAGS_OPTS) $(CPPFLAGS_BASIC)
 
@@ -239,7 +226,7 @@ CPPFLAGS += $(CPPFLAGS_OPTS) $(CPPFLAGS_BASIC)
 # C++ Linker
 #---------------
 
-CPP_LDFLAGS_ = -fopenmp
+CPP_LDFLAGS_ = -Wl,-rpath,$(MATLAB_ROOT)/sys/os/$(ARCH)/  
 
 CPP_LDFLAGS += $(CPP_LDFLAGS_)
 
@@ -247,7 +234,7 @@ CPP_LDFLAGS += $(CPP_LDFLAGS_)
 # C++ Shared Library Linker
 #------------------------------
 
-CPP_SHAREDLIB_LDFLAGS_ = -fopenmp
+CPP_SHAREDLIB_LDFLAGS_ = -Wl,-rpath,$(MATLAB_ROOT)/sys/os/$(ARCH)/  
 
 CPP_SHAREDLIB_LDFLAGS += $(CPP_SHAREDLIB_LDFLAGS_)
 
@@ -255,41 +242,21 @@ CPP_SHAREDLIB_LDFLAGS += $(CPP_SHAREDLIB_LDFLAGS_)
 # Linker
 #-----------
 
-LDFLAGS_ = -fopenmp
+LDFLAGS_ = -Wl,-rpath,$(MATLAB_ROOT)/sys/os/$(ARCH)/  
 
 LDFLAGS += $(LDFLAGS_)
-
-#---------------------
-# MEX C++ Compiler
-#---------------------
-
-MEX_CPP_Compiler_BASIC =  @$(COMPILER_COMMAND_FILE)
-
-MEX_CPPFLAGS += $(MEX_CPP_Compiler_BASIC)
-
-#-----------------
-# MEX Compiler
-#-----------------
-
-MEX_Compiler_BASIC =  @$(COMPILER_COMMAND_FILE)
-
-MEX_CFLAGS += $(MEX_Compiler_BASIC)
 
 #--------------------------
 # Shared Library Linker
 #--------------------------
 
-SHAREDLIB_LDFLAGS_ = -fopenmp
+SHAREDLIB_LDFLAGS_ = -Wl,-rpath,$(MATLAB_ROOT)/sys/os/$(ARCH)/  
 
 SHAREDLIB_LDFLAGS += $(SHAREDLIB_LDFLAGS_)
 
 ###########################################################################
 ## INLINED COMMANDS
 ###########################################################################
-
-
-MINGW_C_STANDARD_OPTS = $(C_STANDARD_OPTS)
-
 
 ###########################################################################
 ## PHONY TARGETS
@@ -324,7 +291,7 @@ execute : download
 
 $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	@echo "### Creating static library "$(PRODUCT)" ..."
-	$(AR) $(ARFLAGS)  $(PRODUCT) @$(CMD_FILE)
+	$(AR) $(ARFLAGS)  $(PRODUCT) $(OBJS)
 	@echo "### Created: $(PRODUCT)"
 
 
@@ -336,71 +303,75 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 # SOURCE-TO-OBJECT
 #---------------------
 
-%.obj : %.c
+%.o : %.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : %.cpp
+%.o : %.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.c
+%.o : $(RELATIVE_PATH_TO_ANCHOR)/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.cpp
+%.o : $(RELATIVE_PATH_TO_ANCHOR)/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/%.c
+%.o : $(START_DIR)/codegen/lib/tensionCalculator3/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/%.cpp
+%.o : $(START_DIR)/codegen/lib/tensionCalculator3/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : C:/Users/Mack/DOCUME~1/MATLAB/TRUSSS~1/%.c
+%.o : $(START_DIR)/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : C:/Users/Mack/DOCUME~1/MATLAB/TRUSSS~1/%.cpp
+%.o : $(START_DIR)/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-tensionCalculator3_data.obj : $(START_DIR)/tensionCalculator3_data.cpp
+tensionCalculator3_data.o : $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3_data.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-tensionCalculator3_initialize.obj : $(START_DIR)/tensionCalculator3_initialize.cpp
+tensionCalculator3_initialize.o : $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3_initialize.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-tensionCalculator3_terminate.obj : $(START_DIR)/tensionCalculator3_terminate.cpp
+tensionCalculator3_terminate.o : $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3_terminate.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-tensionCalculator3.obj : $(START_DIR)/tensionCalculator3.cpp
+tensionCalculator3.o : $(START_DIR)/codegen/lib/tensionCalculator3/tensionCalculator3.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-find.obj : $(START_DIR)/find.cpp
+find.o : $(START_DIR)/codegen/lib/tensionCalculator3/find.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-sum.obj : $(START_DIR)/sum.cpp
+sum.o : $(START_DIR)/codegen/lib/tensionCalculator3/sum.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-xnrm2.obj : $(START_DIR)/xnrm2.cpp
+xnrm2.o : $(START_DIR)/codegen/lib/tensionCalculator3/xnrm2.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-mldivide.obj : $(START_DIR)/mldivide.cpp
+mldivide.o : $(START_DIR)/codegen/lib/tensionCalculator3/mldivide.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-xgeqp3.obj : $(START_DIR)/xgeqp3.cpp
+xgeqp3.o : $(START_DIR)/codegen/lib/tensionCalculator3/xgeqp3.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+div.o : $(START_DIR)/codegen/lib/tensionCalculator3/div.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -408,7 +379,7 @@ xgeqp3.obj : $(START_DIR)/xgeqp3.cpp
 ## DEPENDENCIES
 ###########################################################################
 
-$(ALL_OBJS) : rtw_proj.tmw $(COMPILER_COMMAND_FILE) $(MAKEFILE)
+$(ALL_OBJS) : rtw_proj.tmw $(MAKEFILE)
 
 
 ###########################################################################
@@ -445,8 +416,8 @@ info :
 
 clean : 
 	$(ECHO) "### Deleting all derived files..."
-	$(RM) $(subst /,\,$(PRODUCT))
-	$(RM) $(subst /,\,$(ALL_OBJS))
+	$(RM) $(PRODUCT)
+	$(RM) $(ALL_OBJS)
 	$(ECHO) "### Deleted all derived files."
 
 

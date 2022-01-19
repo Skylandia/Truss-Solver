@@ -19,7 +19,7 @@ emlrtCTX emlrtRootTLSGlobal{nullptr};
 emlrtContext emlrtContextGlobal{
     true,                                                 // bFirstTime
     false,                                                // bInitialized
-    131610U,                                              // fVersionInfo
+    131611U,                                              // fVersionInfo
     nullptr,                                              // fErrorFunction
     "tensionCalculator3",                                 // fFunctionName
     nullptr,                                              // fRTCallStack
@@ -95,7 +95,9 @@ static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
                                const emlrtMsgIdentifier *parentId,
                                real_T **y_data, int32_T y_size[2])
 {
-  d_emlrt_marshallIn(sp, emlrtAlias(u), parentId, y_data, y_size);
+  real_T *r;
+  d_emlrt_marshallIn(sp, emlrtAlias(u), parentId, &r, y_size);
+  *y_data = r;
   emlrtDestroyArray(&u);
 }
 
@@ -146,7 +148,11 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
                              const emlrtMsgIdentifier *parentId,
                              real_T **y_data, int32_T *y_size)
 {
-  c_emlrt_marshallIn(sp, emlrtAlias(u), parentId, y_data, y_size);
+  real_T *r;
+  int32_T i;
+  c_emlrt_marshallIn(sp, emlrtAlias(u), parentId, &r, &i);
+  *y_size = i;
+  *y_data = r;
   emlrtDestroyArray(&u);
 }
 

@@ -18,7 +18,7 @@
 #include <cstdlib>
 
 // Variable Declarations
-extern omp_nest_lock_t emlrtNestLockGlobal;
+extern omp_nest_lock_t tensionCalculator3_nestLockGlobal;
 extern boolean_T isInitialized_tensionCalculator3;
 
 #endif

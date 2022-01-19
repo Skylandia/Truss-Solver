@@ -20,20 +20,27 @@
 #include <cstddef>
 
 // Variable Definitions
+<<<<<<< HEAD
 static emlrtRSInfo fc_emlrtRSI{
+=======
+static emlrtRSInfo rb_emlrtRSI{
+>>>>>>> refs/remotes/origin/Pear-Branch
     20,         // lineNo
     "mldivide", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\ops\\mldivide.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/ops/mldivide.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo gc_emlrtRSI{
+=======
+static emlrtRSInfo sb_emlrtRSI{
+>>>>>>> refs/remotes/origin/Pear-Branch
     42,      // lineNo
     "mldiv", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\ops\\mldivide.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/ops/mldivide.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo hc_emlrtRSI{
     44,      // lineNo
     "mldiv", // fcnName
@@ -70,68 +77,120 @@ static emlrtRSInfo lc_emlrtRSI{
 };
 
 static emlrtRSInfo mc_emlrtRSI{
+=======
+static emlrtRSInfo tb_emlrtRSI{
+    44,      // lineNo
+    "mldiv", // fcnName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/ops/mldivide.m" // pathName
+};
+
+static emlrtRSInfo
+    ub_emlrtRSI{
+        67,        // lineNo
+        "lusolve", // fcnName
+        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+        "lusolve.m" // pathName
+    };
+
+static emlrtRSInfo
+    vb_emlrtRSI{
+        112,          // lineNo
+        "lusolveNxN", // fcnName
+        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+        "lusolve.m" // pathName
+    };
+
+static emlrtRSInfo
+    wb_emlrtRSI{
+        109,          // lineNo
+        "lusolveNxN", // fcnName
+        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+        "lusolve.m" // pathName
+    };
+
+static emlrtRSInfo
+    xb_emlrtRSI{
+        124,          // lineNo
+        "InvAtimesX", // fcnName
+        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+        "lusolve.m" // pathName
+    };
+
+static emlrtRSInfo yb_emlrtRSI{
+>>>>>>> refs/remotes/origin/Pear-Branch
     19,        // lineNo
     "xgetrfs", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
-    "lapack\\xgetrfs.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
+    "xgetrfs.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo nc_emlrtRSI{
+=======
+static emlrtRSInfo ac_emlrtRSI{
+>>>>>>> refs/remotes/origin/Pear-Branch
     108,      // lineNo
     "cmldiv", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
-    "lapack\\xgetrfs.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
+    "xgetrfs.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo oc_emlrtRSI{
+=======
+static emlrtRSInfo bc_emlrtRSI{
+>>>>>>> refs/remotes/origin/Pear-Branch
     70,       // lineNo
     "cmldiv", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
-    "lapack\\xgetrfs.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
+    "xgetrfs.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo qc_emlrtRSI{
     90,              // lineNo
     "warn_singular", // fcnName
     "C:\\Program "
     "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\lusolve.m" // pathName
 };
+=======
+static emlrtRSInfo
+    dc_emlrtRSI{
+        90,              // lineNo
+        "warn_singular", // fcnName
+        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+        "lusolve.m" // pathName
+    };
+>>>>>>> refs/remotes/origin/Pear-Branch
 
-static emlrtRTEInfo k_emlrtRTEI{
+static emlrtRTEInfo j_emlrtRTEI{
     16,         // lineNo
     19,         // colNo
     "mldivide", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\ops\\mldivide.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/ops/mldivide.m" // pName
 };
 
 static emlrtRTEInfo ab_emlrtRTEI{
     20,         // lineNo
     5,          // colNo
     "mldivide", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\ops\\mldivide.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/ops/mldivide.m" // pName
 };
 
 static emlrtRTEInfo bb_emlrtRTEI{
     48,        // lineNo
     37,        // colNo
     "xgetrfs", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
-    "lapack\\xgetrfs.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
+    "xgetrfs.m" // pName
 };
 
 static emlrtRTEInfo cb_emlrtRTEI{
     70,        // lineNo
     23,        // colNo
     "xgetrfs", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
-    "lapack\\xgetrfs.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
+    "xgetrfs.m" // pName
 };
 
 // Function Definitions
@@ -168,10 +227,14 @@ void mldivide(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
   g_st.tls = f_st.tls;
   emlrtHeapReferenceStackEnterFcnR2012b((emlrtCTX)sp);
   if (B.size(0) != A.size(0)) {
-    emlrtErrorWithMessageIdR2018a(sp, &k_emlrtRTEI, "MATLAB:dimagree",
+    emlrtErrorWithMessageIdR2018a(sp, &j_emlrtRTEI, "MATLAB:dimagree",
                                   "MATLAB:dimagree", 0);
   }
+<<<<<<< HEAD
   st.site = &fc_emlrtRSI;
+=======
+  st.site = &rb_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
   if ((A.size(0) == 0) || (A.size(1) == 0) || (B.size(0) == 0)) {
     int32_T ma;
     Y.set_size(&ab_emlrtRTEI, &st, A.size(1));
@@ -185,42 +248,67 @@ void mldivide(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
     int32_T ma;
     int32_T mb;
     int32_T na;
+<<<<<<< HEAD
     b_st.site = &gc_emlrtRSI;
     c_st.site = &ic_emlrtRSI;
     Y.set_size(&ab_emlrtRTEI, &c_st, B.size(0));
+=======
+    b_st.site = &sb_emlrtRSI;
+    c_st.site = &ub_emlrtRSI;
+    Y.set_size(&v_emlrtRTEI, &c_st, B.size(0));
+>>>>>>> refs/remotes/origin/Pear-Branch
     ma = B.size(0);
     for (mb = 0; mb < ma; mb++) {
       Y[mb] = B[mb];
     }
+<<<<<<< HEAD
     d_st.site = &kc_emlrtRSI;
     e_st.site = &lc_emlrtRSI;
+=======
+    d_st.site = &wb_emlrtRSI;
+    e_st.site = &xb_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
     ma = A.size(0);
     na = A.size(1);
     mb = B.size(0);
     ma = muIntScalarMin_sint32(ma, na);
     na = muIntScalarMin_sint32(mb, ma);
+<<<<<<< HEAD
     f_st.site = &mc_emlrtRSI;
     b_A.set_size(&bb_emlrtRTEI, &f_st, A.size(0), A.size(1));
+=======
+    f_st.site = &yb_emlrtRSI;
+    b_A.set_size(&w_emlrtRTEI, &f_st, A.size(0), A.size(1));
+>>>>>>> refs/remotes/origin/Pear-Branch
     ma = A.size(0) * A.size(1);
     for (mb = 0; mb < ma; mb++) {
       b_A[mb] = A[mb];
     }
     ptrdiff_t INFO;
+<<<<<<< HEAD
     g_st.site = &oc_emlrtRSI;
     IPIV.set_size(&cb_emlrtRTEI, &g_st, na);
+=======
+    g_st.site = &bc_emlrtRSI;
+    IPIV.set_size(&x_emlrtRTEI, &g_st, na);
+>>>>>>> refs/remotes/origin/Pear-Branch
     N = (ptrdiff_t)na;
     LDA = (ptrdiff_t)b_A.size(0);
     INFO = LAPACKE_dgetrf_work(102, N, N, &(b_A.data())[0], LDA,
                                &(IPIV.data())[0]);
     ma = (int32_T)INFO;
+<<<<<<< HEAD
     g_st.site = &nc_emlrtRSI;
+=======
+    g_st.site = &ac_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
     if (ma < 0) {
       if (ma == -1010) {
-        emlrtErrorWithMessageIdR2018a(&g_st, &l_emlrtRTEI, "MATLAB:nomem",
+        emlrtErrorWithMessageIdR2018a(&g_st, &k_emlrtRTEI, "MATLAB:nomem",
                                       "MATLAB:nomem", 0);
       } else {
         emlrtErrorWithMessageIdR2018a(
-            &g_st, &m_emlrtRTEI, "Coder:toolbox:LAPACKCallErrorInfo",
+            &g_st, &l_emlrtRTEI, "Coder:toolbox:LAPACKCallErrorInfo",
             "Coder:toolbox:LAPACKCallErrorInfo", 5, 4, 19, &fname[0], 12, ma);
       }
     }
@@ -228,14 +316,24 @@ void mldivide(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
                         &(IPIV.data())[0], &(Y.data())[0],
                         (ptrdiff_t)B.size(0));
     if (((A.size(0) != 1) || (A.size(1) != 1)) && (ma > 0)) {
+<<<<<<< HEAD
       d_st.site = &jc_emlrtRSI;
       if (!emlrtSetWarningFlag(&d_st)) {
         e_st.site = &qc_emlrtRSI;
+=======
+      d_st.site = &vb_emlrtRSI;
+      if (!emlrtSetWarningFlag(&d_st)) {
+        e_st.site = &dc_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
         internal::b_warning(&e_st);
       }
     }
   } else {
+<<<<<<< HEAD
     b_st.site = &hc_emlrtRSI;
+=======
+    b_st.site = &tb_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
     internal::qrsolve(&b_st, A, B, Y);
   }
   emlrtHeapReferenceStackLeaveFcnR2012b((emlrtCTX)sp);

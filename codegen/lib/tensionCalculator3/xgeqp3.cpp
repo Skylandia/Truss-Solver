@@ -55,7 +55,7 @@ void xgeqp3(::coder::array<double, 2U> &A, ::coder::array<double, 1U> &tau,
   n = A.size(1);
   knt = A.size(0);
   minmana = A.size(1);
-  if (knt < minmana) {
+  if (knt <= minmana) {
     minmana = knt;
   }
   tau.set_size(minmana);
@@ -68,7 +68,7 @@ void xgeqp3(::coder::array<double, 2U> &A, ::coder::array<double, 1U> &tau,
   } else {
     knt = A.size(0);
     minmana = A.size(1);
-    if (knt < minmana) {
+    if (knt <= minmana) {
       minmana = knt;
     }
     if (minmana < 1) {
@@ -89,7 +89,7 @@ void xgeqp3(::coder::array<double, 2U> &A, ::coder::array<double, 1U> &tau,
       ma = A.size(0);
       knt = A.size(0);
       minmn = A.size(1);
-      if (knt < minmn) {
+      if (knt <= minmn) {
         minmn = knt;
       }
       work.set_size(A.size(1));

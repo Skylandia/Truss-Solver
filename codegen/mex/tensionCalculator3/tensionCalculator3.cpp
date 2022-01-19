@@ -10,12 +10,16 @@
 
 // Include files
 #include "tensionCalculator3.h"
+#include "assertCompatibleDims.h"
 #include "diag.h"
+<<<<<<< HEAD
 #include "eml_int_forloop_overflow_check.h"
+=======
+#include "div.h"
+>>>>>>> refs/remotes/origin/Pear-Branch
 #include "find.h"
 #include "flipud.h"
 #include "mldivide.h"
-#include "power.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
 #include "sum.h"
@@ -25,103 +29,119 @@
 #include <algorithm>
 
 // Variable Definitions
-static emlrtRSInfo emlrtRSI{
-    11,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    emlrtRSI{
+        11,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo b_emlrtRSI{
-    12,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    b_emlrtRSI{
+        12,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo c_emlrtRSI{
-    13,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    c_emlrtRSI{
+        13,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo d_emlrtRSI{
-    51,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    d_emlrtRSI{
+        51,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo e_emlrtRSI{
-    52,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    e_emlrtRSI{
+        52,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo f_emlrtRSI{
-    53,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    f_emlrtRSI{
+        53,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo g_emlrtRSI{
-    56,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    g_emlrtRSI{
+        56,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo h_emlrtRSI{
-    60,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    h_emlrtRSI{
+        60,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo i_emlrtRSI{
-    61,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    i_emlrtRSI{
+        61,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo j_emlrtRSI{
-    62,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    j_emlrtRSI{
+        62,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
-static emlrtRSInfo k_emlrtRSI{
-    73,                   // lineNo
-    "tensionCalculator3", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
-};
+static emlrtRSInfo
+    k_emlrtRSI{
+        73,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
 
 static emlrtRSInfo l_emlrtRSI{
     39,     // lineNo
     "find", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
 static emlrtRSInfo r_emlrtRSI{
     15,    // lineNo
     "max", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\datafun\\max.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/datafun/max.m" // pathName
 };
 
-static emlrtRSInfo
-    s_emlrtRSI{
-        44,         // lineNo
-        "minOrMax", // fcnName
-        "C:\\Program "
-        "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\minOrMax."
-        "m" // pathName
-    };
+static emlrtRSInfo s_emlrtRSI{
+    44,         // lineNo
+    "minOrMax", // fcnName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+    "minOrMax.m" // pathName
+};
 
-static emlrtRSInfo
-    t_emlrtRSI{
-        79,        // lineNo
-        "maximum", // fcnName
-        "C:\\Program "
-        "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\minOrMax."
-        "m" // pathName
-    };
+static emlrtRSInfo t_emlrtRSI{
+    79,        // lineNo
+    "maximum", // fcnName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+    "minOrMax.m" // pathName
+};
 
 static emlrtRSInfo u_emlrtRSI{
     180,             // lineNo
@@ -174,10 +194,10 @@ static emlrtRSInfo ab_emlrtRSI{
 static emlrtRSInfo bb_emlrtRSI{
     15,    // lineNo
     "min", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\datafun\\min.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/datafun/min.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo
     cb_emlrtRSI{
         46,         // lineNo
@@ -186,6 +206,14 @@ static emlrtRSInfo
         "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\minOrMax."
         "m" // pathName
     };
+=======
+static emlrtRSInfo v_emlrtRSI{
+    46,         // lineNo
+    "minOrMax", // fcnName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+    "minOrMax.m" // pathName
+};
+>>>>>>> refs/remotes/origin/Pear-Branch
 
 static emlrtRSInfo
     db_emlrtRSI{
@@ -215,10 +243,10 @@ static emlrtRSInfo fb_emlrtRSI{
 static emlrtRSInfo gb_emlrtRSI{
     35,     // lineNo
     "find", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\find.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/find.m" // pathName
 };
 
+<<<<<<< HEAD
 static emlrtRSInfo nb_emlrtRSI{
     22,    // lineNo
     "cat", // fcnName
@@ -231,19 +259,25 @@ static emlrtRSInfo ob_emlrtRSI{
     "cat_impl", // fcnName
     "C:\\Program "
     "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\cat.m" // pathName
+=======
+static emlrtRSInfo fb_emlrtRSI{
+    26,    // lineNo
+    "cat", // fcnName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/cat.m" // pathName
+>>>>>>> refs/remotes/origin/Pear-Branch
 };
 
 static emlrtRSInfo xb_emlrtRSI{
     34,               // lineNo
     "rdivide_helper", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\rdivide_"
-    "helper.m" // pathName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+    "rdivide_helper.m" // pathName
 };
 
 static emlrtRSInfo yb_emlrtRSI{
     51,    // lineNo
     "div", // fcnName
+<<<<<<< HEAD
     "C:\\Program "
     "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\div.m" // pathName
 };
@@ -284,6 +318,9 @@ static emlrtRSInfo ec_emlrtRSI{
     "C:\\Program "
     "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+"
     "internal\\applyBinaryScalarFunction.m" // pathName
+=======
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/div.m" // pathName
+>>>>>>> refs/remotes/origin/Pear-Branch
 };
 
 static emlrtDCInfo
@@ -291,33 +328,39 @@ static emlrtDCInfo
         45,                   // lineNo
         12,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
-static emlrtRTEInfo b_emlrtRTEI{
-    45,                   // lineNo
-    10,                   // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtRTEInfo
+    b_emlrtRTEI{
+        45,                   // lineNo
+        10,                   // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
-static emlrtECInfo emlrtECI{
-    -1,                   // nDims
-    64,                   // lineNo
-    5,                    // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtECInfo
+    emlrtECI{
+        -1,                   // nDims
+        64,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
-static emlrtECInfo b_emlrtECI{
-    -1,                   // nDims
-    65,                   // lineNo
-    5,                    // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtECInfo
+    b_emlrtECI{
+        -1,                   // nDims
+        65,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
 static emlrtBCInfo
     emlrtBCI{
@@ -327,18 +370,20 @@ static emlrtBCInfo
         20,                   // colNo
         "xEquationArray",     // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
-static emlrtECInfo c_emlrtECI{
-    -1,                   // nDims
-    66,                   // lineNo
-    5,                    // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtECInfo
+    c_emlrtECI{
+        -1,                   // nDims
+        66,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
 static emlrtBCInfo
     b_emlrtBCI{
@@ -348,9 +393,9 @@ static emlrtBCInfo
         63,                   // colNo
         "xEquationArray",     // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -361,9 +406,9 @@ static emlrtBCInfo
         67,                   // colNo
         "xEquationArray",     // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -374,18 +419,20 @@ static emlrtBCInfo
         20,                   // colNo
         "yEquationArray",     // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
-static emlrtECInfo d_emlrtECI{
-    -1,                   // nDims
-    67,                   // lineNo
-    5,                    // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtECInfo
+    d_emlrtECI{
+        -1,                   // nDims
+        67,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
 static emlrtBCInfo
     e_emlrtBCI{
@@ -395,9 +442,9 @@ static emlrtBCInfo
         63,                   // colNo
         "yEquationArray",     // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -408,9 +455,9 @@ static emlrtBCInfo
         67,                   // colNo
         "yEquationArray",     // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -421,9 +468,9 @@ static emlrtBCInfo
         27,                   // colNo
         "pinNode",            // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -434,9 +481,9 @@ static emlrtBCInfo
         30,                   // colNo
         "rollerNode",         // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -460,9 +507,9 @@ static emlrtBCInfo
         19,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -473,9 +520,9 @@ static emlrtBCInfo
         23,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -486,9 +533,9 @@ static emlrtBCInfo
         34,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -499,18 +546,20 @@ static emlrtBCInfo
         36,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
-static emlrtECInfo e_emlrtECI{
-    -1,                   // nDims
-    71,                   // lineNo
-    1,                    // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtECInfo
+    e_emlrtECI{
+        -1,                   // nDims
+        71,                   // lineNo
+        1,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
 static emlrtBCInfo
     n_emlrtBCI{
@@ -520,9 +569,9 @@ static emlrtBCInfo
         19,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -533,9 +582,9 @@ static emlrtBCInfo
         23,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -546,9 +595,9 @@ static emlrtBCInfo
         34,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -559,18 +608,20 @@ static emlrtBCInfo
         36,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
-static emlrtECInfo f_emlrtECI{
-    -1,                   // nDims
-    72,                   // lineNo
-    1,                    // colNo
-    "tensionCalculator3", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pName
-};
+static emlrtECInfo
+    f_emlrtECI{
+        -1,                   // nDims
+        72,                   // lineNo
+        1,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
 
 static emlrtBCInfo
     r_emlrtBCI{
@@ -580,27 +631,21 @@ static emlrtBCInfo
         21,                   // colNo
         "baseIndx",           // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtRTEInfo d_emlrtRTEI{
+<<<<<<< HEAD
     126,             // lineNo
+=======
+    130,             // lineNo
+>>>>>>> refs/remotes/origin/Pear-Branch
     27,              // colNo
     "unaryMinOrMax", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+"
-    "internal\\unaryMinOrMax.m" // pName
-};
-
-static emlrtRTEInfo e_emlrtRTEI{
-    19,             // lineNo
-    23,             // colNo
-    "scalexpAlloc", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\scalexpAlloc."
-    "m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
+    "unaryMinOrMax.m" // pName
 };
 
 static emlrtBCInfo
@@ -611,9 +656,9 @@ static emlrtBCInfo
         12,                   // colNo
         "forceArray",         // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtDCInfo
@@ -621,9 +666,9 @@ static emlrtDCInfo
         34,                   // lineNo
         12,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -631,9 +676,9 @@ static emlrtDCInfo
         17,                   // lineNo
         25,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -641,9 +686,9 @@ static emlrtDCInfo
         17,                   // lineNo
         25,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        4                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        4                       // checkKind
     };
 
 static emlrtDCInfo
@@ -651,9 +696,9 @@ static emlrtDCInfo
         17,                   // lineNo
         36,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -661,9 +706,9 @@ static emlrtDCInfo
         17,                   // lineNo
         36,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        4                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        4                       // checkKind
     };
 
 static emlrtDCInfo
@@ -671,9 +716,9 @@ static emlrtDCInfo
         47,                   // lineNo
         21,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -681,9 +726,9 @@ static emlrtDCInfo
         48,                   // lineNo
         21,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtBCInfo
@@ -694,9 +739,9 @@ static emlrtBCInfo
         24,                   // colNo
         "nodesX",             // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -707,9 +752,9 @@ static emlrtBCInfo
         24,                   // colNo
         "nodesX",             // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -720,15 +765,16 @@ static emlrtBCInfo
         28,                   // colNo
         "nodesX",             // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
     w_emlrtBCI{
         -1,                   // iFirst
         -1,                   // iLast
+<<<<<<< HEAD
         14,                   // lineNo
         21,                   // colNo
         "nodesX",             // aName
@@ -742,21 +788,28 @@ static emlrtBCInfo
     x_emlrtBCI{
         -1,                   // iFirst
         -1,                   // iLast
+=======
+>>>>>>> refs/remotes/origin/Pear-Branch
         15,                   // lineNo
         25,                   // colNo
         "nodesX",             // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
+<<<<<<< HEAD
     y_emlrtBCI{
+=======
+    w_emlrtBCI{
+>>>>>>> refs/remotes/origin/Pear-Branch
         -1,                   // iFirst
         -1,                   // iLast
         15,                   // lineNo
         18,                   // colNo
+<<<<<<< HEAD
         "nodesX",             // aName
         "tensionCalculator3", // fName
         "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
@@ -770,11 +823,13 @@ static emlrtBCInfo
         -1,                   // iLast
         15,                   // lineNo
         9,                    // colNo
+=======
+>>>>>>> refs/remotes/origin/Pear-Branch
         "baseIndx",           // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtDCInfo
@@ -782,9 +837,9 @@ static emlrtDCInfo
         17,                   // lineNo
         1,                    // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -792,9 +847,9 @@ static emlrtDCInfo
         17,                   // lineNo
         1,                    // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        4                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        4                       // checkKind
     };
 
 static emlrtDCInfo
@@ -802,9 +857,9 @@ static emlrtDCInfo
         19,                   // lineNo
         24,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -812,9 +867,9 @@ static emlrtDCInfo
         19,                   // lineNo
         24,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        4                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        4                       // checkKind
     };
 
 static emlrtDCInfo
@@ -822,9 +877,9 @@ static emlrtDCInfo
         19,                   // lineNo
         33,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -832,9 +887,9 @@ static emlrtDCInfo
         19,                   // lineNo
         33,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        4                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        4                       // checkKind
     };
 
 static emlrtDCInfo
@@ -842,9 +897,9 @@ static emlrtDCInfo
         20,                   // lineNo
         24,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -852,9 +907,9 @@ static emlrtDCInfo
         20,                   // lineNo
         33,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -862,22 +917,52 @@ static emlrtDCInfo
         33,                   // lineNo
         1,                    // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtBCInfo
+<<<<<<< HEAD
     bb_emlrtBCI{
+=======
+    x_emlrtBCI{
+>>>>>>> refs/remotes/origin/Pear-Branch
         -1,                   // iFirst
         -1,                   // iLast
         37,                   // lineNo
-        1,                    // colNo
+        19,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
+    };
+
+static emlrtBCInfo
+    y_emlrtBCI{
+        -1,                   // iFirst
+        -1,                   // iLast
+        37,                   // lineNo
+        33,                   // colNo
+        "nodeEquationArray",  // aName
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
+    };
+
+static emlrtBCInfo
+    ab_emlrtBCI{
+        -1,                   // iFirst
+        -1,                   // iLast
+        38,                   // lineNo
+        19,                   // colNo
+        "nodeEquationArray",  // aName
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -885,12 +970,12 @@ static emlrtBCInfo
         -1,                   // iFirst
         -1,                   // iLast
         38,                   // lineNo
-        1,                    // colNo
+        35,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -898,12 +983,25 @@ static emlrtBCInfo
         -1,                   // iFirst
         -1,                   // iLast
         41,                   // lineNo
-        1,                    // colNo
+        19,                   // colNo
         "nodeEquationArray",  // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
+    };
+
+static emlrtBCInfo
+    db_emlrtBCI{
+        -1,                   // iFirst
+        -1,                   // iLast
+        41,                   // lineNo
+        34,                   // colNo
+        "nodeEquationArray",  // aName
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtDCInfo
@@ -911,9 +1009,9 @@ static emlrtDCInfo
         47,                   // lineNo
         5,                    // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtDCInfo
@@ -921,9 +1019,9 @@ static emlrtDCInfo
         48,                   // lineNo
         5,                    // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtBCInfo
@@ -934,9 +1032,9 @@ static emlrtBCInfo
         29,                   // colNo
         "endNodes",           // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -947,9 +1045,9 @@ static emlrtBCInfo
         23,                   // colNo
         "endNodes",           // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -957,12 +1055,12 @@ static emlrtBCInfo
         -1,                   // iFirst
         -1,                   // iLast
         58,                   // lineNo
-        24,                   // colNo
+        36,                   // colNo
         "yVectorLoop",        // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -973,9 +1071,9 @@ static emlrtBCInfo
         19,                   // colNo
         "yVectorLoop",        // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtDCInfo
@@ -983,9 +1081,9 @@ static emlrtDCInfo
         58,                   // lineNo
         19,                   // colNo
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        1                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        1                       // checkKind
     };
 
 static emlrtBCInfo
@@ -993,12 +1091,12 @@ static emlrtBCInfo
         -1,                   // iFirst
         -1,                   // iLast
         59,                   // lineNo
-        24,                   // colNo
+        36,                   // colNo
         "xVectorLoop",        // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -1009,9 +1107,9 @@ static emlrtBCInfo
         19,                   // colNo
         "xVectorLoop",        // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -1022,9 +1120,9 @@ static emlrtBCInfo
         13,                   // colNo
         "tempX",              // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
 static emlrtBCInfo
@@ -1035,11 +1133,12 @@ static emlrtBCInfo
         13,                   // colNo
         "tempY",              // aName
         "tensionCalculator3", // fName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\tensionCalculator3.m", // pName
-        0                               // checkKind
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m", // pName
+        0                       // checkKind
     };
 
+<<<<<<< HEAD
 static emlrtRTEInfo o_emlrtRTEI{
     11,                   // lineNo
     15,                   // colNo
@@ -1114,6 +1213,86 @@ static emlrtRSInfo od_emlrtRSI{
     "tensionCalculator3", // fcnName
     "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\tensionCalculator3.m" // pathName
 };
+=======
+static emlrtRTEInfo
+    o_emlrtRTEI{
+        17,                   // lineNo
+        1,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRTEInfo
+    p_emlrtRTEI{
+        19,                   // lineNo
+        18,                   // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRTEInfo
+    q_emlrtRTEI{
+        20,                   // lineNo
+        18,                   // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRTEInfo
+    r_emlrtRTEI{
+        33,                   // lineNo
+        1,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRTEInfo
+    s_emlrtRTEI{
+        47,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRTEInfo
+    t_emlrtRTEI{
+        48,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRTEInfo
+    u_emlrtRTEI{
+        54,                   // lineNo
+        5,                    // colNo
+        "tensionCalculator3", // fName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pName
+    };
+
+static emlrtRSInfo
+    ad_emlrtRSI{
+        71,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
+
+static emlrtRSInfo
+    bd_emlrtRSI{
+        72,                   // lineNo
+        "tensionCalculator3", // fcnName
+        "/Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver/"
+        "tensionCalculator3.m" // pathName
+    };
+>>>>>>> refs/remotes/origin/Pear-Branch
 
 // Function Declarations
 static int32_T div_s32_floor(const emlrtStack *sp, int32_T numerator,
@@ -1195,6 +1374,7 @@ void tensionCalculator3(const emlrtStack *sp,
   emlrtStack f_st;
   emlrtStack g_st;
   emlrtStack h_st;
+<<<<<<< HEAD
   emlrtStack i_st;
   emlrtStack j_st;
   emlrtStack k_st;
@@ -1204,6 +1384,8 @@ void tensionCalculator3(const emlrtStack *sp,
   emlrtStack o_st;
   emlrtStack p_st;
   emlrtStack q_st;
+=======
+>>>>>>> refs/remotes/origin/Pear-Branch
   emlrtStack st;
   real_T col_data[780];
   real_T tmp_data[780];
@@ -1212,10 +1394,14 @@ void tensionCalculator3(const emlrtStack *sp,
   real_T y_data[390];
   real_T d;
   real_T d1;
-  real_T d2;
   real_T maximum;
   real_T minimum;
+<<<<<<< HEAD
   int32_T ii_data[780];
+=======
+  real_T varargin_1;
+  int32_T b_ii_data[780];
+>>>>>>> refs/remotes/origin/Pear-Branch
   int32_T jj_data[780];
   int32_T row_data[780];
   int32_T b_tmp_data[390];
@@ -1223,9 +1409,13 @@ void tensionCalculator3(const emlrtStack *sp,
   int32_T c_endNodes_size[2];
   int32_T iv[2];
   int32_T iv1[2];
+  int32_T iv2[2];
   int32_T tmp_size[2];
+<<<<<<< HEAD
   int32_T x_size[2];
   int32_T a;
+=======
+>>>>>>> refs/remotes/origin/Pear-Branch
   int32_T b_i;
   int32_T b_k;
   int32_T i;
@@ -1233,6 +1423,7 @@ void tensionCalculator3(const emlrtStack *sp,
   int32_T i2;
   int32_T i3;
   int32_T idx;
+<<<<<<< HEAD
   int32_T k;
   int32_T last;
   int32_T n_size;
@@ -1243,9 +1434,23 @@ void tensionCalculator3(const emlrtStack *sp,
   boolean_T c_endNodes_data[780];
   boolean_T b_endNodes_data[390];
   boolean_T b_p;
+=======
+  int32_T ii_size;
+  int32_T loop_ub;
+  int32_T n_size;
+  int32_T row_size;
+  int32_T trueCount;
+  int32_T x_size;
+  int32_T y_size;
+  uint32_T u;
+  int8_T pinNode_data[99];
+  int8_T tmp_data[99];
+  boolean_T c_endNodes_data[780];
+  boolean_T b_endNodes_data[390];
+  boolean_T b_nodesY_data[99];
+>>>>>>> refs/remotes/origin/Pear-Branch
   boolean_T emlrtHadParallelError{false};
   boolean_T exitg1;
-  boolean_T p;
   st.prev = sp;
   st.tls = sp->tls;
   b_st.prev = &st;
@@ -1425,10 +1630,17 @@ void tensionCalculator3(const emlrtStack *sp,
                                     (emlrtCTX)sp);
     }
   }
+<<<<<<< HEAD
   idx = ii.size(0);
   for (a = 0; a < idx; a++) {
     if ((ii[a] < 1) || (ii[a] > nodesX.size(0))) {
       emlrtDynamicBoundsCheckR2012b(ii[a], 1, nodesX.size(0), &w_emlrtBCI,
+=======
+  for (loop_ub = 0; loop_ub < ii_size; loop_ub++) {
+    i = ii_data[loop_ub];
+    if ((i < 1) || (i > nodesX_size[0])) {
+      emlrtDynamicBoundsCheckR2012b(i, 1, nodesX_size[0], &u_emlrtBCI,
+>>>>>>> refs/remotes/origin/Pear-Branch
                                     (emlrtCTX)sp);
     }
     if ((nodesX[ii[a] - 1] == maximum) && (a + 1 > ii.size(0))) {
@@ -1436,6 +1648,7 @@ void tensionCalculator3(const emlrtStack *sp,
                                     (emlrtCTX)sp);
     }
   }
+<<<<<<< HEAD
   last = ii.size(0);
   for (i = 0; i < last; i++) {
     i1 = ii[i];
@@ -1449,12 +1662,28 @@ void tensionCalculator3(const emlrtStack *sp,
   for (a = 0; a <= idx; a++) {
     if ((ii[a] < 1) || (ii[a] > nodesX.size(0))) {
       emlrtDynamicBoundsCheckR2012b(ii[a], 1, nodesX.size(0), &y_emlrtBCI,
+=======
+  for (i = 0; i < ii_size; i++) {
+    i1 = ii_data[i];
+    if ((i1 < 1) || (i1 > nodesX_size[0])) {
+      emlrtDynamicBoundsCheckR2012b(i1, 1, nodesX_size[0], &v_emlrtBCI,
+                                    (emlrtCTX)sp);
+    }
+  }
+  end_tmp = ii_size - 1;
+  trueCount = 0;
+  for (loop_ub = 0; loop_ub <= end_tmp; loop_ub++) {
+    i = ii_data[loop_ub];
+    if ((i < 1) || (i > nodesX_size[0])) {
+      emlrtDynamicBoundsCheckR2012b(i, 1, nodesX_size[0], &v_emlrtBCI,
+>>>>>>> refs/remotes/origin/Pear-Branch
                                     (emlrtCTX)sp);
     }
     if (nodesX[ii[a] - 1] == minimum) {
       last++;
     }
   }
+<<<<<<< HEAD
   pinNode.set_size(&p_emlrtRTEI, sp, last);
   last = 0;
   for (a = 0; a <= idx; a++) {
@@ -1465,6 +1694,18 @@ void tensionCalculator3(const emlrtStack *sp,
     if (nodesX[ii[a] - 1] == minimum) {
       if (a + 1 > ii.size(0)) {
         emlrtDynamicBoundsCheckR2012b(a + 1, 1, ii.size(0), &ab_emlrtBCI,
+=======
+  idx = 0;
+  for (loop_ub = 0; loop_ub <= end_tmp; loop_ub++) {
+    i = ii_data[loop_ub];
+    if ((i < 1) || (i > nodesX_size[0])) {
+      emlrtDynamicBoundsCheckR2012b(i, 1, nodesX_size[0], &v_emlrtBCI,
+                                    (emlrtCTX)sp);
+    }
+    if (nodesX_data[i - 1] == minimum) {
+      if (loop_ub + 1 > ii_size) {
+        emlrtDynamicBoundsCheckR2012b(loop_ub + 1, 1, ii_size, &w_emlrtBCI,
+>>>>>>> refs/remotes/origin/Pear-Branch
                                       (emlrtCTX)sp);
       }
       pinNode[last] = static_cast<uint32_T>(ii[a]);
@@ -1566,17 +1807,27 @@ void tensionCalculator3(const emlrtStack *sp,
     emlrtDynamicBoundsCheckR2012b(1, 1, pinNode.size(0), &g_emlrtBCI,
                                   (emlrtCTX)sp);
   }
+<<<<<<< HEAD
   u = pinNode[0] << 1;
   if ((static_cast<int32_T>(u) < 1) || (static_cast<int32_T>(u) > a)) {
     emlrtDynamicBoundsCheckR2012b(static_cast<int32_T>(u), 1, a, &bb_emlrtBCI,
                                   (emlrtCTX)sp);
+=======
+  i3 = pinNode_data[0] << 1;
+  if ((i3 < 1) || (i3 > i2)) {
+    emlrtDynamicBoundsCheckR2012b(i3, 1, i2, &x_emlrtBCI, (emlrtCTX)sp);
+>>>>>>> refs/remotes/origin/Pear-Branch
   }
   if ((static_cast<int32_T>(numEdges + 1.0) < 1) ||
       (static_cast<int32_T>(numEdges + 1.0) >
        static_cast<int32_T>(numEdges + 3.0))) {
     emlrtDynamicBoundsCheckR2012b(static_cast<int32_T>(numEdges + 1.0), 1,
                                   static_cast<int32_T>(numEdges + 3.0),
+<<<<<<< HEAD
                                   &bb_emlrtBCI, (emlrtCTX)sp);
+=======
+                                  &y_emlrtBCI, (emlrtCTX)sp);
+>>>>>>> refs/remotes/origin/Pear-Branch
   }
   nodeEquationArray[(static_cast<int32_T>(u) +
                      nodeEquationArray.size(0) *
@@ -1599,6 +1850,7 @@ void tensionCalculator3(const emlrtStack *sp,
       last++;
     }
   }
+<<<<<<< HEAD
   r.set_size(&p_emlrtRTEI, sp, last);
   last = 0;
   for (a = 0; a <= idx; a++) {
@@ -1611,6 +1863,12 @@ void tensionCalculator3(const emlrtStack *sp,
   if ((a < 1) || (a > nodeEquationArray.size(0))) {
     emlrtDynamicBoundsCheckR2012b(a, 1, nodeEquationArray.size(0), &cb_emlrtBCI,
                                   (emlrtCTX)sp);
+=======
+  i2 = ii_data[tmp_data[0] - 1] << 1;
+  if ((i2 < 1) || (i2 > nodeEquationArray.size(0))) {
+    emlrtDynamicBoundsCheckR2012b(i2, 1, nodeEquationArray.size(0),
+                                  &ab_emlrtBCI, (emlrtCTX)sp);
+>>>>>>> refs/remotes/origin/Pear-Branch
   }
   if ((static_cast<int32_T>(numEdges + 2.0) < 1) ||
       (static_cast<int32_T>(numEdges + 2.0) > nodeEquationArray.size(1))) {
@@ -1655,6 +1913,7 @@ void tensionCalculator3(const emlrtStack *sp,
 #pragma omp parallel num_threads(emlrtAllocRegionTLSs(                         \
     sp->tls, omp_in_parallel(), omp_get_max_threads(),                         \
     omp_get_num_procs())) private(tempX, tempY, refArray, y_data, y_size,      \
+<<<<<<< HEAD
                                   x_data, n_data, n_size, col_data, q_st, i2,  \
                                   b_endNodes_size, b_endNodes_data, jj_data,   \
                                   row_size, c_endNodes_size, i3,               \
@@ -1683,6 +1942,26 @@ void tensionCalculator3(const emlrtStack *sp,
       p_st.tls = o_st.tls;
       q_st.prev = &p_st;
       q_st.tls = p_st.tls;
+=======
+                                  x_data, x_size, n_data, n_size, col_data,    \
+                                  h_st, i4, b_endNodes_size, b_endNodes_data,  \
+                                  jj_data, row_size, c_endNodes_size, i5,      \
+                                  c_endNodes_data, varargin_1, tmp_size,       \
+                                  b_tmp_data, iv2, c_tmp_data)                 \
+    firstprivate(e_st, f_st, g_st, b_ii_data, row_data, emlrtHadParallelError)
+  {
+    try {
+
+      e_st.prev = sp;
+      e_st.tls = emlrtAllocTLS((emlrtCTX)sp, omp_get_thread_num());
+      e_st.site = nullptr;
+      f_st.prev = &e_st;
+      f_st.tls = e_st.tls;
+      g_st.prev = &f_st;
+      g_st.tls = f_st.tls;
+      h_st.prev = &g_st;
+      h_st.tls = g_st.tls;
+>>>>>>> refs/remotes/origin/Pear-Branch
     } catch (...) {
       emlrtHadParallelError = true;
     }
@@ -1701,9 +1980,15 @@ void tensionCalculator3(const emlrtStack *sp,
         if (numEdges != static_cast<int32_T>(muDoubleScalarFloor(numEdges))) {
           emlrtIntegerCheckR2012b(numEdges, &r_emlrtDCI, &j_st);
         }
+<<<<<<< HEAD
         y_size = static_cast<int32_T>(numEdges);
         for (i2 = 0; i2 < y_size; i2++) {
           tempX[i2] = 0.0;
+=======
+        n_size = static_cast<int32_T>(numEdges);
+        for (i4 = 0; i4 < n_size; i4++) {
+          tempX[i4] = 0.0;
+>>>>>>> refs/remotes/origin/Pear-Branch
         }
         tempY.set_size(&v_emlrtRTEI, &j_st, 1, tempY.size(1));
         if (numEdges != static_cast<int32_T>(muDoubleScalarFloor(numEdges))) {
@@ -1714,13 +1999,20 @@ void tensionCalculator3(const emlrtStack *sp,
         if (numEdges != static_cast<int32_T>(muDoubleScalarFloor(numEdges))) {
           emlrtIntegerCheckR2012b(numEdges, &s_emlrtDCI, &j_st);
         }
+<<<<<<< HEAD
         y_size = static_cast<int32_T>(numEdges);
         for (i2 = 0; i2 < y_size; i2++) {
           tempY[i2] = 0.0;
+=======
+        n_size = static_cast<int32_T>(numEdges);
+        for (i4 = 0; i4 < n_size; i4++) {
+          tempY[i4] = 0.0;
+>>>>>>> refs/remotes/origin/Pear-Branch
         }
         k_st.site = &d_emlrtRSI;
         b_endNodes_size[0] = endNodes_size[0];
         b_endNodes_size[1] = 2;
+<<<<<<< HEAD
         y_size = endNodes_size[0] * 2;
         for (i2 = 0; i2 < y_size; i2++) {
           b_endNodes_data[i2] =
@@ -1742,10 +2034,34 @@ void tensionCalculator3(const emlrtStack *sp,
           if ((i3 < 1) || (i3 > endNodes_size[0])) {
             emlrtDynamicBoundsCheckR2012b(i3, 1, endNodes_size[0], &eb_emlrtBCI,
                                           &k_st);
+=======
+        n_size = endNodes_size[0] * 2;
+        for (i4 = 0; i4 < n_size; i4++) {
+          b_endNodes_data[i4] =
+              (endNodes_data[i4] == static_cast<real_T>(b_i) + 1.0);
+        }
+        g_st.site = &x_emlrtRSI;
+        coder::b_eml_find(&g_st, b_endNodes_data, b_endNodes_size, b_ii_data,
+                          &n_size, jj_data, &y_size);
+        row_size = n_size;
+        if (0 <= n_size - 1) {
+          std::copy(&b_ii_data[0], &b_ii_data[n_size], &row_data[0]);
+        }
+        for (i4 = 0; i4 < n_size; i4++) {
+          n_data[i4] = b_ii_data[i4];
+        }
+        f_st.site = &e_emlrtRSI;
+        for (i4 = 0; i4 < n_size; i4++) {
+          i5 = row_data[i4];
+          if ((i5 < 1) || (i5 > endNodes_size[0])) {
+            emlrtDynamicBoundsCheckR2012b(i5, 1, endNodes_size[0], &eb_emlrtBCI,
+                                          &f_st);
+>>>>>>> refs/remotes/origin/Pear-Branch
           }
         }
-        c_endNodes_size[0] = y_size;
+        c_endNodes_size[0] = n_size;
         c_endNodes_size[1] = 2;
+<<<<<<< HEAD
         for (i2 = 0; i2 < 2; i2++) {
           for (i3 = 0; i3 < y_size; i3++) {
             c_endNodes_data[i3 + y_size * i2] =
@@ -1770,6 +2086,32 @@ void tensionCalculator3(const emlrtStack *sp,
             if ((y_size < 1) || (y_size > endNodes_size[0])) {
               emlrtDynamicBoundsCheckR2012b(y_size, 1, endNodes_size[0],
                                             &fb_emlrtBCI, &j_st);
+=======
+        for (i4 = 0; i4 < 2; i4++) {
+          for (i5 = 0; i5 < n_size; i5++) {
+            c_endNodes_data[i5 + n_size * i4] =
+                (endNodes_data[(static_cast<int32_T>(n_data[i5]) +
+                                endNodes_size[0] * i4) -
+                               1] != static_cast<real_T>(b_i) + 1.0);
+          }
+        }
+        g_st.site = &x_emlrtRSI;
+        coder::b_eml_find(&g_st, c_endNodes_data, c_endNodes_size, b_ii_data,
+                          &n_size, jj_data, &y_size);
+        for (i4 = 0; i4 < y_size; i4++) {
+          col_data[i4] = jj_data[i4];
+        }
+        f_st.site = &f_emlrtRSI;
+        coder::flipud(col_data, &y_size);
+        //  I have no clue why the column data is upside down
+        refArray.set_size(&u_emlrtRTEI, &e_st, row_size, y_size);
+        for (i4 = 0; i4 < y_size; i4++) {
+          for (i5 = 0; i5 < row_size; i5++) {
+            n_size = row_data[i5];
+            if ((n_size < 1) || (n_size > endNodes_size[0])) {
+              emlrtDynamicBoundsCheckR2012b(n_size, 1, endNodes_size[0],
+                                            &fb_emlrtBCI, &e_st);
+>>>>>>> refs/remotes/origin/Pear-Branch
             }
             refArray[i3 + refArray.size(0) * i2] =
                 endNodes_data[(row_data[i3] +
@@ -1783,6 +2125,7 @@ void tensionCalculator3(const emlrtStack *sp,
         coder::diag(&k_st, refArray, n_data, &n_size);
         if (static_cast<int32_T>(b_i + 1U) > nodesY.size(0)) {
           emlrtDynamicBoundsCheckR2012b(static_cast<int32_T>(b_i + 1U), 1,
+<<<<<<< HEAD
                                         nodesY.size(0), &gb_emlrtBCI, &j_st);
         }
         y_size = n_size;
@@ -1797,9 +2140,28 @@ void tensionCalculator3(const emlrtStack *sp,
                                           nodesY.size(0), &hb_emlrtBCI, &j_st);
           }
           y_data[i2] = nodesY[static_cast<int32_T>(d2) - 1] - nodesY[b_i];
+=======
+                                        nodesY_size[0], &gb_emlrtBCI, &e_st);
+        }
+        y_size = n_size;
+        for (i4 = 0; i4 < n_size; i4++) {
+          varargin_1 = n_data[i4];
+          if (varargin_1 !=
+              static_cast<int32_T>(muDoubleScalarFloor(varargin_1))) {
+            emlrtIntegerCheckR2012b(varargin_1, &t_emlrtDCI, &e_st);
+          }
+          if ((static_cast<int32_T>(varargin_1) < 1) ||
+              (static_cast<int32_T>(varargin_1) > nodesY_size[0])) {
+            emlrtDynamicBoundsCheckR2012b(static_cast<int32_T>(varargin_1), 1,
+                                          nodesY_size[0], &hb_emlrtBCI, &e_st);
+          }
+          y_data[i4] = nodesY_data[static_cast<int32_T>(varargin_1) - 1] -
+                       nodesY_data[b_i];
+>>>>>>> refs/remotes/origin/Pear-Branch
         }
         if (static_cast<int32_T>(b_i + 1U) > nodesX.size(0)) {
           emlrtDynamicBoundsCheckR2012b(static_cast<int32_T>(b_i + 1U), 1,
+<<<<<<< HEAD
                                         nodesX.size(0), &ib_emlrtBCI, &j_st);
         }
         for (i2 = 0; i2 < n_size; i2++) {
@@ -1816,12 +2178,30 @@ void tensionCalculator3(const emlrtStack *sp,
         m_st.site = &ob_emlrtRSI;
         x_size[0] = n_size;
         x_size[1] = 2;
+=======
+                                        nodesX_size[0], &ib_emlrtBCI, &e_st);
+        }
+        x_size = n_size;
+        for (i4 = 0; i4 < n_size; i4++) {
+          varargin_1 = n_data[i4];
+          if ((static_cast<int32_T>(varargin_1) < 1) ||
+              (static_cast<int32_T>(varargin_1) > nodesX_size[0])) {
+            emlrtDynamicBoundsCheckR2012b(static_cast<int32_T>(varargin_1), 1,
+                                          nodesX_size[0], &jb_emlrtBCI, &e_st);
+          }
+          x_data[i4] = nodesX_data[static_cast<int32_T>(varargin_1) - 1] -
+                       nodesX_data[b_i];
+        }
+        f_st.site = &h_emlrtRSI;
+        g_st.site = &fb_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
         if (0 <= n_size - 1) {
           std::copy(&x_data[0], &x_data[n_size], &col_data[0]);
         }
         for (i2 = 0; i2 < n_size; i2++) {
           col_data[i2 + n_size] = y_data[i2];
         }
+<<<<<<< HEAD
         coder::power(col_data, x_size, tmp_data, tmp_size);
         k_st.site = &h_emlrtRSI;
         coder::sum(tmp_data, tmp_size, n_data, &n_size);
@@ -2066,9 +2446,50 @@ void tensionCalculator3(const emlrtStack *sp,
           if ((i3 < 1) || (i3 > static_cast<int32_T>(numEdges))) {
             emlrtDynamicBoundsCheckR2012b(i3, 1, static_cast<int32_T>(numEdges),
                                           &kb_emlrtBCI, &j_st);
+=======
+        tmp_size[0] = n_size;
+        tmp_size[1] = 2;
+        n_size *= 2;
+        for (i4 = 0; i4 < n_size; i4++) {
+          varargin_1 = col_data[i4];
+          b_tmp_data[i4] = varargin_1 * varargin_1;
+        }
+        f_st.site = &h_emlrtRSI;
+        coder::sum(b_tmp_data, tmp_size, n_data, &n_size);
+        f_st.site = &h_emlrtRSI;
+        coder::b_sqrt(&f_st, n_data, &n_size);
+        f_st.site = &i_emlrtRSI;
+        g_st.site = &pb_emlrtRSI;
+        h_st.site = &qb_emlrtRSI;
+        coder::internal::assertCompatibleDims(&h_st, x_size, n_size);
+        if (x_size == n_size) {
+          for (i4 = 0; i4 < x_size; i4++) {
+            x_data[i4] /= n_data[i4];
+          }
+        } else {
+          rdivide(x_data, &x_size, n_data, &n_size);
+        }
+        f_st.site = &j_emlrtRSI;
+        g_st.site = &pb_emlrtRSI;
+        h_st.site = &qb_emlrtRSI;
+        coder::internal::assertCompatibleDims(&h_st, y_size, n_size);
+        if (y_size == n_size) {
+          for (i4 = 0; i4 < y_size; i4++) {
+            y_data[i4] /= n_data[i4];
+          }
+        } else {
+          rdivide(y_data, &y_size, n_data, &n_size);
+        }
+        for (i4 = 0; i4 < row_size; i4++) {
+          i5 = row_data[i4];
+          if ((i5 < 1) || (i5 > static_cast<int32_T>(numEdges))) {
+            emlrtDynamicBoundsCheckR2012b(i5, 1, static_cast<int32_T>(numEdges),
+                                          &kb_emlrtBCI, &e_st);
+>>>>>>> refs/remotes/origin/Pear-Branch
           }
           b_tmp_data[i2] = i3 - 1;
         }
+<<<<<<< HEAD
         tmp_size[0] = 1;
         tmp_size[1] = row_size;
         emlrtSubAssignSizeCheckR2012b(&tmp_size[0], 2, &y_size, 1, &emlrtECI,
@@ -2082,21 +2503,45 @@ void tensionCalculator3(const emlrtStack *sp,
           if ((i3 < 1) || (i3 > static_cast<int32_T>(numEdges))) {
             emlrtDynamicBoundsCheckR2012b(i3, 1, static_cast<int32_T>(numEdges),
                                           &lb_emlrtBCI, &j_st);
+=======
+        iv2[0] = 1;
+        iv2[1] = row_size;
+        emlrtSubAssignSizeCheckR2012b(&iv2[0], 2, &x_size, 1, &emlrtECI, &e_st);
+        for (i4 = 0; i4 < row_size; i4++) {
+          tempX[c_tmp_data[i4]] = x_data[i4];
+        }
+        // Odd rows are sum Fx
+        for (i4 = 0; i4 < row_size; i4++) {
+          i5 = row_data[i4];
+          if ((i5 < 1) || (i5 > static_cast<int32_T>(numEdges))) {
+            emlrtDynamicBoundsCheckR2012b(i5, 1, static_cast<int32_T>(numEdges),
+                                          &lb_emlrtBCI, &e_st);
+>>>>>>> refs/remotes/origin/Pear-Branch
           }
           b_tmp_data[i2] = i3 - 1;
         }
+<<<<<<< HEAD
         tmp_size[0] = 1;
         tmp_size[1] = row_size;
         emlrtSubAssignSizeCheckR2012b(&tmp_size[0], 2, &y_size, 1, &b_emlrtECI,
                                       &j_st);
         for (i2 = 0; i2 < row_size; i2++) {
           tempY[b_tmp_data[i2]] = y_data[i2];
+=======
+        iv2[0] = 1;
+        iv2[1] = row_size;
+        emlrtSubAssignSizeCheckR2012b(&iv2[0], 2, &y_size, 1, &b_emlrtECI,
+                                      &e_st);
+        for (i4 = 0; i4 < row_size; i4++) {
+          tempY[c_tmp_data[i4]] = y_data[i4];
+>>>>>>> refs/remotes/origin/Pear-Branch
         }
         // Even rows are sum Fy
         if (b_i + 1 > xEquationArray.size(0)) {
           emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, xEquationArray.size(0),
                                         &emlrtBCI, &j_st);
         }
+<<<<<<< HEAD
         tmp_size[0] = 1;
         tmp_size[1] = xEquationArray.size(1);
         emlrtSubAssignSizeCheckR2012b(&tmp_size[0], 2, tempX.size(), 2,
@@ -2104,11 +2549,21 @@ void tensionCalculator3(const emlrtStack *sp,
         y_size = tempX.size(1);
         for (i2 = 0; i2 < y_size; i2++) {
           xEquationArray[b_i + xEquationArray.size(0) * i2] = tempX[i2];
+=======
+        iv2[0] = 1;
+        iv2[1] = xEquationArray.size(1);
+        emlrtSubAssignSizeCheckR2012b(&iv2[0], 2, tempX.size(), 2, &c_emlrtECI,
+                                      &e_st);
+        n_size = tempX.size(1);
+        for (i4 = 0; i4 < n_size; i4++) {
+          xEquationArray[b_i + xEquationArray.size(0) * i4] = tempX[i4];
+>>>>>>> refs/remotes/origin/Pear-Branch
         }
         if (b_i + 1 > yEquationArray.size(0)) {
           emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, yEquationArray.size(0),
                                         &d_emlrtBCI, &j_st);
         }
+<<<<<<< HEAD
         tmp_size[0] = 1;
         tmp_size[1] = yEquationArray.size(1);
         emlrtSubAssignSizeCheckR2012b(&tmp_size[0], 2, tempY.size(), 2,
@@ -2116,6 +2571,15 @@ void tensionCalculator3(const emlrtStack *sp,
         y_size = tempY.size(1);
         for (i2 = 0; i2 < y_size; i2++) {
           yEquationArray[b_i + yEquationArray.size(0) * i2] = tempY[i2];
+=======
+        iv2[0] = 1;
+        iv2[1] = yEquationArray.size(1);
+        emlrtSubAssignSizeCheckR2012b(&iv2[0], 2, tempY.size(), 2, &d_emlrtECI,
+                                      &e_st);
+        n_size = tempY.size(1);
+        for (i4 = 0; i4 < n_size; i4++) {
+          yEquationArray[b_i + yEquationArray.size(0) * i4] = tempY[i4];
+>>>>>>> refs/remotes/origin/Pear-Branch
         }
         if (*emlrtBreakCheckR2012bFlagVar != 0) {
           emlrtBreakCheckR2012b(&j_st);
@@ -2177,7 +2641,11 @@ void tensionCalculator3(const emlrtStack *sp,
     }
     a = static_cast<int32_T>(numEdges);
   }
+<<<<<<< HEAD
   st.site = &od_emlrtRSI;
+=======
+  st.site = &ad_emlrtRSI;
+>>>>>>> refs/remotes/origin/Pear-Branch
   iv[0] = div_s32_floor(&st, i1 - 1, i) + 1;
   iv[1] = a;
   iv1[0] = last;
@@ -2239,10 +2707,17 @@ void tensionCalculator3(const emlrtStack *sp,
     }
     k = static_cast<int32_T>(numEdges);
   }
+<<<<<<< HEAD
   st.site = &nd_emlrtRSI;
   iv[0] = div_s32_floor(&st, a - i, i1) + 1;
   iv[1] = k;
   iv1[0] = last;
+=======
+  st.site = &bd_emlrtRSI;
+  iv[0] = div_s32_floor(&st, i2 - i, i1) + 1;
+  iv[1] = i3;
+  iv1[0] = loop_ub;
+>>>>>>> refs/remotes/origin/Pear-Branch
   iv1[1] = yEquationArray.size(1);
   emlrtSubAssignSizeCheckR2012b(&iv[0], 2, &iv1[0], 2, &f_emlrtECI,
                                 (emlrtCTX)sp);

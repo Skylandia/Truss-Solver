@@ -79,7 +79,45 @@ static real_T b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   return ret;
 }
 
+<<<<<<< HEAD
 static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+=======
+static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *endNodes,
+                               const char_T *identifier, real_T **y_data,
+                               int32_T y_size[2])
+{
+  emlrtMsgIdentifier thisId;
+  real_T *r;
+  thisId.fIdentifier = const_cast<const char_T *>(identifier);
+  thisId.fParent = nullptr;
+  thisId.bParentIsCell = false;
+  b_emlrt_marshallIn(sp, emlrtAlias(endNodes), &thisId, &r, y_size);
+  *y_data = r;
+  emlrtDestroyArray(&endNodes);
+}
+
+static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
+                               const emlrtMsgIdentifier *parentId,
+                               real_T **y_data, int32_T y_size[2])
+{
+  d_emlrt_marshallIn(sp, emlrtAlias(u), parentId, y_data, y_size);
+  emlrtDestroyArray(&u);
+}
+
+static void c_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+                               const emlrtMsgIdentifier *msgId,
+                               real_T **ret_data, int32_T *ret_size)
+{
+  static const int32_T dims{99};
+  const boolean_T b{true};
+  emlrtCheckVsBuiltInR2012b((emlrtCTX)sp, msgId, src, (const char_T *)"double",
+                            false, 1U, (void *)&dims, &b, ret_size);
+  *ret_data = (real_T *)emlrtMxGetData(src);
+  emlrtDestroyArray(&src);
+}
+
+static void d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
+>>>>>>> refs/remotes/origin/Pear-Branch
                                const emlrtMsgIdentifier *msgId,
                                real_T **ret_data, int32_T ret_size[2])
 {
@@ -99,10 +137,16 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray *nodesX,
                              coder::array<real_T, 1U> &y)
 {
   emlrtMsgIdentifier thisId;
+  real_T *r;
   thisId.fIdentifier = const_cast<const char_T *>(identifier);
   thisId.fParent = nullptr;
   thisId.bParentIsCell = false;
+<<<<<<< HEAD
   emlrt_marshallIn(sp, emlrtAlias(nodesX), &thisId, y);
+=======
+  emlrt_marshallIn(sp, emlrtAlias(nodesX), &thisId, &r, y_size);
+  *y_data = r;
+>>>>>>> refs/remotes/origin/Pear-Branch
   emlrtDestroyArray(&nodesX);
 }
 

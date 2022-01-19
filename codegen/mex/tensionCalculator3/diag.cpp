@@ -15,12 +15,11 @@
 #include "mwmathutil.h"
 
 // Variable Definitions
-static emlrtRTEInfo j_emlrtRTEI{
+static emlrtRTEInfo h_emlrtRTEI{
     102,    // lineNo
     19,     // colNo
     "diag", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\elmat\\diag.m" // pName
+    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/diag.m" // pName
 };
 
 // Function Definitions
@@ -36,7 +35,7 @@ void diag(const emlrtStack *sp, const ::coder::array<real_T, 2U> &v,
     int32_T n;
     if ((v.size(0) == 1) || (v.size(1) == 1)) {
       emlrtErrorWithMessageIdR2018a(
-          sp, &j_emlrtRTEI, "Coder:toolbox:diag_varsizedMatrixVector",
+          sp, &h_emlrtRTEI, "Coder:toolbox:diag_varsizedMatrixVector",
           "Coder:toolbox:diag_varsizedMatrixVector", 0);
     }
     m = v.size(0);

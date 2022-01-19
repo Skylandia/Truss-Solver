@@ -26,8 +26,8 @@ extern const volatile char_T *emlrtBreakCheckR2012bFlagVar;
 extern emlrtContext emlrtContextGlobal;
 extern emlrtRSInfo p_emlrtRSI;
 extern omp_lock_t emlrtLockGlobal;
-extern omp_nest_lock_t emlrtNestLockGlobal;
+extern omp_nest_lock_t tensionCalculator3_nestLockGlobal;
+extern emlrtRTEInfo k_emlrtRTEI;
 extern emlrtRTEInfo l_emlrtRTEI;
-extern emlrtRTEInfo m_emlrtRTEI;
 
 // End of code generation (tensionCalculator3_data.h)

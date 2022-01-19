@@ -35,7 +35,7 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
   mexAtExit(&tensionCalculator3_atexit);
   // Initialize the memory manager.
   omp_init_lock(&emlrtLockGlobal);
-  omp_init_nest_lock(&emlrtNestLockGlobal);
+  omp_init_nest_lock(&tensionCalculator3_nestLockGlobal);
   // Module initialization.
   tensionCalculator3_initialize();
   st.tls = emlrtRootTLSGlobal;
@@ -46,10 +46,10 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
     // Module termination.
     tensionCalculator3_terminate();
     omp_destroy_lock(&emlrtLockGlobal);
-    omp_destroy_nest_lock(&emlrtNestLockGlobal);
+    omp_destroy_nest_lock(&tensionCalculator3_nestLockGlobal);
   } catch (...) {
     omp_destroy_lock(&emlrtLockGlobal);
-    omp_destroy_nest_lock(&emlrtNestLockGlobal);
+    omp_destroy_nest_lock(&tensionCalculator3_nestLockGlobal);
     emlrtReportParallelRunTimeError(&st);
     emlrtCleanupOnException((emlrtCTX *)emlrtRootTLSGlobal);
     throw;
