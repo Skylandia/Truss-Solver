@@ -168,11 +168,50 @@ classdef trussStruct
 %                 obj.nodesArray(i).x = obj.nodesArray(i).x + normrnd(0,0.00512);
 %                 obj.nodesArray(i).y = obj.nodesArray(i).y + normrnd(0,0.00512);
 %             end
-            nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.003, obj.numNodes-2, 2);[0,0]];
+            nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.00025, obj.numNodes-2, 2);[0,0]];
             connectionsMatrix = obj.endNodes;
             obj = generateTrussStruct(nodeLocations, connectionsMatrix, obj.weightNode);
             if ~obj.validateEdgeLengths(0.150)
-                obj = bestObj;
+                obj = generateTrussStruct([[bestObj.nodesArray.x];[bestObj.nodesArray.y]]', bestObj.endNodes, bestObj.weightNode);
+            end
+        end
+        
+        function obj = optimiseTrussCost(obj, safteyFactor, minCapastiy)
+            minCapastiy = minCapastiy /2;
+            isPossible = obj.validateEdgeLengths(0.150);
+            if ~isPossible
+                obj.cost = inf; 
+                obj.capasity = 0;
+            else
+                obj = obj.tensionCalculator(minCapastiy);
+                [tempObj, isPossible] = obj.findMemberTypes(safteyFactor);
+                if ~isPossible
+                    obj.cost = inf;
+                    obj.capasity = 0;
+                else
+                    tempObj = tempObj.nodeThiccnessFinder2;
+                    if tempObj.validateNodeThiccs(7)
+                        obj = tempObj;
+                        obj.cost = obj.generateCost;
+                        minSafteyFactor = min([obj.edgesArray.safteyFactor]);
+                        obj.capasity = minCapastiy * minSafteyFactor;
+                        for i = 1:obj.numEdges
+                            obj.edgesArray(i).forceInMember =...
+                                obj.edgesArray(i).forceInMember * minSafteyFactor;
+                            obj.edgesArray(i).safteyFactor =...
+                                obj.edgesArray(i).safteyFactor / minSafteyFactor;
+                        end
+                    else
+                        obj.cost = inf;
+                        obj.capasity = 0;
+                    end
+                end
+            end
+            if isnan(obj.capasity)
+                obj.capasity = 0;
+                obj.cost = inf;
+            else
+                obj.capasity = obj.capasity * 2;
             end
         end
     end

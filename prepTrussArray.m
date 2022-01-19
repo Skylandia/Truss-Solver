@@ -6,7 +6,7 @@ if mod(numTrusses,2) == 1
     numTrusses = numTrusses + 1;
 end
 trussArray(1:numTrusses) = trussStruct();
-for i = 1:length(trussArray)
+parfor i = 1:length(trussArray)
     valid = false;
     while ~valid
         trussArray(i) = randomTruss(leftMostPoint, rightMostPoint);

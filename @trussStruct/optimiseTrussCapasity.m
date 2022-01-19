@@ -21,6 +21,8 @@ else
                 for i = 1:obj.numEdges
                     obj.edgesArray(i).forceInMember =...
                         obj.edgesArray(i).forceInMember * minSafteyFactor;
+                    obj.edgesArray(i).safteyFactor =...
+                        obj.edgesArray(i).safteyFactor / minSafteyFactor;
                 end
             else
                 isPossible = false;
