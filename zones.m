@@ -22,6 +22,12 @@ classdef zones
             obj.location = coords;
             obj.shape = shapeType;
             obj.zoneType = zoneType;
+            switch(obj.shape)
+                case shapes.rectangle
+                    if size(obj.shape) ~= [2,2]
+                case shapes.circle
+                case shapes.triangle
+            end
         end
         
         function isPossible = isRestricted(obj,trussStruct)
