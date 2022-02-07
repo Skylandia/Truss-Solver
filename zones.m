@@ -32,7 +32,7 @@ classdef zones
             % trussStruct.edgesArray(edgeIndex).endNodes(2) -> second node
             % ID
             % trussStruct.nodesArray(ID).x or .y to get coordinates
-            isForbidden=false;
+            isPossible=false;
             switch(obj.shape)
                 case shapes.rectangle
                     % [x1,y1;x2,y2] 
@@ -70,7 +70,7 @@ classdef zones
                                 s = (1/d)*((trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p1(2) - (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(1));
                                 t = (1/d)*-(-(trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p2(2) + (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(2));
                                 if ~(0<=s && s <=1 && 0<=t && t<=1)
-                                    isForbidden = true;
+                                    isPossible = true;
                                     broken = true;
                                 end
                                 j=j+1;
@@ -83,6 +83,30 @@ classdef zones
                 case shapes.triangle
                     3;
             end
+            
+            function isPossible = isWeightNodeInZone(obj, trussStruct)
+                isPossible = false;
+                weightNode = trussStruct.weightNode;
+                weightNodeLocation = [...
+                    trussStruct.nodesArray(weightNode).x,...
+                    trussStruct.nodesArray(weightNode).y];
+                switch(obj.shape)
+                    case shapes.rectangle
+                        % [x1,y1;x2,y2]
+                        % Top left ; bottom right
+                        if (...
+                                (weightNodeLocation(1) < obj.location(1,1)) && (weightNodeLocation(1) > obj.location(2,1)) ||...
+                                (weightNodeLocation(2) < obj.location(1,2)) && (weightNodeLocation(2) > obj.location(2,2)))
+                            isPossible = true;
+                        end
+                    case shapes.circle
+                        if (norm(obj.location(2:3) - weightNodeLocation) < obj.location(1))
+                            isPossible = true;
+                        end
+                    case shapes.triange
+                end
+            end
+            
         end
     end
 end
