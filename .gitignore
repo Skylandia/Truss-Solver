@@ -1,0 +1,11 @@
+# Compiled MEX binaries (all platforms)
+*.mex*
+
+# Config file and generator
+
+ConfigFileMaker.py
+config.ini
+
+# Video, Figure, and Picture outputs
+ *.mp*
+ *.fig
