@@ -5,7 +5,7 @@ trussArray = prepTrussArray(numberOfTrusses, [0,0],[0.450,0]);
 trussArray = testTrussArray(trussArray, 0.8, 280000);
 maxArray = zeros(1,numberOfRuns);
 meanArray = zeros(1,numberOfRuns);
-Video = VideoWriter('DP3 11','MPEG-4'); 
+Video = VideoWriter('DP3 12','MPEG-4'); 
 Video.FrameRate = 6; 
 open(Video)
 for i = 1:numberOfRuns
