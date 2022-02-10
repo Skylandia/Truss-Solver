@@ -2,6 +2,7 @@
 *.mex*
 
 # Config file and generator
+
 ConfigFileMaker.py
 config.ini
 
