@@ -9,7 +9,7 @@ classdef zones
     end
     
     methods
-        function obj = zones(coords, shapeType, zoneType)
+        function obj = zones(shapeType, zoneType, coords)
             %ZONES Construct an instance of this class
             %   Detailed explanation goes here
             %   Rectanges are defined by a 2*2 matrix, the top left and
@@ -24,9 +24,23 @@ classdef zones
             obj.zoneType = zoneType;
             switch(obj.shape)
                 case shapes.rectangle
-                    if size(obj.shape) ~= [2,2]
+                    [A,B] = size(obj.location);
+                    if A ~= 2 || B ~= 2
+                        error("Invalid coord dimentions\n" + ...
+                            "Expected a [3,2] double and got a [%d,%d]", A,B)
+                    end
                 case shapes.circle
+                    [A,B] = size(obj.location);
+                    if A ~= 1 || B ~= 3
+                        error("Invalid coord dimentions\n" + ...
+                            "Expected a [3,2] double and got a [%d,%d]", A,B)
+                    end
                 case shapes.triangle
+                    [A,B] = size(obj.location);
+                    if A ~= 3 || B ~= 2
+                        error("Invalid coord dimentions\n" + ...
+                            "Expected a [3,2] double and got a [%d,%d]", A,B)
+                    end
             end
         end
         

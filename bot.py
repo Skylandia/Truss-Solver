@@ -70,8 +70,8 @@ async def truss_solve(ctx: lightbulb.Context) -> None:
     outbound_file = hikari.File(
         "/Users/Mack/Documents/MATLAB/Truss Solver/OutboundGraphics/" + str(ctx.author.id) + ".png")
     await ctx.respond(outbound_file)
-    if os.path.exists("/Users/Mack/Documents/MATLAB/Truss Solver/OutboundGraphics/" + str(ctx.author.id) + ".png"):
-        os.remove("/Users/Mack/Documents/MATLAB/Truss Solver/OutboundGraphics/" + str(ctx.author.id) + ".png")
+    if os.path.exists("/OutboundGraphics/" + str(ctx.author.id) + ".png"):
+        os.remove("/OutboundGraphics/" + str(ctx.author.id) + ".png")
     await ctx.respond(future.result())
 
 

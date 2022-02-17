@@ -1,4 +1,6 @@
 function obj = optimiseTrussCapasity(obj, safteyFactor, maxCost)
+obj.cost = 0;
+obj.capasity = 1;
 isPossible = obj.validateEdgeLengths(0.150);
 if ~isPossible
     obj.cost = 0;
