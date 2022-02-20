@@ -127,6 +127,7 @@ classdef trussStruct
         end
         
         obj = optimiseTrussCapasity(obj, safteyFactor, maxCost)
+        obj = mutateTruss2(obj, safteyFactor, maxCost)
 %             isPossible = obj.validateEdgeLengths(0.150);
 %             if ~isPossible
 %                 obj.cost = 0;
