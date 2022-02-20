@@ -103,57 +103,55 @@ classdef zones
                 case shapes.triangle
                     3;
             end
-            
-            function isPossible = isWeightNodeInZone(obj, trussStruct)
-                isPossible = false;
-                weightNode = trussStruct.weightNode;
-                weightNodeLocation = [...
-                    trussStruct.nodesArray(weightNode).x,...
-                    trussStruct.nodesArray(weightNode).y];
-                switch(obj.shape)
-                    case shapes.rectangle
-                        % [x1,y1;x2,y2]
-                        % Top left ; bottom right
-                        if (...
-                                (weightNodeLocation(1) < obj.location(1,1)) && (weightNodeLocation(1) > obj.location(2,1)) ||...
-                                (weightNodeLocation(2) < obj.location(1,2)) && (weightNodeLocation(2) > obj.location(2,2)))
-                            isPossible = true;
-                        end
-                    case shapes.circle
-                        if (norm(obj.location(2:3) - weightNodeLocation) < obj.location(1))
-                            isPossible = true;
-                        end
-                    case shapes.triange
-                end
-            end
-
-
-            function [point] = pointInZone(obj)
-                rand = [-1,-1];
-                while any(rand < 0) || any(rand > 1)
-                    rand = normrnd(0.5,0.1941,1,2);
-                end
-                
-                switch(obj.shape)
-                    case shapes.rectangle
-                        % [x1,y1;x2,y2]
-                        % Top left ; bottom right
-                        point = [...
-                            obj.location(2,1)-obj.location(1,1),
-                            obj.location(1,2)-obj.location(2,2)] ...
-                            .* rand + [...
-                            obj.location(1,1),obj.location(2,2)];
-                                                
-                    case shapes.circle
-                        point = obj.location(1:2) + ...
-                            (rand - 0.5) .* obj.location(3);
-                    case shapes.triangle
-
-                end
-            end
-            
-
         end
+
+        function isPossible = isWeightNodeInZone(obj, trussStruct)
+            isPossible = false;
+            weightNode = trussStruct.weightNode;
+            weightNodeLocation = [...
+                trussStruct.nodesArray(weightNode).x,...
+                trussStruct.nodesArray(weightNode).y];
+            switch(obj.shape)
+                case shapes.rectangle
+                    % [x1,y1;x2,y2]
+                    % Top left ; bottom right
+                    if (...
+                            (weightNodeLocation(1) < obj.location(1,1)) && (weightNodeLocation(1) > obj.location(2,1)) ||...
+                            (weightNodeLocation(2) < obj.location(1,2)) && (weightNodeLocation(2) > obj.location(2,2)))
+                        isPossible = true;
+                    end
+                case shapes.circle
+                    if (norm(obj.location(2:3) - weightNodeLocation) < obj.location(1))
+                        isPossible = true;
+                    end
+                case shapes.triange
+            end
+        end
+
+
+        function [point] = pointInZone(obj)
+            rand = [-1,-1];
+            while any(rand < 0) || any(rand > 1)
+                rand = normrnd(0.5,0.1941,1,2);
+            end
+
+            switch(obj.shape)
+                case shapes.rectangle
+                    % [x1,y1;x2,y2]
+                    % Top left ; bottom right
+                    point = [obj.location(2,1)-obj.location(1,1), obj.location(1,2)-obj.location(2,2)] ...
+                        .* rand + [obj.location(1,1),obj.location(2,2)];
+
+                case shapes.circle
+                    point = obj.location(1:2) + ...
+                        (rand - 0.5) .* obj.location(3);
+                case shapes.triangle
+
+            end
+        end
+
+
     end
 end
+
 

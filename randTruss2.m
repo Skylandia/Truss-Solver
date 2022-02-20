@@ -5,13 +5,26 @@ function [trussStruct] = randTruss2(...
 loadNodeLocation = loadZone.pointInZone;
 [leftBaseNodeCount, leftNodeGap] = detGapAndCount(leftMostPoint,loadNodeLocation);
 [rightBaseNodeCount, rightNodeGap] = detGapAndCount(loadNodeLocation,rightMostPoint);
-leftTrussInterval = leftNodeGap * (leftMostPoint - loadNodeLocation) / norm(leftMostPoint - loadNodeLocation);
-rightTrussInterval = rightNodeGap * (loadNodeLocation - rightMostPoint) / norm(loadNodeLocation - rightMostPoint);
+leftTrussInterval = leftNodeGap * (loadNodeLocation - leftMostPoint) / norm(loadNodeLocation - leftMostPoint);
+rightTrussInterval = rightNodeGap * (rightMostPoint - loadNodeLocation) / norm(rightMostPoint - loadNodeLocation);
 
-baseNodeCount = leftBaseNodeCount + rightBaseNodeCount;
+baseNodeCount = leftBaseNodeCount + rightBaseNodeCount + 1;
 %assemble node array
 nodeArray = zeros(2*baseNodeCount-1, 2);
-nodeArray(2:2:leftBaseNodeCount-1,:) = leftMostPoint
+nodeArray(1:2*leftBaseNodeCount+1,:) = [leftMostPoint(1):leftTrussInterval(1)/2:loadNodeLocation(1);leftMostPoint(2):leftTrussInterval(2)/2:loadNodeLocation(2)]';
+nodeArray(2*leftBaseNodeCount+1:end,:) = [loadNodeLocation(1):rightTrussInterval(1)/2:rightMostPoint(1);loadNodeLocation(2):rightTrussInterval(2)/2:rightMostPoint(2)]';
+normLTI = [-leftTrussInterval(2),leftTrussInterval(1)] / norm(leftTrussInterval);
+normRTI = [-rightTrussInterval(2),rightTrussInterval(1)] / norm(rightTrussInterval);
+nodeArray(2:2:2*leftBaseNodeCount,:) = nodeArray(2:2:2*leftBaseNodeCount,:) - normLTI .* (0.040 .* rand(leftBaseNodeCount, 1) + 0.050);
+nodeArray(2*leftBaseNodeCount+2:2:end,:) = nodeArray(2*leftBaseNodeCount+2:2:end,:) - normRTI .* (0.040 .* rand(rightBaseNodeCount, 1) + 0.050);
+%Makes trussGraph connection array
+connectionsArray = zeros(4*baseNodeCount-5,2);
+connectionsArray(1:(2*baseNodeCount-3),1) = 1:(2*baseNodeCount-3);
+connectionsArray(1:(2*baseNodeCount-3),2) = 3:(2*baseNodeCount-1);
+connectionsArray((2*baseNodeCount-2):end,1) = 1:(2*baseNodeCount-2);
+connectionsArray((2*baseNodeCount-2):end,2) = 2:(2*baseNodeCount-1);
+
+trussStruct = generateTrussStruct(nodeArray, connectionsArray, 2*leftBaseNodeCount-1);
 end
 
 
