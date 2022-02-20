@@ -52,9 +52,10 @@ classdef zones
             % trussStruct.edgesArray(edgeIndex).endNodes(2) -> second node
             % ID
             % trussStruct.nodesArray(ID).x or .y to get coordinates
-            isPossible=false;
+            
             switch(obj.shape)
                 case shapes.rectangle
+                    isPossible=false;
                     % [x1,y1;x2,y2] 
                     % points being TL(x1,y1) BL(x1 y2) TR(x2 y1) BR(x2 y2)
                     TL = [obj.location(1,1), obj.location(1,2)];
@@ -99,18 +100,20 @@ classdef zones
                     end
                     
                 case shapes.circle
+                    isPossible = true;
                     for i = 1:length(trussStruct.edgesArray)
-                        n1=trussStruct.edgesArray(i).endNodes(1);
-                        n2=trussStruct.edgesArray(i).endNodes(2);
-                        x0 = obj.location(2);
-                        x1 = trussStruct.nodesArray(n1).x;
-                        x2 = trussStruct.nodesArray(n2).x;
-                        y0 = obj.location(3);
-                        y1 = trussStruct.nodesArray(n1).y;
-                        y2 = trussStruct.nodesArray(n2).y;
-                        %...magic...
-                        isPossible = abs((x2 - x1)*x0 + (y1 - y2)*y0 + (x1 - x2)*y1 + (y2 - y1)*x1)/sqrt((x2 - x1)^2 + (y1 - y2)^2) <=  obj.location(1);
-                        
+                        if isPossible
+                            n1=trussStruct.edgesArray(i).endNodes(1);
+                            n2=trussStruct.edgesArray(i).endNodes(2);
+                            x0 = obj.location(2);
+                            x1 = trussStruct.nodesArray(n1).x;
+                            x2 = trussStruct.nodesArray(n2).x;
+                            y0 = obj.location(3);
+                            y1 = trussStruct.nodesArray(n1).y;
+                            y2 = trussStruct.nodesArray(n2).y;
+                            %...magic...
+                            isPossible = abs((x2 - x1)*x0 + (y1 - y2)*y0 + (x1 - x2)*y1 + (y2 - y1)*x1)/sqrt((x2 - x1)^2 + (y1 - y2)^2) >=  obj.location(1);
+                        end
                     end
                 case shapes.triangle
                     3;
