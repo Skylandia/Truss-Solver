@@ -61,7 +61,7 @@ classdef zones
                     BL = [obj.location(1,1), obj.location(2,2)];
                     TR = [obj.location(2,1), obj.location(1,2)];
                     BR = [obj.location(2,1), obj.location(2,2)];
-                    for i = 1:length(TrussStruct.edgesArray)
+                    for i = 1:length(trussStruct.edgesArray)
                         n1=trussStruct.edgesArray(i).endNodes(1);
                         n2=trussStruct.edgesArray(i).endNodes(2);
                         if ~(((trussStruct.nodesArray(n1).x && trussStruct.nodesArray(n2).x) < TL(1)) ||...
