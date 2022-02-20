@@ -15,16 +15,19 @@ nodeArray(1:2*leftBaseNodeCount+1,:) = [leftMostPoint(1):leftTrussInterval(1)/2:
 nodeArray(2*leftBaseNodeCount+1:end,:) = [loadNodeLocation(1):rightTrussInterval(1)/2:rightMostPoint(1);loadNodeLocation(2):rightTrussInterval(2)/2:rightMostPoint(2)]';
 normLTI = [-leftTrussInterval(2),leftTrussInterval(1)] / norm(leftTrussInterval);
 normRTI = [-rightTrussInterval(2),rightTrussInterval(1)] / norm(rightTrussInterval);
-nodeArray(2:2:2*leftBaseNodeCount,:) = nodeArray(2:2:2*leftBaseNodeCount,:) - normLTI .* (0.040 .* rand(leftBaseNodeCount, 1) + 0.050);
-nodeArray(2*leftBaseNodeCount+2:2:end,:) = nodeArray(2*leftBaseNodeCount+2:2:end,:) - normRTI .* (0.040 .* rand(rightBaseNodeCount, 1) + 0.050);
+negOneorOne = (randi([0,1],'double') - 0.5) * 2;
+nodeArray(2:2:2*leftBaseNodeCount,:) = nodeArray(2:2:2*leftBaseNodeCount,:) + normLTI .* (0.040 .* rand(leftBaseNodeCount, 1) + 0.050) .* negOneorOne;
+nodeArray(2*leftBaseNodeCount+2:2:end,:) = nodeArray(2*leftBaseNodeCount+2:2:end,:) + normRTI .* (0.040 .* rand(rightBaseNodeCount, 1) + 0.050) .* negOneorOne;
 %Makes trussGraph connection array
 connectionsArray = zeros(4*baseNodeCount-5,2);
 connectionsArray(1:(2*baseNodeCount-3),1) = 1:(2*baseNodeCount-3);
 connectionsArray(1:(2*baseNodeCount-3),2) = 3:(2*baseNodeCount-1);
 connectionsArray((2*baseNodeCount-2):end,1) = 1:(2*baseNodeCount-2);
 connectionsArray((2*baseNodeCount-2):end,2) = 2:(2*baseNodeCount-1);
-
-trussStruct = generateTrussStruct(nodeArray, connectionsArray, 2*leftBaseNodeCount-1);
+%Makes the nodes a *bit* more random
+nodeArray(2:2*leftBaseNodeCount,:) = nodeArray(2:2*leftBaseNodeCount,:) + normrnd(0,0.00255,[2*leftBaseNodeCount-1,2]);
+nodeArray(2*leftBaseNodeCount+2:end-1,:) = nodeArray(2*leftBaseNodeCount+2:end-1,:) + normrnd(0,0.00255,[2*rightBaseNodeCount-1,2]);
+trussStruct = generateTrussStruct(nodeArray, connectionsArray, 2*leftBaseNodeCount+1);
 end
 
 
