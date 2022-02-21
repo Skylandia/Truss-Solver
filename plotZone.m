@@ -6,6 +6,8 @@ switch (zone.zoneType)
         edgeColour = 'g';
     case zoneType.restricted
         edgeColour = 'r';
+    case zoneType.platform
+        edgeColour = '#FFA500';
 end
 
 switch (zone.shape)

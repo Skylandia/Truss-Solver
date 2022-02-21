@@ -10,7 +10,7 @@ if ~iscell(trussArray)
 else
     [~, indexes] = sort(cellfun(@(ahhhhh) ahhhhh.cost, trussArray));
     trussArray = trussArray(indexes);
-    [~, indexes] = sort(cellfun(@(ahhhhh) ahhhhh.capasity, trussArray));
+    [~, indexes] = sort(cellfun(@(ahhhhh) ahhhhh.capasity, trussArray),'descend');
     trussArray = trussArray(indexes);
 end
 end

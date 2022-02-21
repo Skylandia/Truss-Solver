@@ -11,11 +11,11 @@ loadZone = zones( ...
 %restricted zones
 leftEdge = zones( ...
     shapes.rectangle, ...
-    zoneType.restricted, ...
+    zoneType.platform, ...
     [-0.150,-0.001;0,-0.150]);
 rightEdge = zones( ...
     shapes.rectangle, ...
-    zoneType.restricted, ...
+    zoneType.platform, ...
     [0.450,-0.001;0.600,-0.150]);
 bottomForbiddenZone1 = zones( ...
     shapes.rectangle, ...
@@ -27,7 +27,7 @@ bottomForbiddenZone2 = zones( ...
     [0,-0.150;0.450,-0.200]);
 circleForbiddenZone = zones( ...
     shapes.circle, ...
-    zoneType.load, ...
+    zoneType.restricted, ...
     [0.025,0.025,0.125]);
 restrictedZoneArray = {leftEdge, rightEdge, bottomForbiddenZone1, bottomForbiddenZone2, circleForbiddenZone};
 
@@ -42,8 +42,8 @@ Video = VideoWriter('DP3 14','MPEG-4');
 Video.FrameRate = 6; 
 open(Video)
 for i = 1:numberOfRuns
-    maxArray(i) = max([trussArray.capasity]);
-    meanArray(i) = mean([trussArray.capasity]);
+    maxArray(i) = max(cellfun(@(ahhhhh) ahhhhh.capasity, trussArray));
+    meanArray(i) = mean(cellfun(@(ahhhhh) ahhhhh.capasity, trussArray));
     
     % Video and Output Stuff
     subplot(2,1,1);
@@ -54,7 +54,7 @@ for i = 1:numberOfRuns
     xlabel('Number of Generations')
     ylabel('Truss Capacity')
     subplot(2,1,2);
-    t = trussArray(1);
+    t = trussArray{1};
     endNodes = t.endNodes;
     nodes = [[t.nodesArray.x];[t.nodesArray.y]]';
     graph = generateTrussGraph2(nodes, endNodes);
@@ -66,13 +66,13 @@ for i = 1:numberOfRuns
     cur_plot = gca;
     cur_plot.YDir = 'normal';
     plotZone(cur_plot, loadZone)
-    cellfun(@(sad) plotZone(cur_plot, sad))
+    cellfun(@(sad) plotZone(cur_plot, sad), restrictedZoneArray)
     frame = getframe(gcf); %get frame
     writeVideo(Video, frame);
     
     
     trussArray = sortTrussArray(trussArray);
-    trussArray = thanosArray(trussArray);
+    trussArray = snapArray(trussArray, loadZone, restrictedZoneArray);
     trussArray(numberOfTrusses/2 + 1:end) = testTrussArray(trussArray(numberOfTrusses/2 + 1:end), safteyFactor, maxCost);
 end
 close(Video)

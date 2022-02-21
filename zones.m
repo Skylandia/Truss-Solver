@@ -54,65 +54,43 @@ classdef zones
             % trussStruct.nodesArray(ID).x or .y to get coordinates
             
             switch(obj.shape)
-                case shapes.rectangle
-                    isPossible=false;
-                    % [x1,y1;x2,y2] 
-                    % points being TL(x1,y1) BL(x1 y2) TR(x2 y1) BR(x2 y2)
-                    TL = [obj.location(1,1), obj.location(1,2)];
-                    BL = [obj.location(1,1), obj.location(2,2)];
-                    TR = [obj.location(2,1), obj.location(1,2)];
-                    BR = [obj.location(2,1), obj.location(2,2)];
-                    for i = 1:length(trussStruct.edgesArray)
-                        n1=trussStruct.edgesArray(i).endNodes(1);
-                        n2=trussStruct.edgesArray(i).endNodes(2);
-                        if ~(((trussStruct.nodesArray(n1).x && trussStruct.nodesArray(n2).x) < TL(1)) ||...
-                            ((trussStruct.nodesArray(n1).x && trussStruct.nodesArray(n2).x) > BR(1)) ||...
-                            ((trussStruct.nodesArray(n1).y && trussStruct.nodesArray(n2).y) > TL(2)) ||...
-                            ((trussStrust.nodesArray(n1).y && trussSTruct.nodesArray(n2).y) < BR(2)))
+                case {shapes.rectangle, shapes.triangle}
+                    if obj.shape == shapes.rectangle
+                        % [x1,y1;x2,y2]
+                        % Top left ; bottom right
+                        points = point(obj.location(1,1), 
+                                  
 
-                            j=1;
-                            broken = false;
-                            while (j<5 && broken == false)
-                                switch(j)
-                                    case 1
-                                        p1=TL;
-                                        p2=BL;
-                                    case 2
-                                        p1=TL;
-                                        p2=TR;
-                                    case 3
-                                        p1=TR;
-                                        p2=BR;
-                                    case 4
-                                        p1=BL;
-                                        p2=BR;
-                                end
-                                d = (p2(1)*p1(2)-p1(1)*p2(2));
-                                s = (1/d)*((trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p1(2) - (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(1));
-                                t = (1/d)*-(-(trussStruct.nodesArray(n1).x - trussStruct.nodesArray(n2).x)*p2(2) + (trussStruct.nodesArray(n1).y - trussStruct.nodesArray(n2).y)*p1(2));
-                                if ~(0<=s && s <=1 && 0<=t && t<=1)
-                                    isPossible = true;
-                                    broken = true;
-                                end
-                                j=j+1;
-                            end
-                        end
-                    end
-                    
                 case shapes.circle
                     isPossible = true;
                     for i = 1:length(trussStruct.edgesArray)
                         if isPossible
-                            n1=trussStruct.edgesArray(i).endNodes(1);
-                            n2=trussStruct.edgesArray(i).endNodes(2);
-                            x0 = obj.location(2);
-                            x1 = trussStruct.nodesArray(n1).x;
-                            x2 = trussStruct.nodesArray(n2).x;
-                            y0 = obj.location(3);
-                            y1 = trussStruct.nodesArray(n1).y;
-                            y2 = trussStruct.nodesArray(n2).y;
-                            %...magic...
-                            isPossible = abs((x2 - x1)*x0 + (y1 - y2)*y0 + (x1 - x2)*y1 + (y2 - y1)*x1)/sqrt((x2 - x1)^2 + (y1 - y2)^2) >=  obj.location(1);
+                            %Nodes
+                            node1=trussStruct.edgesArray(i).endNodes(1);
+                            node2=trussStruct.edgesArray(i).endNodes(2);
+                            %Circle Location
+                            cx = obj.location(2);
+                            cy = obj.location(3);
+                            %Relative X
+                            x1 = trussStruct.nodesArray(node1).x - cx;
+                            x2 = trussStruct.nodesArray(node2).x - cx;
+                            %Relative Y
+                            y1 = trussStruct.nodesArray(node1).y - cy;
+                            y2 = trussStruct.nodesArray(node2).y - cy;
+                            %...Magic...
+                            a = (x2 - x1)^2 + (y2 - y1)^2;
+                            b = 2 * (x1 * (x2 - x1) + y1 * (y2 - y1));
+                            c = x1^2 + y1^2 - (obj.location(1))^2;
+                            disc = b^2 - 4*a*c;
+                            if disc > 0
+                                sqrtdisc = sqrt(disc);
+                                t1 = (-b + sqrtdisc)/(2*a);
+                                t2 = (-b - sqrtdisc)/(2*a);
+                                if ((0 < t1 && t1 < 1) || (0 < t2 && t2 < 1))
+                                    isPossible = false;
+                                end
+                            end
+
                         end
                     end
                 case shapes.triangle

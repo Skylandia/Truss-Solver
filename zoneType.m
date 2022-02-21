@@ -4,7 +4,7 @@ classdef zoneType
     %   zone
     
     enumeration
-        load, restricted
+        load, restricted, platform
     end
     
 end

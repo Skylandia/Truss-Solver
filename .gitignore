@@ -1,6 +1,9 @@
 # Compiled MEX binaries (all platforms)
 *.mex*
 
+# Matlab Autosaves
+*.asv
+
 # Config file and generator
 
 ConfigFileMaker.py
