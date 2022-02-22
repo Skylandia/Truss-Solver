@@ -1,4 +1,4 @@
-classdef line
+classdef lineObject
     %LINE Summary of this class goes here
     %   Detailed explanation goes here
     
@@ -9,7 +9,7 @@ classdef line
     
     methods
 
-        function obj = line(leftMostPoint,rightMostPoint)
+        function obj = lineObject(leftMostPoint,rightMostPoint)
             %LINE Construct an instance of this class
             %   Detailed explanation goes here
             obj.leftMostPoint = leftMostPoint;

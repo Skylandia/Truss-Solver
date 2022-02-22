@@ -35,7 +35,7 @@ function [baseNodeCount, nodeGap] = detGapAndCount(leftMostPoint,rightMostPoint)
 baseNodeCount = -1;
 trussLength = norm(rightMostPoint - leftMostPoint);
 while (baseNodeCount < 3) || (baseNodeCount > 49)
-    baseNodeCount = ceil(trussLength / normrnd(0.09,0.027));
+    baseNodeCount = ceil(trussLength / normrnd(0.115,0.01785));
 end
 nodeGap = trussLength / baseNodeCount;
 end

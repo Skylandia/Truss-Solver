@@ -58,8 +58,41 @@ classdef zones
                     if obj.shape == shapes.rectangle
                         % [x1,y1;x2,y2]
                         % Top left ; bottom right
-                        points = point(obj.location(1,1), 
-                                  
+                        points = {point(obj.location(1,1), obj.location(1,2));
+                                  point(obj.location(1,1), obj.location(2,2));
+                                  point(obj.location(2,1), obj.location(1,2));
+                                  point(obj.location(2,1), obj.location(2,2));};
+                        lineObjects = {lineObject(points{1},points{2});
+                                       lineObject(points{1},points{3});
+                                       lineObject(points{2},points{4});
+                                       lineObject(points{3},points{4});};
+                    else
+                        points = {point(obj.location(1,1), obj.location(1,2));
+                                  point(obj.location(2,1), obj.location(2,2));
+                                  point(obj.location(3,1), obj.location(3,2));};
+                        lineObjects = {lineObject(points{1},points{2});
+                                       lineObject(points{1},points{3});
+                                       lineObject(points{2},points{3});};
+                    end
+                    for i = 1:trussStruct.numEdges
+                        %convert edge to line
+                        node_1 = trussStruct.nodesArray(trussStruct.edgesArray(i).endNodes(1));
+                        node_2 = trussStruct.nodesArray(trussStruct.edgesArray(i).endNodes(2));
+                        point_1 = point(node_1.x, node_1.y);
+                        point_2 = point(node_2.x, node_2.y);
+                        edgeLine = lineObject(point_1, point_2);
+                        %any on cellfun lineobjects to check if any
+                        %intercept
+                        doesColide = any(cellfun(@(b) doIntercept(edgeLine, b),lineObjects));
+                        %early return
+                        if doesColide
+                            isPossible = false;
+                            return
+                        end
+                    end
+                    isPossible = true;
+
+
 
                 case shapes.circle
                     isPossible = true;
@@ -109,14 +142,16 @@ classdef zones
                     % [x1,y1;x2,y2]
                     % Top left ; bottom right
                     if (...
-                            (weightNodeLocation(1) < obj.location(1,1)) && (weightNodeLocation(1) > obj.location(2,1)) ||...
+                            (weightNodeLocation(1) > obj.location(1,1)) && (weightNodeLocation(1) < obj.location(2,1)) &&...
                             (weightNodeLocation(2) < obj.location(1,2)) && (weightNodeLocation(2) > obj.location(2,2)))
                         isPossible = true;
                     end
+
                 case shapes.circle
                     if (norm(obj.location(2:3) - weightNodeLocation) < obj.location(1))
                         isPossible = true;
                     end
+
                 case shapes.triange
             end
         end

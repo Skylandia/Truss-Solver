@@ -1,5 +1,5 @@
-numberOfTrusses = 100; %must be even
-numberOfRuns = 360;
+numberOfTrusses = 500; %must be even
+numberOfRuns = 720;
 leftMostPoint = [-0.005,0];
 rightMostPoint = [0.455,0];
 safteyFactor = 0.8;
@@ -24,7 +24,7 @@ bottomForbiddenZone1 = zones( ...
 bottomForbiddenZone2 = zones( ...
     shapes.rectangle, ...
     zoneType.restricted, ...
-    [0,-0.150;0.450,-0.200]);
+    [0,-0.150;0.450,-0.160]);
 circleForbiddenZone = zones( ...
     shapes.circle, ...
     zoneType.restricted, ...
@@ -38,7 +38,7 @@ trussArray = prepTrussArray2(numberOfTrusses, leftMostPoint, rightMostPoint, loa
 trussArray = testTrussArray(trussArray, safteyFactor, maxCost);
 maxArray = zeros(1,numberOfRuns);
 meanArray = zeros(1,numberOfRuns);
-Video = VideoWriter('DP3 14','MPEG-4'); 
+Video = VideoWriter('DP3 17','MPEG-4'); 
 Video.FrameRate = 6; 
 open(Video)
 for i = 1:numberOfRuns
