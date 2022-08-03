@@ -15,7 +15,6 @@
 #include "coder_array.h"
 #include "emlrt.h"
 #include "mex.h"
-#include "omp.h"
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -24,7 +23,7 @@
 // Function Declarations
 namespace coder {
 void diag(const emlrtStack *sp, const ::coder::array<real_T, 2U> &v,
-          real_T d_data[], int32_T *d_size);
+          ::coder::array<real_T, 1U> &d);
 
 }
 

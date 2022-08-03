@@ -1,60 +1,61 @@
-# CompilerName=clang
+# CompilerName=msvcpp170
 # Mode=optim
 ninja_required_version = 1.3
 
 # Basic folders
 root = .
-builddir = $root/build/maci64
-matlabdir = /Applications/MATLAB_R2021b.app
-startdir = /Users/liammobbs/MATLAB/Projects/Matlab-Truss-Solver
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2022a
+startdir = C:\Users\Mack\OneDrive\Documents\MATLAB\trussSolver
 
 # Toolchain information
-cc = /usr/bin/xcrun -sdk macosx12.1 clang
-cxx = /usr/bin/xcrun -sdk macosx12.1 clang++
-linker = /usr/bin/xcrun -sdk macosx12.1 clang
-linkerxx = /usr/bin/xcrun -sdk macosx12.1 clang++
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
 
-cflags =  -fno-common -arch x86_64 -mmacosx-version-min=10.15 -fexceptions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c99 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H -c -fPIC -Xpreprocessor -fopenmp -I "$matlabdir/toolbox/eml/externalDependency/omp/maci64/include" -DOpenMP_omp_LIBRARY="$matlabdir/sys/os/maci64/libiomp5.dylib" 
+cflags =  /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251 
 
-cxxflags =  -fno-common -arch x86_64 -mmacosx-version-min=10.15 -fexceptions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H -c -fPIC -Xpreprocessor -fopenmp -I "$matlabdir/toolbox/eml/externalDependency/omp/maci64/include" -DOpenMP_omp_LIBRARY="$matlabdir/sys/os/maci64/libiomp5.dylib" 
+cxxflags =   /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=tensionCalculator3_mex -DMW_NEEDS_VERSION_H /openmp /wd4101 /wd4251 
 
-ldflags =  -Wl,-twolevel_namespace -undefined error -arch x86_64 -mmacosx-version-min=10.15 -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -framework Cocoa -bundle  -stdlib=libc++ -L"$matlabdir/bin/maci64" -lmx -lmex -lmat -L"$matlabdir/extern/bin/maci64" -lMatlabDataArray -lMatlabEngine  -Wl,-rpath,@loader_path -o tensionCalculator3_mex.mexmaci64 -L"$matlabdir/bin/maci64" -lmwlapack -lmwblas -lemlrt -lcovrt -lut -lmwmathutil -fPIC -L"$matlabdir/sys/os/maci64" -liomp5
+ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libMatlabDataArray.lib libMatlabEngine.lib  /out:"tensionCalculator3_mex.mexw64" /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmwlapack.lib libmwblas.lib libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib libiomp5md.lib /nodefaultlib:vcomp /LIBPATH:"$matlabdir\bin\win64"
 
 # Build Rules
 rule cc
-    command = $cc $cflags $in -o $out
+    command = $cc $cflags $in /Fo$out
 
 rule cxx
-    command = $cxx $cxxflags $in -o $out
+    command = $cxx $cxxflags $in /Fo$out
 
 rule link
-    command = $linker $in $ldflags
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
 
 rule linkxx
     command = $linkerxx $in $ldflags
 
 # Build
-build $builddir/tensionCalculator3_data.o : cxx $root/tensionCalculator3_data.cpp
-build $builddir/rt_nonfinite.o : cxx $root/rt_nonfinite.cpp
-build $builddir/tensionCalculator3_initialize.o : cxx $root/tensionCalculator3_initialize.cpp
-build $builddir/tensionCalculator3_terminate.o : cxx $root/tensionCalculator3_terminate.cpp
-build $builddir/tensionCalculator3.o : cxx $root/tensionCalculator3.cpp
-build $builddir/find.o : cxx $root/find.cpp
-build $builddir/indexShapeCheck.o : cxx $root/indexShapeCheck.cpp
-build $builddir/warning.o : cxx $root/warning.cpp
-build $builddir/diag.o : cxx $root/diag.cpp
-build $builddir/sum.o : cxx $root/sum.cpp
-build $builddir/assertCompatibleDims.o : cxx $root/assertCompatibleDims.cpp
-build $builddir/mldivide.o : cxx $root/mldivide.cpp
-build $builddir/qrsolve.o : cxx $root/qrsolve.cpp
-build $builddir/_coder_tensionCalculator3_api.o : cxx $root/interface/_coder_tensionCalculator3_api.cpp
-build $builddir/_coder_tensionCalculator3_mex.o : cxx $root/interface/_coder_tensionCalculator3_mex.cpp
-build $builddir/eml_int_forloop_overflow_check.o : cxx $root/eml_int_forloop_overflow_check.cpp
-build $builddir/flipud.o : cxx $root/flipud.cpp
-build $builddir/sqrt.o : cxx $root/sqrt.cpp
-build $builddir/div.o : cxx $root/div.cpp
-build $builddir/_coder_tensionCalculator3_info.o : cxx $root/interface/_coder_tensionCalculator3_info.cpp
-build $builddir/cpp_mexapi_version.o : cxx $matlabdir/extern/version/cpp_mexapi_version.cpp
+build $builddir\tensionCalculator3_data.obj : cxx $root\tensionCalculator3_data.cpp
+build $builddir\rt_nonfinite.obj : cxx $root\rt_nonfinite.cpp
+build $builddir\tensionCalculator3_initialize.obj : cxx $root\tensionCalculator3_initialize.cpp
+build $builddir\tensionCalculator3_terminate.obj : cxx $root\tensionCalculator3_terminate.cpp
+build $builddir\tensionCalculator3.obj : cxx $root\tensionCalculator3.cpp
+build $builddir\find.obj : cxx $root\find.cpp
+build $builddir\indexShapeCheck.obj : cxx $root\indexShapeCheck.cpp
+build $builddir\warning.obj : cxx $root\warning.cpp
+build $builddir\diag.obj : cxx $root\diag.cpp
+build $builddir\sum.obj : cxx $root\sum.cpp
+build $builddir\mldivide.obj : cxx $root\mldivide.cpp
+build $builddir\qrsolve.obj : cxx $root\qrsolve.cpp
+build $builddir\_coder_tensionCalculator3_api.obj : cxx $root\interface\_coder_tensionCalculator3_api.cpp
+build $builddir\_coder_tensionCalculator3_mex.obj : cxx $root\interface\_coder_tensionCalculator3_mex.cpp
+build $builddir\eml_int_forloop_overflow_check.obj : cxx $root\eml_int_forloop_overflow_check.cpp
+build $builddir\flipud.obj : cxx $root\flipud.cpp
+build $builddir\sqrt.obj : cxx $root\sqrt.cpp
+build $builddir\div.obj : cxx $root\div.cpp
+build $builddir\_coder_tensionCalculator3_info.obj : cxx $root\interface\_coder_tensionCalculator3_info.cpp
+build $builddir\cpp_mexapi_version.obj : cxx $matlabdir\extern\version\cpp_mexapi_version.cpp
 
 # Link
-build $root/tensionCalculator3_mex.mexmaci64 : linkxx $builddir/tensionCalculator3_data.o $builddir/rt_nonfinite.o $builddir/tensionCalculator3_initialize.o $builddir/tensionCalculator3_terminate.o $builddir/tensionCalculator3.o $builddir/find.o $builddir/indexShapeCheck.o $builddir/warning.o $builddir/diag.o $builddir/sum.o $builddir/assertCompatibleDims.o $builddir/mldivide.o $builddir/qrsolve.o $builddir/_coder_tensionCalculator3_api.o $builddir/_coder_tensionCalculator3_mex.o $builddir/eml_int_forloop_overflow_check.o $builddir/flipud.o $builddir/sqrt.o $builddir/div.o $builddir/_coder_tensionCalculator3_info.o $builddir/cpp_mexapi_version.o 
+build $root\tensionCalculator3_mex.mexw64 : linkxx $builddir\tensionCalculator3_data.obj $builddir\rt_nonfinite.obj $builddir\tensionCalculator3_initialize.obj $builddir\tensionCalculator3_terminate.obj $builddir\tensionCalculator3.obj $builddir\find.obj $builddir\indexShapeCheck.obj $builddir\warning.obj $builddir\diag.obj $builddir\sum.obj $builddir\mldivide.obj $builddir\qrsolve.obj $builddir\_coder_tensionCalculator3_api.obj $builddir\_coder_tensionCalculator3_mex.obj $builddir\eml_int_forloop_overflow_check.obj $builddir\flipud.obj $builddir\sqrt.obj $builddir\div.obj $builddir\_coder_tensionCalculator3_info.obj $builddir\cpp_mexapi_version.obj 

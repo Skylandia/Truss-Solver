@@ -15,7 +15,6 @@
 #include "coder_array.h"
 #include "emlrt.h"
 #include "mex.h"
-#include "omp.h"
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -23,9 +22,8 @@
 
 // Function Declarations
 namespace coder {
-void b_eml_find(const emlrtStack *sp, const boolean_T x_data[],
-                const int32_T x_size[2], int32_T i_data[], int32_T *i_size,
-                int32_T j_data[], int32_T *j_size);
+void b_eml_find(const emlrtStack *sp, const ::coder::array<boolean_T, 2U> &x,
+                ::coder::array<int32_T, 1U> &i, ::coder::array<int32_T, 1U> &j);
 
 void eml_find(const emlrtStack *sp, const ::coder::array<boolean_T, 1U> &x,
               ::coder::array<int32_T, 1U> &i);

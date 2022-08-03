@@ -1,4 +1,4 @@
-/* Copyright 2019-2020 The MathWorks, Inc. */
+/* Copyright 2019-2021 The MathWorks, Inc. */
 /* Copied from fullfile(matlabroot,'extern','include','coder','coder_array','coder_array_mex.h') */
 #pragma once
 
@@ -688,6 +688,10 @@ class array_base {
         return data_.capacity();
     }
 
+    void reserve(emlrtRTEInfo* _rteInfo, emlrtConstCTX _ctx, SZ _n) {
+        ensureCapacity(_n, _rteInfo, _ctx);
+    }
+
     void set_size(emlrtRTEInfo* _rteInfo, emlrtConstCTX _ctx, SZ _n1) {
         ::coder::detail::match_dimensions<N == 1>::check();
         size_[0] = _n1;
@@ -837,6 +841,10 @@ class array_base {
         size_[8] = _n9;
         size_[9] = _n10;
         ensureCapacity(numel_check(_rteInfo, _ctx), _rteInfo, _ctx);
+    }
+
+    void reserve(SZ _n) {
+        ensureCapacity(_n);
     }
 
     void set_size(SZ _n1) {

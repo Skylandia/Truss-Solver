@@ -10,94 +10,105 @@
 
 // Include files
 #include "findMemberType5.h"
+#include "find.h"
 #include "findMemberType5_data.h"
+#include "findMemberType5_internal_types.h"
 #include "findMemberType5_types.h"
 #include "rowNamesDim.h"
 #include "rt_nonfinite.h"
 #include "table.h"
 #include "varNamesDim.h"
-#include "coder_array.h"
-#include "coder_bounded_array.h"
 #include "mwmathutil.h"
 #include <cstring>
 
+// Type Definitions
+struct emxArray_cell_wrap_5_6 {
+  cell_wrap_5 data[6];
+};
+
 // Variable Definitions
-static emlrtRSInfo emlrtRSI{
-    14,                // lineNo
-    "findMemberType5", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m" // pathName
-};
-
-static emlrtRSInfo b_emlrtRSI{
-    21,                // lineNo
-    "findMemberType5", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m" // pathName
-};
-
-static emlrtRSInfo c_emlrtRSI{
-    23,                // lineNo
-    "findMemberType5", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m" // pathName
-};
-
-static emlrtRSInfo d_emlrtRSI{
-    37,                // lineNo
-    "findMemberType5", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m" // pathName
-};
-
 static emlrtRSInfo
-    e_emlrtRSI{
-        6,                     // lineNo
-        "generateTrussTables", // fcnName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\generateTrussTables.m" // pathName
+    emlrtRSI{
+        14,                // lineNo
+        "findMemberType5", // fcnName
+        "C:"
+        "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberTyp"
+        "e5.m" // pathName
     };
 
 static emlrtRSInfo
-    f_emlrtRSI{
-        17,                    // lineNo
-        "generateTrussTables", // fcnName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\generateTrussTables.m" // pathName
+    b_emlrtRSI{
+        21,                // lineNo
+        "findMemberType5", // fcnName
+        "C:"
+        "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberTyp"
+        "e5.m" // pathName
     };
 
 static emlrtRSInfo
-    g_emlrtRSI{
-        28,                    // lineNo
-        "generateTrussTables", // fcnName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\generateTrussTables.m" // pathName
+    c_emlrtRSI{
+        23,                // lineNo
+        "findMemberType5", // fcnName
+        "C:"
+        "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberTyp"
+        "e5.m" // pathName
     };
 
 static emlrtRSInfo
-    h_emlrtRSI{
-        30,                    // lineNo
-        "generateTrussTables", // fcnName
-        "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-        "Solver\\generateTrussTables.m" // pathName
+    d_emlrtRSI{
+        37,                // lineNo
+        "findMemberType5", // fcnName
+        "C:"
+        "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberTyp"
+        "e5.m" // pathName
     };
 
-static emlrtRSInfo i_emlrtRSI{
-    211,           // lineNo
-    "table/table", // fcnName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\@table\\table.m" // pathName
+static emlrtRSInfo e_emlrtRSI{
+    6,                     // lineNo
+    "generateTrussTables", // fcnName
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\generateTrussTabl"
+    "es.m" // pathName
+};
+
+static emlrtRSInfo f_emlrtRSI{
+    17,                    // lineNo
+    "generateTrussTables", // fcnName
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\generateTrussTabl"
+    "es.m" // pathName
+};
+
+static emlrtRSInfo g_emlrtRSI{
+    28,                    // lineNo
+    "generateTrussTables", // fcnName
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\generateTrussTabl"
+    "es.m" // pathName
+};
+
+static emlrtRSInfo h_emlrtRSI{
+    30,                    // lineNo
+    "generateTrussTables", // fcnName
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\generateTrussTabl"
+    "es.m" // pathName
 };
 
 static emlrtRSInfo m_emlrtRSI{
     7,                          // lineNo
     "findCompressionStrengths", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-    "Solver\\findCompressionStrengths.m" // pathName
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findCompressionSt"
+    "rengths.m" // pathName
 };
 
 static emlrtRSInfo n_emlrtRSI{
     10,                         // lineNo
     "findCompressionStrengths", // fcnName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss "
-    "Solver\\findCompressionStrengths.m" // pathName
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findCompressionSt"
+    "rengths.m" // pathName
 };
 
 static emlrtRSInfo
@@ -105,14 +116,14 @@ static emlrtRSInfo
         71,      // lineNo
         "power", // fcnName
         "C:\\Program "
-        "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\ops\\power.m" // pathName
+        "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\ops\\power.m" // pathName
     };
 
 static emlrtRSInfo p_emlrtRSI{
     19,                       // lineNo
     "tabular/parenReference", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m" // pathName
 };
 
@@ -120,15 +131,15 @@ static emlrtRSInfo q_emlrtRSI{
     24,                       // lineNo
     "tabular/parenReference", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m" // pathName
 };
 
 static emlrtRSInfo r_emlrtRSI{
-    49,                       // lineNo
+    41,                       // lineNo
     "tabular/parenReference", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m" // pathName
 };
 
@@ -137,363 +148,373 @@ static emlrtMCInfo emlrtMCI{
     5,       // colNo
     "error", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\lang\\error.m" // pName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\lang\\error.m" // pName
 };
 
 static emlrtRTEInfo
     emlrtRTEI{
-        83,         // lineNo
+        82,         // lineNo
         5,          // colNo
         "fltpower", // fName
         "C:\\Program "
-        "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\ops\\power.m" // pName
+        "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\ops\\power.m" // pName
     };
 
-static emlrtBCInfo c_emlrtBCI{
+static emlrtBCInfo emlrtBCI{
     -1,                                 // iFirst
     -1,                                 // iLast
     46,                                 // lineNo
     69,                                 // colNo
     "posBeams.(\"Relative Strength\")", // aName
     "findMemberType5",                  // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo d_emlrtBCI{
+static emlrtBCInfo b_emlrtBCI{
     -1,                                 // iFirst
     -1,                                 // iLast
     32,                                 // lineNo
     69,                                 // colNo
     "posBeams.(\"Relative Strength\")", // aName
     "findMemberType5",                  // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo e_emlrtBCI{
+static emlrtBCInfo c_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     22,                // lineNo
     40,                // colNo
     "memberForces",    // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo f_emlrtBCI{
+static emlrtBCInfo d_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     21,                // lineNo
     60,                // colNo
     "memLenghths",     // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo g_emlrtBCI{
+static emlrtBCInfo e_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     18,                // lineNo
     18,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo h_emlrtBCI{
+static emlrtBCInfo f_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     39,                // lineNo
     22,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo i_emlrtBCI{
+static emlrtBCInfo g_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     45,                // lineNo
     22,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo j_emlrtBCI{
-    0,                        // iFirst
-    5,                        // iLast
-    71,                       // lineNo
-    53,                       // colNo
-    "",                       // aName
-    "tabular/parenReference", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\@tabular\\parenReference.m", // pName
-    0                                                        // checkKind
-};
-
-static emlrtBCInfo k_emlrtBCI{
+static emlrtBCInfo h_emlrtBCI{
     -1,                       // iFirst
     -1,                       // iLast
-    71,                       // lineNo
+    63,                       // lineNo
     33,                       // colNo
     "",                       // aName
     "tabular/parenReference", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m", // pName
     0                                                        // checkKind
 };
 
-static emlrtBCInfo l_emlrtBCI{
+static emlrtBCInfo i_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     25,                // lineNo
     22,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo m_emlrtBCI{
+static emlrtBCInfo j_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     31,                // lineNo
     22,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo n_emlrtBCI{
+static emlrtBCInfo k_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     17,                // lineNo
-    8,                 // colNo
+    21,                // colNo
     "memberForces",    // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo o_emlrtBCI{
+static emlrtBCInfo l_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     20,                // lineNo
-    12,                // colNo
+    25,                // colNo
     "memberForces",    // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo p_emlrtBCI{
+static emlrtBCInfo m_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     36,                // lineNo
-    23,                // colNo
+    36,                // colNo
     "memberForces",    // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo q_emlrtBCI{
+static emlrtBCInfo n_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     18,                // lineNo
     9,                 // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo r_emlrtBCI{
+static emlrtBCInfo o_emlrtBCI{
     -1,                     // iFirst
     -1,                     // iLast
     19,                     // lineNo
-    9,                      // colNo
+    30,                     // colNo
     "safteyFactor_Members", // aName
     "findMemberType5",      // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo s_emlrtBCI{
-    0,                        // iFirst
-    5,                        // iLast
-    71,                       // lineNo
+static emlrtBCInfo p_emlrtBCI{
+    -1,                       // iFirst
+    -1,                       // iLast
+    63,                       // lineNo
     41,                       // colNo
     "",                       // aName
     "tabular/parenReference", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m", // pName
     0                                                        // checkKind
 };
 
-static emlrtBCInfo t_emlrtBCI{
+static emlrtBCInfo q_emlrtBCI{
     -1,                       // iFirst
     -1,                       // iLast
-    71,                       // lineNo
-    41,                       // colNo
-    "",                       // aName
-    "tabular/parenReference", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\@tabular\\parenReference.m", // pName
-    0                                                        // checkKind
-};
-
-static emlrtBCInfo u_emlrtBCI{
-    -1,                       // iFirst
-    -1,                       // iLast
-    71,                       // lineNo
+    63,                       // lineNo
     25,                       // colNo
     "",                       // aName
     "tabular/parenReference", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m", // pName
     0                                                        // checkKind
 };
 
-static emlrtBCInfo v_emlrtBCI{
+static emlrtBCInfo r_emlrtBCI{
     -1,                       // iFirst
     -1,                       // iLast
-    71,                       // lineNo
-    53,                       // colNo
+    63,                       // lineNo
+    71,                       // colNo
     "",                       // aName
     "tabular/parenReference", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
     "matlab\\+internal\\+coder\\@tabular\\parenReference.m", // pName
     0                                                        // checkKind
 };
 
-static emlrtBCInfo w_emlrtBCI{
+static emlrtBCInfo s_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     39,                // lineNo
     13,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo x_emlrtBCI{
+static emlrtBCInfo t_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     45,                // lineNo
     13,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo y_emlrtBCI{
+static emlrtBCInfo u_emlrtBCI{
     -1,                     // iFirst
     -1,                     // iLast
     40,                     // lineNo
-    13,                     // colNo
+    34,                     // colNo
     "safteyFactor_Members", // aName
     "findMemberType5",      // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo ab_emlrtBCI{
+static emlrtBCInfo v_emlrtBCI{
     -1,                     // iFirst
     -1,                     // iLast
     46,                     // lineNo
-    13,                     // colNo
+    34,                     // colNo
     "safteyFactor_Members", // aName
     "findMemberType5",      // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo bb_emlrtBCI{
+static emlrtBCInfo w_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     25,                // lineNo
     13,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo cb_emlrtBCI{
+static emlrtBCInfo x_emlrtBCI{
     -1,                     // iFirst
     -1,                     // iLast
     26,                     // lineNo
-    13,                     // colNo
+    34,                     // colNo
     "safteyFactor_Members", // aName
     "findMemberType5",      // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo db_emlrtBCI{
+static emlrtBCInfo y_emlrtBCI{
     -1,                // iFirst
     -1,                // iLast
     31,                // lineNo
     13,                // colNo
     "beamType",        // aName
     "findMemberType5", // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtBCInfo eb_emlrtBCI{
+static emlrtBCInfo ab_emlrtBCI{
     -1,                     // iFirst
     -1,                     // iLast
     32,                     // lineNo
-    13,                     // colNo
+    34,                     // colNo
     "safteyFactor_Members", // aName
     "findMemberType5",      // fName
-    "C:\\Users\\Mack\\Documents\\MATLAB\\Truss Solver\\findMemberType5.m", // pName
-    0 // checkKind
+    "C:"
+    "\\Users\\Mack\\OneDrive\\Documents\\MATLAB\\trussSolver\\findMemberType5."
+    "m", // pName
+    0    // checkKind
 };
 
-static emlrtRTEInfo c_emlrtRTEI{
-    66,               // lineNo
-    73,               // colNo
-    "parenReference", // fName
-    "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\matlab\\datatypes\\codegen\\tabular\\+"
-    "matlab\\+internal\\+coder\\@tabular\\parenReference.m" // pName
-};
-
-static emlrtRSInfo y_emlrtRSI{
+static emlrtRSInfo db_emlrtRSI{
     27,      // lineNo
     "error", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\lib\\matlab\\lang\\error.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\lang\\error.m" // pathName
 };
 
 // Function Declarations
-static void error(const emlrtStack *sp, const mxArray *b,
-                  emlrtMCInfo *location);
+static void b_error(const emlrtStack *sp, const mxArray *m,
+                    emlrtMCInfo *location);
 
 // Function Definitions
-static void error(const emlrtStack *sp, const mxArray *b, emlrtMCInfo *location)
+static void b_error(const emlrtStack *sp, const mxArray *m,
+                    emlrtMCInfo *location)
 {
   const mxArray *pArray;
-  pArray = b;
+  pArray = m;
   emlrtCallMATLABR2012b((emlrtCTX)sp, 0, nullptr, 1, &pArray,
                         (const char_T *)"error", true, location);
 }
@@ -524,12 +545,9 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
   static const char_T cv3[6]{'T', 'y', 'p', 'e', ' ', '4'};
   static const char_T cv5[6]{'T', 'y', 'p', 'e', ' ', '5'};
   static const int8_T iv[6]{1, 2, 8, 26, 27, 56};
-  coder::b_table compressionTable;
-  coder::matlab::internal::coder::tabular::private_::varNamesDim ab_emlrtRSI;
-  coder::table tensionTable;
-  coder::array<cell_wrap_5, 1U> c_b_dataj;
-  coder::array<cell_wrap_7, 1U> b_b_dataj;
-  coder::array<real_T, 2U> numericRowIndices;
+  coder::b_table tensionTable;
+  coder::matlab::internal::coder::tabular::private_::varNamesDim eb_emlrtRSI;
+  coder::table compressionTable;
   cell_wrap_5 r;
   cell_wrap_5 r1;
   cell_wrap_5 r2;
@@ -550,12 +568,13 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
   real_T a__1;
   real_T numRowIndices;
   real_T tenStrengh;
+  int32_T ii_data[6];
   int32_T b_i;
   int32_T i;
+  int32_T ii_size;
   int32_T loop_ub;
   int8_T b_tmp_data[6];
   int8_T tmp_data[6];
-  boolean_T rowIndices[6];
   boolean_T exitg1;
   st.prev = sp;
   st.tls = sp->tls;
@@ -563,7 +582,6 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
   b_st.tls = st.tls;
   c_st.prev = &b_st;
   c_st.tls = b_st.tls;
-  emlrtHeapReferenceStackEnterFcnR2012b((emlrtCTX)sp);
   // findMemberType finds the required member to hold the force
   //    please refer to some form of oracle if you need to understand the mess
   //    I am about to write
@@ -571,7 +589,7 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
   //  this isn't going to work today... or yesterday
   safteyFactor_Members_size[0] = memberForces_size[0];
   loop_ub = memberForces_size[0];
-  if (0 <= loop_ub - 1) {
+  if (loop_ub - 1 >= 0) {
     std::memset(&safteyFactor_Members_data[0], 0, loop_ub * sizeof(real_T));
   }
   tenStrengh = 230.0 * safteyFactor;
@@ -607,7 +625,6 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
   for (i = 0; i < 6; i++) {
     r5.f1.data[i] = cv5[i];
   }
-  c_st.site = &i_emlrtRSI;
   compressionTable.data.f1[0] = r;
   compressionTable.data.f1[1] = r1;
   compressionTable.data.f1[2] = r2;
@@ -626,7 +643,6 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
     r10.f1[i] = cv6[i];
     r11.f1[i] = cv7[i];
   }
-  c_st.site = &i_emlrtRSI;
   tensionTable.data.f1[0] = r6;
   tensionTable.data.f1[1] = r7;
   tensionTable.data.f1[2] = r8;
@@ -637,9 +653,7 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
     tensionTable.data.f2[b_i] = t0_f2[b_i];
   }
   b_st.site = &g_emlrtRSI;
-  c_st.site = &i_emlrtRSI;
   b_st.site = &h_emlrtRSI;
-  c_st.site = &i_emlrtRSI;
   *isPossible = true;
   b_i = 0;
   exitg1 = false;
@@ -647,53 +661,54 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
     boolean_T guard1{false};
     if (b_i + 1 > memberForces_size[0]) {
       emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, memberForces_size[0],
-                                    &n_emlrtBCI, (emlrtCTX)sp);
+                                    &k_emlrtBCI, (emlrtCTX)sp);
     }
     guard1 = false;
     if (memberForces_data[b_i] == 0.0) {
-      int32_T b_dataj;
-      b_dataj = beamType_size[0] - 1;
-      if (b_i > b_dataj) {
-        emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &g_emlrtBCI,
+      int32_T partialTrueCount;
+      partialTrueCount = beamType_size[0] - 1;
+      if (b_i > partialTrueCount) {
+        emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount, &e_emlrtBCI,
                                       (emlrtCTX)sp);
       }
       beamType_data[b_i].f1.size[0] = 1;
-      if (b_i > b_dataj) {
-        emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &g_emlrtBCI,
+      if (b_i > partialTrueCount) {
+        emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount, &e_emlrtBCI,
                                       (emlrtCTX)sp);
       }
       beamType_data[b_i].f1.size[1] = 10;
-      if (b_i > b_dataj) {
-        emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &g_emlrtBCI,
+      if (b_i > partialTrueCount) {
+        emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount, &e_emlrtBCI,
                                       (emlrtCTX)sp);
       }
       for (i = 0; i < 10; i++) {
-        if (b_i > b_dataj) {
-          emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &q_emlrtBCI,
+        if (b_i > partialTrueCount) {
+          emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount, &n_emlrtBCI,
                                         (emlrtCTX)sp);
         }
         beamType_data[b_i].f1.data[i] = cv[i];
       }
       if (b_i + 1 > safteyFactor_Members_size[0]) {
         emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, safteyFactor_Members_size[0],
-                                      &r_emlrtBCI, (emlrtCTX)sp);
+                                      &o_emlrtBCI, (emlrtCTX)sp);
       }
       safteyFactor_Members_data[b_i] = rtInf;
       guard1 = true;
     } else {
       if (b_i + 1 > memberForces_size[0]) {
         emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, memberForces_size[0],
-                                      &o_emlrtBCI, (emlrtCTX)sp);
+                                      &l_emlrtBCI, (emlrtCTX)sp);
       }
       if (memberForces_data[b_i] < 0.0) {
+        emxArray_cell_wrap_5_6 b_dataj;
         real_T eqivTypeOne;
-        int32_T b_dataj;
-        int32_T c_i;
+        int32_T partialTrueCount;
         int32_T trueCount;
+        boolean_T rowIndices[6];
         st.site = &b_emlrtRSI;
         if (b_i + 1 > memLenghths_size[0]) {
           emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, memLenghths_size[0],
-                                        &f_emlrtBCI, &st);
+                                        &d_emlrtBCI, &st);
         }
         // findCompressionStrenghs takes in a load of lenghs, and optionally a
         // saftey multiplyer, then spits out the relative compression strengh
@@ -713,18 +728,18 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
           m = emlrtCreateCharArray(2, &iv1[0]);
           emlrtInitCharArrayR2013a(&b_st, 36, m, &varargin_1[0]);
           emlrtAssign(&y, m);
-          c_st.site = &y_emlrtRSI;
-          error(&c_st, y, &emlrtMCI);
+          c_st.site = &db_emlrtRSI;
+          b_error(&c_st, y, &emlrtMCI);
         }
         if (b_i + 1 > memberForces_size[0]) {
           emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, memberForces_size[0],
-                                        &e_emlrtBCI, (emlrtCTX)sp);
+                                        &c_emlrtBCI, (emlrtCTX)sp);
         }
         eqivTypeOne = muDoubleScalarAbs(memberForces_data[b_i]) /
                       (758228.0 * muDoubleScalarPower(eqivTypeOne, -2.061) *
                        safteyFactor);
         st.site = &c_emlrtRSI;
-        for (c_i = 0; c_i < 6; c_i++) {
+        for (int32_T c_i{0}; c_i < 6; c_i++) {
           rowIndices[c_i] = (compressionTable.data.f2[c_i] > eqivTypeOne);
         }
         b_st.site = &p_emlrtRSI;
@@ -732,174 +747,146 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
             subs2inds(&b_st, rowIndices, &numRowIndices, &a__1);
         b_st.site = &q_emlrtRSI;
         coder::matlab::internal::coder::tabular::private_::varNamesDim::
-            subs2inds(&ab_emlrtRSI);
+            subs2inds(&eb_emlrtRSI);
         b_st.site = &r_emlrtRSI;
-        coder::matlab::internal::coder::tabular::private_::varNamesDim::
-            logicalIndices2Numeric(&b_st, rowIndices, numericRowIndices);
-        c_b_dataj.set_size(&c_emlrtRTEI, &st, numericRowIndices.size(1));
-        i = numericRowIndices.size(1);
-        for (c_i = 0; c_i < i; c_i++) {
-          if (c_i + 1 > numericRowIndices.size(1)) {
-            emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, numericRowIndices.size(1),
-                                          &v_emlrtBCI, &st);
+        coder::eml_find(rowIndices, ii_data, &ii_size);
+        for (int32_T c_i{0}; c_i < ii_size; c_i++) {
+          if (c_i + 1 > ii_size) {
+            emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, ii_size, &r_emlrtBCI,
+                                          &st);
           }
-          trueCount = static_cast<int32_T>(numericRowIndices[c_i]) - 1;
-          if ((trueCount < 0) || (trueCount > 5)) {
-            emlrtDynamicBoundsCheckR2012b(trueCount, 0, 5, &j_emlrtBCI, &st);
+          loop_ub = compressionTable.data.f1[ii_data[c_i] - 1].f1.size[1] - 1;
+          if (c_i > ii_size - 1) {
+            emlrtDynamicBoundsCheckR2012b(c_i, 0, ii_size - 1, &h_emlrtBCI,
+                                          &st);
           }
-          if (c_i + 1 > numericRowIndices.size(1)) {
-            emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, numericRowIndices.size(1),
-                                          &v_emlrtBCI, &st);
+          b_dataj.data[c_i].f1.size[0] = 1;
+          if (c_i + 1 > ii_size) {
+            emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, ii_size, &r_emlrtBCI,
+                                          &st);
           }
-          trueCount = static_cast<int32_T>(numericRowIndices[c_i]) - 1;
-          if ((trueCount < 0) || (trueCount > 5)) {
-            emlrtDynamicBoundsCheckR2012b(trueCount, 0, 5, &j_emlrtBCI, &st);
+          if (c_i > ii_size - 1) {
+            emlrtDynamicBoundsCheckR2012b(c_i, 0, ii_size - 1, &h_emlrtBCI,
+                                          &st);
           }
-          loop_ub = compressionTable.data
-                        .f1[static_cast<int32_T>(numericRowIndices[c_i]) - 1]
-                        .f1.size[1] -
-                    1;
-          if (c_i > c_b_dataj.size(0) - 1) {
-            emlrtDynamicBoundsCheckR2012b(c_i, 0, c_b_dataj.size(0) - 1,
-                                          &k_emlrtBCI, &st);
+          b_dataj.data[c_i].f1.size[1] =
+              compressionTable.data.f1[ii_data[c_i] - 1].f1.size[1];
+          if (c_i > ii_size - 1) {
+            emlrtDynamicBoundsCheckR2012b(c_i, 0, ii_size - 1, &h_emlrtBCI,
+                                          &st);
           }
-          c_b_dataj[c_i].f1.size[0] = 1;
-          if (c_i + 1 > numericRowIndices.size(1)) {
-            emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, numericRowIndices.size(1),
-                                          &v_emlrtBCI, &st);
-          }
-          trueCount = static_cast<int32_T>(numericRowIndices[c_i]) - 1;
-          if ((trueCount < 0) || (trueCount > 5)) {
-            emlrtDynamicBoundsCheckR2012b(trueCount, 0, 5, &j_emlrtBCI, &st);
-          }
-          if (c_i > c_b_dataj.size(0) - 1) {
-            emlrtDynamicBoundsCheckR2012b(c_i, 0, c_b_dataj.size(0) - 1,
-                                          &k_emlrtBCI, &st);
-          }
-          c_b_dataj[c_i].f1.size[1] =
-              compressionTable.data
-                  .f1[static_cast<int32_T>(numericRowIndices[c_i]) - 1]
-                  .f1.size[1];
-          trueCount = c_b_dataj.size(0);
-          if (c_i > c_b_dataj.size(0) - 1) {
-            emlrtDynamicBoundsCheckR2012b(c_i, 0, c_b_dataj.size(0) - 1,
-                                          &k_emlrtBCI, &st);
-          }
-          for (int32_T i1{0}; i1 <= loop_ub; i1++) {
-            if (c_i + 1 > numericRowIndices.size(1)) {
-              emlrtDynamicBoundsCheckR2012b(
-                  c_i + 1, 1, numericRowIndices.size(1), &t_emlrtBCI, &st);
-            }
-            b_dataj = static_cast<int32_T>(numericRowIndices[c_i]) - 1;
-            if ((b_dataj < 0) || (b_dataj > 5)) {
-              emlrtDynamicBoundsCheckR2012b(b_dataj, 0, 5, &s_emlrtBCI, &st);
-            }
-            if (c_i > trueCount - 1) {
-              emlrtDynamicBoundsCheckR2012b(c_i, 0, trueCount - 1, &u_emlrtBCI,
+          for (i = 0; i <= loop_ub; i++) {
+            if (c_i + 1 > ii_size) {
+              emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, ii_size, &p_emlrtBCI,
                                             &st);
             }
-            c_b_dataj[c_i].f1.data[i1] =
-                compressionTable.data.f1[b_dataj].f1.data[i1];
+            if (c_i > ii_size - 1) {
+              emlrtDynamicBoundsCheckR2012b(c_i, 0, ii_size - 1, &q_emlrtBCI,
+                                            &st);
+            }
+            b_dataj.data[c_i].f1.data[i] =
+                compressionTable.data.f1[ii_data[c_i] - 1].f1.data[i];
           }
         }
         trueCount = 0;
-        b_dataj = 0;
-        for (c_i = 0; c_i < 6; c_i++) {
+        partialTrueCount = 0;
+        for (int32_T c_i{0}; c_i < 6; c_i++) {
           if (rowIndices[c_i]) {
             trueCount++;
-            b_tmp_data[b_dataj] = static_cast<int8_T>(c_i + 1);
-            b_dataj++;
+            b_tmp_data[partialTrueCount] = static_cast<int8_T>(c_i + 1);
+            partialTrueCount++;
           }
         }
-        if (c_b_dataj.size(0) == 0) {
+        if (ii_size == 0) {
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &l_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[0] = 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &l_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[1] = 6;
-          b_dataj = beamType_size[0] - 1;
+          partialTrueCount = beamType_size[0] - 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &l_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
           }
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &l_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
           }
           for (i = 0; i < 6; i++) {
-            if (b_i > b_dataj) {
-              emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &bb_emlrtBCI,
-                                            (emlrtCTX)sp);
+            if (b_i > partialTrueCount) {
+              emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount,
+                                            &w_emlrtBCI, (emlrtCTX)sp);
             }
             beamType_data[b_i].f1.data[i] = r5.f1.data[i];
           }
           if (b_i + 1 > safteyFactor_Members_size[0]) {
             emlrtDynamicBoundsCheckR2012b(b_i + 1, 1,
                                           safteyFactor_Members_size[0],
-                                          &cb_emlrtBCI, (emlrtCTX)sp);
+                                          &x_emlrtBCI, (emlrtCTX)sp);
           }
           safteyFactor_Members_data[b_i] = 56.0 / eqivTypeOne;
           //  warning('Truss unable to hold load')
           *isPossible = false;
           exitg1 = true;
         } else {
-          loop_ub = c_b_dataj[0].f1.size[1] - 1;
+          loop_ub = b_dataj.data[0].f1.size[1] - 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &m_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &j_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[0] = 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &m_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &j_emlrtBCI, (emlrtCTX)sp);
           }
-          beamType_data[b_i].f1.size[1] = c_b_dataj[0].f1.size[1];
-          b_dataj = beamType_size[0] - 1;
+          beamType_data[b_i].f1.size[1] = b_dataj.data[0].f1.size[1];
+          partialTrueCount = beamType_size[0] - 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &m_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &j_emlrtBCI, (emlrtCTX)sp);
           }
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &m_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &j_emlrtBCI, (emlrtCTX)sp);
           }
           for (i = 0; i <= loop_ub; i++) {
-            if (b_i > b_dataj) {
-              emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &db_emlrtBCI,
-                                            (emlrtCTX)sp);
+            if (b_i > partialTrueCount) {
+              emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount,
+                                            &y_emlrtBCI, (emlrtCTX)sp);
             }
-            beamType_data[b_i].f1.data[i] = c_b_dataj[0].f1.data[i];
+            beamType_data[b_i].f1.data[i] = b_dataj.data[0].f1.data[i];
           }
-          if (1 > trueCount) {
-            emlrtDynamicBoundsCheckR2012b(1, 1, trueCount, &d_emlrtBCI,
+          if (trueCount < 1) {
+            emlrtDynamicBoundsCheckR2012b(1, 1, trueCount, &b_emlrtBCI,
                                           (emlrtCTX)sp);
           }
           if (b_i + 1 > safteyFactor_Members_size[0]) {
             emlrtDynamicBoundsCheckR2012b(b_i + 1, 1,
                                           safteyFactor_Members_size[0],
-                                          &eb_emlrtBCI, (emlrtCTX)sp);
+                                          &ab_emlrtBCI, (emlrtCTX)sp);
           }
           safteyFactor_Members_data[b_i] =
               compressionTable.data.f2[b_tmp_data[0] - 1] / eqivTypeOne;
           guard1 = true;
         }
       } else {
+        cell_wrap_7 b_dataj_data[6];
         real_T eqivTypeOne;
-        int32_T b_dataj;
-        int32_T c_i;
+        int32_T partialTrueCount;
         int32_T trueCount;
+        boolean_T rowIndices[6];
         if (b_i + 1 > memberForces_size[0]) {
           emlrtDynamicBoundsCheckR2012b(b_i + 1, 1, memberForces_size[0],
-                                        &p_emlrtBCI, (emlrtCTX)sp);
+                                        &m_emlrtBCI, (emlrtCTX)sp);
         }
         eqivTypeOne = memberForces_data[b_i] / tenStrengh;
         st.site = &d_emlrtRSI;
-        for (c_i = 0; c_i < 6; c_i++) {
+        for (int32_T c_i{0}; c_i < 6; c_i++) {
           rowIndices[c_i] = (t0_f2[c_i] > eqivTypeOne);
         }
         b_st.site = &p_emlrtRSI;
@@ -907,69 +894,63 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
             subs2inds(&b_st, rowIndices, &numRowIndices, &a__1);
         b_st.site = &q_emlrtRSI;
         coder::matlab::internal::coder::tabular::private_::varNamesDim::
-            subs2inds(&ab_emlrtRSI);
+            subs2inds(&eb_emlrtRSI);
         b_st.site = &r_emlrtRSI;
-        coder::matlab::internal::coder::tabular::private_::varNamesDim::
-            logicalIndices2Numeric(&b_st, rowIndices, numericRowIndices);
-        b_b_dataj.set_size(&c_emlrtRTEI, &st, numericRowIndices.size(1));
-        i = numericRowIndices.size(1);
-        for (c_i = 0; c_i < i; c_i++) {
-          b_dataj = b_b_dataj.size(0) - 1;
-          trueCount = static_cast<int32_T>(numericRowIndices[c_i]) - 1;
-          for (int32_T i1{0}; i1 < 10; i1++) {
-            if (c_i + 1 > numericRowIndices.size(1)) {
-              emlrtDynamicBoundsCheckR2012b(
-                  c_i + 1, 1, numericRowIndices.size(1), &t_emlrtBCI, &st);
+        coder::eml_find(rowIndices, ii_data, &ii_size);
+        for (int32_T c_i{0}; c_i < ii_size; c_i++) {
+          for (i = 0; i < 10; i++) {
+            if (c_i + 1 > ii_size) {
+              emlrtDynamicBoundsCheckR2012b(c_i + 1, 1, ii_size, &p_emlrtBCI,
+                                            &st);
             }
-            if ((trueCount < 0) || (trueCount > 5)) {
-              emlrtDynamicBoundsCheckR2012b(trueCount, 0, 5, &s_emlrtBCI, &st);
+            if (c_i > ii_size - 1) {
+              emlrtDynamicBoundsCheckR2012b(c_i, 0, ii_size - 1, &q_emlrtBCI,
+                                            &st);
             }
-            if (c_i > b_dataj) {
-              emlrtDynamicBoundsCheckR2012b(c_i, 0, b_dataj, &u_emlrtBCI, &st);
-            }
-            b_b_dataj[c_i].f1[i1] = tensionTable.data.f1[trueCount].f1[i1];
+            b_dataj_data[c_i].f1[i] =
+                tensionTable.data.f1[ii_data[c_i] - 1].f1[i];
           }
         }
         trueCount = 0;
-        b_dataj = 0;
-        for (c_i = 0; c_i < 6; c_i++) {
+        partialTrueCount = 0;
+        for (int32_T c_i{0}; c_i < 6; c_i++) {
           if (rowIndices[c_i]) {
             trueCount++;
-            tmp_data[b_dataj] = static_cast<int8_T>(c_i + 1);
-            b_dataj++;
+            tmp_data[partialTrueCount] = static_cast<int8_T>(c_i + 1);
+            partialTrueCount++;
           }
         }
-        if (b_b_dataj.size(0) == 0) {
+        if (ii_size == 0) {
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &h_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &f_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[0] = 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &h_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &f_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[1] = 10;
-          b_dataj = beamType_size[0] - 1;
+          partialTrueCount = beamType_size[0] - 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &h_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &f_emlrtBCI, (emlrtCTX)sp);
           }
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &h_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &f_emlrtBCI, (emlrtCTX)sp);
           }
           for (i = 0; i < 10; i++) {
-            if (b_i > b_dataj) {
-              emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &w_emlrtBCI,
-                                            (emlrtCTX)sp);
+            if (b_i > partialTrueCount) {
+              emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount,
+                                            &s_emlrtBCI, (emlrtCTX)sp);
             }
             beamType_data[b_i].f1.data[i] = r11.f1[i];
           }
           if (b_i + 1 > safteyFactor_Members_size[0]) {
             emlrtDynamicBoundsCheckR2012b(b_i + 1, 1,
                                           safteyFactor_Members_size[0],
-                                          &y_emlrtBCI, (emlrtCTX)sp);
+                                          &u_emlrtBCI, (emlrtCTX)sp);
           }
           safteyFactor_Members_data[b_i] = 7.1999999999999993 / eqivTypeOne;
           //  warning('Truss unable to hold load')
@@ -978,38 +959,38 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
         } else {
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &g_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[0] = 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &g_emlrtBCI, (emlrtCTX)sp);
           }
           beamType_data[b_i].f1.size[1] = 10;
-          b_dataj = beamType_size[0] - 1;
+          partialTrueCount = beamType_size[0] - 1;
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &g_emlrtBCI, (emlrtCTX)sp);
           }
           i = beamType_size[0] - 1;
           if (b_i > i) {
-            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &i_emlrtBCI, (emlrtCTX)sp);
+            emlrtDynamicBoundsCheckR2012b(b_i, 0, i, &g_emlrtBCI, (emlrtCTX)sp);
           }
           for (i = 0; i < 10; i++) {
-            if (b_i > b_dataj) {
-              emlrtDynamicBoundsCheckR2012b(b_i, 0, b_dataj, &x_emlrtBCI,
-                                            (emlrtCTX)sp);
+            if (b_i > partialTrueCount) {
+              emlrtDynamicBoundsCheckR2012b(b_i, 0, partialTrueCount,
+                                            &t_emlrtBCI, (emlrtCTX)sp);
             }
-            beamType_data[b_i].f1.data[i] = b_b_dataj[0].f1[i];
+            beamType_data[b_i].f1.data[i] = b_dataj_data[0].f1[i];
           }
-          if (1 > trueCount) {
-            emlrtDynamicBoundsCheckR2012b(1, 1, trueCount, &c_emlrtBCI,
+          if (trueCount < 1) {
+            emlrtDynamicBoundsCheckR2012b(1, 1, trueCount, &emlrtBCI,
                                           (emlrtCTX)sp);
           }
           if (b_i + 1 > safteyFactor_Members_size[0]) {
             emlrtDynamicBoundsCheckR2012b(b_i + 1, 1,
                                           safteyFactor_Members_size[0],
-                                          &ab_emlrtBCI, (emlrtCTX)sp);
+                                          &v_emlrtBCI, (emlrtCTX)sp);
           }
           safteyFactor_Members_data[b_i] =
               tensionTable.data.f2[tmp_data[0] - 1] / eqivTypeOne;
@@ -1024,7 +1005,6 @@ void findMemberType5(const emlrtStack *sp, const real_T memberForces_data[],
       }
     }
   }
-  emlrtHeapReferenceStackLeaveFcnR2012b((emlrtCTX)sp);
 }
 
 // End of code generation (findMemberType5.cpp)

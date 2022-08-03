@@ -15,39 +15,57 @@
 #include "mwmathutil.h"
 
 // Variable Definitions
-static emlrtRTEInfo h_emlrtRTEI{
+static emlrtRTEInfo i_emlrtRTEI{
     102,    // lineNo
     19,     // colNo
     "diag", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elmat/diag.m" // pName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\elmat\\diag.m" // pName
+};
+
+static emlrtRTEInfo ub_emlrtRTEI{
+    109,    // lineNo
+    24,     // colNo
+    "diag", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\elmat\\diag.m" // pName
+};
+
+static emlrtRTEInfo vb_emlrtRTEI{
+    100,    // lineNo
+    5,      // colNo
+    "diag", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\elmat\\diag.m" // pName
 };
 
 // Function Definitions
 namespace coder {
 void diag(const emlrtStack *sp, const ::coder::array<real_T, 2U> &v,
-          real_T d_data[], int32_T *d_size)
+          ::coder::array<real_T, 1U> &d)
 {
   if ((v.size(0) == 1) && (v.size(1) == 1)) {
-    *d_size = 1;
-    d_data[0] = v[0];
+    d.set_size(&vb_emlrtRTEI, sp, 1);
+    d[0] = v[0];
   } else {
     int32_T m;
     int32_T n;
     if ((v.size(0) == 1) || (v.size(1) == 1)) {
       emlrtErrorWithMessageIdR2018a(
-          sp, &h_emlrtRTEI, "Coder:toolbox:diag_varsizedMatrixVector",
+          sp, &i_emlrtRTEI, "Coder:toolbox:diag_varsizedMatrixVector",
           "Coder:toolbox:diag_varsizedMatrixVector", 0);
     }
     m = v.size(0);
     n = v.size(1);
-    if (0 < v.size(1)) {
-      *d_size = muIntScalarMin_sint32(m, n);
+    if (v.size(1) > 0) {
+      m = muIntScalarMin_sint32(m, n);
     } else {
-      *d_size = 0;
+      m = 0;
     }
-    m = *d_size - 1;
+    d.set_size(&ub_emlrtRTEI, sp, m);
+    m--;
     for (n = 0; n <= m; n++) {
-      d_data[n] = v[n + v.size(0) * n];
+      d[n] = v[n + v.size(0) * n];
     }
   }
 }

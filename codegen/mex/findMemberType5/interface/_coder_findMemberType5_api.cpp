@@ -14,7 +14,12 @@
 #include "findMemberType5_data.h"
 #include "findMemberType5_types.h"
 #include "rt_nonfinite.h"
-#include "coder_bounded_array.h"
+
+// Type Definitions
+struct emxArray_cell_wrap_0_195 {
+  cell_wrap_0 data[195];
+  int32_T size[1];
+};
 
 // Function Declarations
 static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
@@ -88,7 +93,7 @@ static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const boolean_T b{true};
   emlrtCheckVsBuiltInR2012b((emlrtCTX)sp, msgId, src, (const char_T *)"double",
                             false, 1U, (void *)&dims, &b, ret_size);
-  *ret_data = (real_T *)emlrtMxGetData(src);
+  *ret_data = static_cast<real_T *>(emlrtMxGetData(src));
   emlrtDestroyArray(&src);
 }
 
@@ -99,7 +104,7 @@ static real_T b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   real_T ret;
   emlrtCheckBuiltInR2012b((emlrtCTX)sp, msgId, src, (const char_T *)"double",
                           false, 0U, (void *)&dims);
-  ret = *(real_T *)emlrtMxGetData(src);
+  ret = *static_cast<real_T *>(emlrtMxGetData(src));
   emlrtDestroyArray(&src);
   return ret;
 }
@@ -163,10 +168,12 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray *memberForces,
                              int32_T *y_size)
 {
   emlrtMsgIdentifier thisId;
+  real_T *r;
   thisId.fIdentifier = const_cast<const char_T *>(identifier);
   thisId.fParent = nullptr;
   thisId.bParentIsCell = false;
-  emlrt_marshallIn(sp, emlrtAlias(memberForces), &thisId, y_data, y_size);
+  emlrt_marshallIn(sp, emlrtAlias(memberForces), &thisId, &r, y_size);
+  *y_data = r;
   emlrtDestroyArray(&memberForces);
 }
 
@@ -225,7 +232,7 @@ static const mxArray *emlrt_marshallOut(const emlrtStack *sp,
   int32_T iv[2];
   y = nullptr;
   emlrtAssign(&y, emlrtCreateCellArrayR2014a(1, &u_size));
-  if (0 < u_size) {
+  if (u_size > 0) {
     iv[0] = 1;
   }
   for (int32_T i{0}; i < u_size; i++) {
@@ -243,12 +250,12 @@ static const mxArray *emlrt_marshallOut(const emlrtStack *sp,
 void findMemberType5_api(const mxArray *const prhs[4], int32_T nlhs,
                          const mxArray *plhs[3])
 {
-  coder::bounded_array<cell_wrap_0, 195U, 1U> beamType;
   emlrtStack st{
       nullptr, // site
       nullptr, // tls
       nullptr  // prev
   };
+  emxArray_cell_wrap_0_195 beamType;
   real_T(*memLenghths_data)[195];
   real_T(*memberForces_data)[195];
   real_T(*safteyFactor_Members_data)[195];

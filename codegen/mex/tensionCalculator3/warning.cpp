@@ -17,35 +17,35 @@ static emlrtRTEInfo emlrtRTEI{
     14,        // lineNo
     15,        // colNo
     "warning", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
-    "+internal/warning.m" // pName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
+    "internal\\warning.m" // pName
 };
 
 static emlrtMCInfo emlrtMCI{
     14,        // lineNo
     25,        // colNo
     "warning", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
-    "+internal/warning.m" // pName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
+    "internal\\warning.m" // pName
 };
 
 static emlrtMCInfo b_emlrtMCI{
     14,        // lineNo
     9,         // colNo
     "warning", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
-    "+internal/warning.m" // pName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
+    "internal\\warning.m" // pName
 };
 
-<<<<<<< HEAD
-static emlrtRSInfo ld_emlrtRSI{
-=======
-static emlrtRSInfo xc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
+static emlrtRSInfo gd_emlrtRSI{
     14,        // lineNo
     "warning", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/shared/coder/coder/lib/+coder/"
-    "+internal/warning.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\shared\\coder\\coder\\lib\\+coder\\+"
+    "internal\\warning.m" // pathName
 };
 
 // Function Declarations
@@ -126,11 +126,7 @@ void b_warning(const emlrtStack *sp)
   m = emlrtCreateCharArray(2, &iv2[0]);
   emlrtInitCharArrayR2013a((emlrtCTX)sp, 21, m, &msgID[0]);
   emlrtAssign(&c_y, m);
-<<<<<<< HEAD
-  st.site = &ld_emlrtRSI;
-=======
-  st.site = &xc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+  st.site = &gd_emlrtRSI;
   b_feval(&st, y, feval(&st, b_y, c_y, &emlrtMCI), &b_emlrtMCI);
 }
 
@@ -165,11 +161,7 @@ void warning(const emlrtStack *sp)
   m = emlrtCreateCharArray(2, &iv2[0]);
   emlrtInitCharArrayR2013a((emlrtCTX)sp, 43, m, &msgID[0]);
   emlrtAssign(&c_y, m);
-<<<<<<< HEAD
-  st.site = &ld_emlrtRSI;
-=======
-  st.site = &xc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+  st.site = &gd_emlrtRSI;
   b_feval(&st, y, feval(&st, b_y, c_y, &emlrtMCI), &b_emlrtMCI);
 }
 
@@ -209,17 +201,13 @@ void warning(const emlrtStack *sp, int32_T varargin_1,
   emlrtAssign(&c_y, m);
   d_y = nullptr;
   m = emlrtCreateNumericMatrix(1, 1, mxINT32_CLASS, mxREAL);
-  *(int32_T *)emlrtMxGetData(m) = varargin_1;
+  *static_cast<int32_T *>(emlrtMxGetData(m)) = varargin_1;
   emlrtAssign(&d_y, m);
   e_y = nullptr;
   m = emlrtCreateCharArray(2, &iv3[0]);
   emlrtInitCharArrayR2013a((emlrtCTX)sp, 14, m, &varargin_2[0]);
   emlrtAssign(&e_y, m);
-<<<<<<< HEAD
-  st.site = &ld_emlrtRSI;
-=======
-  st.site = &xc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+  st.site = &gd_emlrtRSI;
   b_feval(&st, y, feval(&st, b_y, c_y, d_y, e_y, &emlrtMCI), &b_emlrtMCI);
 }
 

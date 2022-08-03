@@ -20,375 +20,233 @@
 #include <cstddef>
 
 // Variable Definitions
-<<<<<<< HEAD
-static emlrtRSInfo rc_emlrtRSI{
+static emlrtRSInfo mc_emlrtRSI{
     61,        // lineNo
     "qrsolve", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo sc_emlrtRSI{
+static emlrtRSInfo nc_emlrtRSI{
     72,        // lineNo
     "qrsolve", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo tc_emlrtRSI{
+static emlrtRSInfo oc_emlrtRSI{
     85,        // lineNo
     "qrsolve", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+};
+
+static emlrtRSInfo pc_emlrtRSI{
+    63,       // lineNo
+    "xgeqp3", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
+};
+
+static emlrtRSInfo qc_emlrtRSI{
+    98,             // lineNo
+    "ceval_xgeqp3", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
+};
+
+static emlrtRSInfo rc_emlrtRSI{
+    138,            // lineNo
+    "ceval_xgeqp3", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
+};
+
+static emlrtRSInfo sc_emlrtRSI{
+    141,            // lineNo
+    "ceval_xgeqp3", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
+};
+
+static emlrtRSInfo tc_emlrtRSI{
+    143,            // lineNo
+    "ceval_xgeqp3", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
 };
 
 static emlrtRSInfo uc_emlrtRSI{
-=======
-static emlrtRSInfo p_emlrtRSI{
-    21,                               // lineNo
-    "eml_int_forloop_overflow_check", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/eml/"
-    "eml_int_forloop_overflow_check.m" // pathName
-};
-
-static emlrtRSInfo
-    ec_emlrtRSI{
-        61,        // lineNo
-        "qrsolve", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo
-    fc_emlrtRSI{
-        72,        // lineNo
-        "qrsolve", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo
-    gc_emlrtRSI{
-        85,        // lineNo
-        "qrsolve", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo hc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
-    63,       // lineNo
-    "xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
-};
-
-<<<<<<< HEAD
-static emlrtRSInfo vc_emlrtRSI{
-=======
-static emlrtRSInfo ic_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
-    98,             // lineNo
-    "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
-};
-
-<<<<<<< HEAD
-static emlrtRSInfo wc_emlrtRSI{
-=======
-static emlrtRSInfo jc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
-    138,            // lineNo
-    "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
-};
-
-<<<<<<< HEAD
-static emlrtRSInfo xc_emlrtRSI{
-=======
-static emlrtRSInfo kc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
-    141,            // lineNo
-    "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
-};
-
-<<<<<<< HEAD
-static emlrtRSInfo yc_emlrtRSI{
-=======
-static emlrtRSInfo lc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
-    143,            // lineNo
-    "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
-};
-
-<<<<<<< HEAD
-static emlrtRSInfo ad_emlrtRSI{
-=======
-static emlrtRSInfo mc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
     148,            // lineNo
     "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
 };
 
-<<<<<<< HEAD
-static emlrtRSInfo bd_emlrtRSI{
-=======
-static emlrtRSInfo nc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
+static emlrtRSInfo vc_emlrtRSI{
     151,            // lineNo
     "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
 };
 
-<<<<<<< HEAD
-static emlrtRSInfo cd_emlrtRSI{
-=======
-static emlrtRSInfo oc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
+static emlrtRSInfo wc_emlrtRSI{
     154,            // lineNo
     "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
 };
 
-<<<<<<< HEAD
-static emlrtRSInfo dd_emlrtRSI{
-=======
-static emlrtRSInfo pc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
+static emlrtRSInfo xc_emlrtRSI{
     158,            // lineNo
     "ceval_xgeqp3", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pathName
 };
 
-<<<<<<< HEAD
-static emlrtRSInfo ed_emlrtRSI{
+static emlrtRSInfo yc_emlrtRSI{
     173,          // lineNo
     "rankFromQR", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo fd_emlrtRSI{
+static emlrtRSInfo ad_emlrtRSI{
     172,          // lineNo
     "rankFromQR", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo gd_emlrtRSI{
+static emlrtRSInfo bd_emlrtRSI{
     119,         // lineNo
     "LSQFromQR", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo hd_emlrtRSI{
+static emlrtRSInfo cd_emlrtRSI{
     128,         // lineNo
     "LSQFromQR", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo id_emlrtRSI{
+static emlrtRSInfo dd_emlrtRSI{
     138,         // lineNo
     "LSQFromQR", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pathName
 };
 
-static emlrtRSInfo jd_emlrtRSI{
-=======
-static emlrtRSInfo
-    qc_emlrtRSI{
-        173,          // lineNo
-        "rankFromQR", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo
-    rc_emlrtRSI{
-        172,          // lineNo
-        "rankFromQR", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo
-    sc_emlrtRSI{
-        119,         // lineNo
-        "LSQFromQR", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo
-    tc_emlrtRSI{
-        128,         // lineNo
-        "LSQFromQR", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo
-    uc_emlrtRSI{
-        138,         // lineNo
-        "LSQFromQR", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pathName
-    };
-
-static emlrtRSInfo vc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
+static emlrtRSInfo ed_emlrtRSI{
     31,         // lineNo
     "xunormqr", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xunormqr.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xunormqr.m" // pathName
 };
 
-<<<<<<< HEAD
-static emlrtRSInfo kd_emlrtRSI{
-=======
-static emlrtRSInfo wc_emlrtRSI{
->>>>>>> refs/remotes/origin/Pear-Branch
+static emlrtRSInfo fd_emlrtRSI{
     102,              // lineNo
     "ceval_xunormqr", // fcnName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xunormqr.m" // pathName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xunormqr.m" // pathName
 };
 
-static emlrtMCInfo
-    c_emlrtMCI{
-        53,        // lineNo
-        19,        // colNo
-        "flt2str", // fName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "flt2str.m" // pName
-    };
+static emlrtMCInfo c_emlrtMCI{
+    53,        // lineNo
+    19,        // colNo
+    "flt2str", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\flt2str.m" // pName
+};
 
-static emlrtRTEInfo db_emlrtRTEI{
+static emlrtRTEInfo cc_emlrtRTEI{
     1,        // lineNo
     32,       // colNo
     "xgeqp3", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pName
-};
-
-static emlrtRTEInfo eb_emlrtRTEI{
-    61,       // lineNo
-    9,        // colNo
-    "xgeqp3", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pName
-};
-
-static emlrtRTEInfo fb_emlrtRTEI{
-    92,       // lineNo
-    22,       // colNo
-    "xgeqp3", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pName
-};
-
-static emlrtRTEInfo gb_emlrtRTEI{
-    105,      // lineNo
-    1,        // colNo
-    "xgeqp3", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pName
-};
-
-static emlrtRTEInfo hb_emlrtRTEI{
-    97,       // lineNo
-    5,        // colNo
-    "xgeqp3", // fName
-<<<<<<< HEAD
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
     "lapack\\xgeqp3.m" // pName
 };
 
-static emlrtRTEInfo ib_emlrtRTEI{
+static emlrtRTEInfo dc_emlrtRTEI{
+    61,       // lineNo
+    9,        // colNo
+    "xgeqp3", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pName
+};
+
+static emlrtRTEInfo ec_emlrtRTEI{
+    92,       // lineNo
+    22,       // colNo
+    "xgeqp3", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pName
+};
+
+static emlrtRTEInfo fc_emlrtRTEI{
+    105,      // lineNo
+    1,        // colNo
+    "xgeqp3", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pName
+};
+
+static emlrtRTEInfo gc_emlrtRTEI{
+    97,       // lineNo
+    5,        // colNo
+    "xgeqp3", // fName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\+"
+    "lapack\\xgeqp3.m" // pName
+};
+
+static emlrtRTEInfo hc_emlrtRTEI{
     85,        // lineNo
     26,        // colNo
     "qrsolve", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pName
 };
 
-static emlrtRTEInfo jb_emlrtRTEI{
+static emlrtRTEInfo ic_emlrtRTEI{
     85,        // lineNo
     1,         // colNo
     "qrsolve", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pName
 };
 
-static emlrtRTEInfo kb_emlrtRTEI{
+static emlrtRTEInfo jc_emlrtRTEI{
     119,       // lineNo
     5,         // colNo
     "qrsolve", // fName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\qrsolve.m" // pName
 };
 
-static emlrtRSInfo md_emlrtRSI{
+static emlrtRSInfo hd_emlrtRSI{
     53,        // lineNo
     "flt2str", // fcnName
     "C:\\Program "
-    "Files\\MATLAB\\R2021a\\toolbox\\eml\\eml\\+coder\\+internal\\flt2str.m" // pathName
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+internal\\flt2str.m" // pathName
 };
-=======
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/+lapack/"
-    "xgeqp3.m" // pName
-};
-
-static emlrtRTEInfo
-    eb_emlrtRTEI{
-        85,        // lineNo
-        26,        // colNo
-        "qrsolve", // fName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pName
-    };
-
-static emlrtRTEInfo
-    fb_emlrtRTEI{
-        85,        // lineNo
-        1,         // colNo
-        "qrsolve", // fName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pName
-    };
-
-static emlrtRTEInfo
-    gb_emlrtRTEI{
-        119,       // lineNo
-        5,         // colNo
-        "qrsolve", // fName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "qrsolve.m" // pName
-    };
-
-static emlrtRSInfo
-    yc_emlrtRSI{
-        53,        // lineNo
-        "flt2str", // fcnName
-        "/Applications/MATLAB_R2021b.app/toolbox/eml/eml/+coder/+internal/"
-        "flt2str.m" // pathName
-    };
->>>>>>> refs/remotes/origin/Pear-Branch
 
 // Function Declarations
 static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
@@ -472,12 +330,10 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
   real_T tol;
   int32_T b_na;
   int32_T i;
-  int32_T j;
   int32_T ma;
   int32_T minmana;
   int32_T minmn;
   int32_T na;
-  char_T str[14];
   boolean_T p;
   st.prev = sp;
   st.tls = sp->tls;
@@ -488,52 +344,39 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
   d_st.prev = &c_st;
   d_st.tls = c_st.tls;
   emlrtHeapReferenceStackEnterFcnR2012b((emlrtCTX)sp);
-<<<<<<< HEAD
-  st.site = &rc_emlrtRSI;
-  b_A.set_size(&db_emlrtRTEI, &st, A.size(0), A.size(1));
-=======
-  st.site = &ec_emlrtRSI;
-  b_A.set_size(&y_emlrtRTEI, &st, A.size(0), A.size(1));
->>>>>>> refs/remotes/origin/Pear-Branch
+  st.site = &mc_emlrtRSI;
+  b_A.set_size(&cc_emlrtRTEI, &st, A.size(0), A.size(1));
   na = A.size(0) * A.size(1);
   for (i = 0; i < na; i++) {
     b_A[i] = A[i];
   }
   minmn = b_A.size(0);
-  b_na = b_A.size(1);
-  jpvt.set_size(&eb_emlrtRTEI, &st, 1, b_A.size(1));
+  b_na = b_A.size(1) - 1;
+  jpvt.set_size(&dc_emlrtRTEI, &st, 1, b_A.size(1));
   na = b_A.size(1);
   for (i = 0; i < na; i++) {
     jpvt[i] = 0;
   }
-<<<<<<< HEAD
-  b_st.site = &uc_emlrtRSI;
-=======
-  b_st.site = &hc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+  b_st.site = &pc_emlrtRSI;
   ma = b_A.size(0);
   na = b_A.size(1);
   minmana = muIntScalarMin_sint32(ma, na);
-  tau.set_size(&fb_emlrtRTEI, &b_st, minmana);
+  tau.set_size(&ec_emlrtRTEI, &b_st, minmana);
   if ((b_A.size(0) == 0) || (b_A.size(1) == 0)) {
-    tau.set_size(&hb_emlrtRTEI, &b_st, minmana);
+    tau.set_size(&gc_emlrtRTEI, &b_st, minmana);
     for (i = 0; i < minmana; i++) {
       tau[i] = 0.0;
     }
-<<<<<<< HEAD
-    c_st.site = &vc_emlrtRSI;
-=======
-    c_st.site = &ic_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
-    if ((1 <= b_A.size(1)) && (b_A.size(1) > 2147483646)) {
+    c_st.site = &qc_emlrtRSI;
+    if (b_A.size(1) > 2147483646) {
       d_st.site = &p_emlrtRSI;
       check_forloop_overflow_error(&d_st);
     }
-    for (ma = 0; ma < b_na; ma++) {
+    for (ma = 0; ma <= b_na; ma++) {
       jpvt[ma] = ma + 1;
     }
   } else {
-    jpvt_t.set_size(&gb_emlrtRTEI, &b_st, b_A.size(1));
+    jpvt_t.set_size(&fc_emlrtRTEI, &b_st, b_A.size(1));
     na = b_A.size(1);
     for (i = 0; i < na; i++) {
       jpvt_t[i] = (ptrdiff_t)0;
@@ -542,20 +385,16 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
                             &(b_A.data())[0], (ptrdiff_t)b_A.size(0),
                             &(jpvt_t.data())[0], &(tau.data())[0]);
     na = (int32_T)info_t;
-<<<<<<< HEAD
-    c_st.site = &wc_emlrtRSI;
-=======
-    c_st.site = &jc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+    c_st.site = &rc_emlrtRSI;
     if (na != 0) {
       p = true;
       if (na != -4) {
         if (na == -1010) {
-          emlrtErrorWithMessageIdR2018a(&c_st, &k_emlrtRTEI, "MATLAB:nomem",
+          emlrtErrorWithMessageIdR2018a(&c_st, &l_emlrtRTEI, "MATLAB:nomem",
                                         "MATLAB:nomem", 0);
         } else {
           emlrtErrorWithMessageIdR2018a(
-              &c_st, &l_emlrtRTEI, "Coder:toolbox:LAPACKCallErrorInfo",
+              &c_st, &m_emlrtRTEI, "Coder:toolbox:LAPACKCallErrorInfo",
               "Coder:toolbox:LAPACKCallErrorInfo", 5, 4, 14, &fname[0], 12, na);
         }
       }
@@ -563,22 +402,14 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
       p = false;
     }
     if (p) {
-<<<<<<< HEAD
-      c_st.site = &xc_emlrtRSI;
-=======
-      c_st.site = &kc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
-      if ((1 <= b_na) && (b_na > 2147483646)) {
+      c_st.site = &sc_emlrtRSI;
+      if (b_A.size(1) > 2147483646) {
         d_st.site = &p_emlrtRSI;
         check_forloop_overflow_error(&d_st);
       }
-      for (j = 0; j < b_na; j++) {
-<<<<<<< HEAD
-        c_st.site = &yc_emlrtRSI;
-=======
-        c_st.site = &lc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
-        if ((1 <= minmn) && (minmn > 2147483646)) {
+      for (int32_T j{0}; j <= b_na; j++) {
+        c_st.site = &tc_emlrtRSI;
+        if (minmn > 2147483646) {
           d_st.site = &p_emlrtRSI;
           check_forloop_overflow_error(&d_st);
         }
@@ -586,21 +417,18 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
           b_A[j * ma + na] = rtNaN;
         }
       }
-      minmn = muIntScalarMin_sint32(minmn, b_na);
-<<<<<<< HEAD
-      c_st.site = &ad_emlrtRSI;
-=======
-      c_st.site = &mc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+      i = b_na + 1;
+      minmn = muIntScalarMin_sint32(minmn, i);
+      c_st.site = &uc_emlrtRSI;
+      if (minmn > 2147483646) {
+        d_st.site = &p_emlrtRSI;
+        check_forloop_overflow_error(&d_st);
+      }
       for (ma = 0; ma < minmn; ma++) {
         tau[ma] = rtNaN;
       }
       na = minmn + 1;
-<<<<<<< HEAD
-      c_st.site = &bd_emlrtRSI;
-=======
-      c_st.site = &nc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+      c_st.site = &vc_emlrtRSI;
       if ((minmn + 1 <= minmana) && (minmana > 2147483646)) {
         d_st.site = &p_emlrtRSI;
         check_forloop_overflow_error(&d_st);
@@ -608,34 +436,26 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
       for (ma = na; ma <= minmana; ma++) {
         tau[ma - 1] = 0.0;
       }
-<<<<<<< HEAD
-      c_st.site = &cd_emlrtRSI;
-=======
-      c_st.site = &oc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
-      for (ma = 0; ma < b_na; ma++) {
-        jpvt[ma] = ma + 1;
-      }
-    } else {
-<<<<<<< HEAD
-      c_st.site = &dd_emlrtRSI;
-=======
-      c_st.site = &pc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
-      if ((1 <= b_na) && (b_na > 2147483646)) {
+      c_st.site = &wc_emlrtRSI;
+      if (b_na + 1 > 2147483646) {
         d_st.site = &p_emlrtRSI;
         check_forloop_overflow_error(&d_st);
       }
-      for (ma = 0; ma < b_na; ma++) {
+      for (ma = 0; ma <= b_na; ma++) {
+        jpvt[ma] = ma + 1;
+      }
+    } else {
+      c_st.site = &xc_emlrtRSI;
+      if (b_A.size(1) > 2147483646) {
+        d_st.site = &p_emlrtRSI;
+        check_forloop_overflow_error(&d_st);
+      }
+      for (ma = 0; ma <= b_na; ma++) {
         jpvt[ma] = (int32_T)jpvt_t[ma];
       }
     }
   }
-<<<<<<< HEAD
-  st.site = &sc_emlrtRSI;
-=======
-  st.site = &fc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+  st.site = &nc_emlrtRSI;
   ma = 0;
   tol = 0.0;
   if (b_A.size(0) < b_A.size(1)) {
@@ -655,11 +475,8 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
     }
   }
   if ((ma < minmn) && (!emlrtSetWarningFlag(&st))) {
-<<<<<<< HEAD
-    b_st.site = &ed_emlrtRSI;
-=======
-    b_st.site = &qc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+    char_T str[14];
+    b_st.site = &yc_emlrtRSI;
     y = nullptr;
     m = emlrtCreateCharArray(2, &iv[0]);
     emlrtInitCharArrayR2013a(&b_st, 6, m, &rfmt[0]);
@@ -667,41 +484,25 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
     b_y = nullptr;
     m = emlrtCreateDoubleScalar(tol);
     emlrtAssign(&b_y, m);
-<<<<<<< HEAD
-    c_st.site = &md_emlrtRSI;
+    c_st.site = &hd_emlrtRSI;
     emlrt_marshallIn(&c_st, b_sprintf(&c_st, y, b_y, &c_emlrtMCI),
                      "<output of sprintf>", str);
-    b_st.site = &fd_emlrtRSI;
+    b_st.site = &ad_emlrtRSI;
     warning(&b_st, ma, str);
   }
-  st.site = &tc_emlrtRSI;
-  b_B.set_size(&ib_emlrtRTEI, &st, B.size(0));
-=======
-    c_st.site = &yc_emlrtRSI;
-    emlrt_marshallIn(&c_st, b_sprintf(&c_st, y, b_y, &c_emlrtMCI),
-                     "<output of sprintf>", str);
-    b_st.site = &rc_emlrtRSI;
-    warning(&b_st, ma, str);
-  }
-  st.site = &gc_emlrtRSI;
-  b_B.set_size(&eb_emlrtRTEI, &st, B.size(0));
->>>>>>> refs/remotes/origin/Pear-Branch
+  st.site = &oc_emlrtRSI;
+  b_B.set_size(&hc_emlrtRTEI, &st, B.size(0));
   na = B.size(0);
   for (i = 0; i < na; i++) {
     b_B[i] = B[i];
   }
-  Y.set_size(&jb_emlrtRTEI, &st, b_A.size(1));
+  Y.set_size(&ic_emlrtRTEI, &st, b_A.size(1));
   na = b_A.size(1);
   for (i = 0; i < na; i++) {
     Y[i] = 0.0;
   }
-<<<<<<< HEAD
-  b_st.site = &gd_emlrtRSI;
-  c_st.site = &jd_emlrtRSI;
-=======
-  b_st.site = &sc_emlrtRSI;
-  c_st.site = &vc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+  b_st.site = &bd_emlrtRSI;
+  c_st.site = &ed_emlrtRSI;
   if ((b_A.size(0) != 0) && (b_A.size(1) != 0)) {
     info_t = (ptrdiff_t)b_B.size(0);
     i = b_A.size(0);
@@ -711,11 +512,7 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
                             &(b_A.data())[0], (ptrdiff_t)b_A.size(0),
                             &(tau.data())[0], &(b_B.data())[0], info_t);
     na = (int32_T)info_t;
-<<<<<<< HEAD
-    d_st.site = &kd_emlrtRSI;
-=======
-    d_st.site = &wc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+    d_st.site = &fd_emlrtRSI;
     if (na != 0) {
       boolean_T b_p;
       p = true;
@@ -729,10 +526,10 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
       }
       if (!b_p) {
         if (na == -1010) {
-          emlrtErrorWithMessageIdR2018a(&d_st, &k_emlrtRTEI, "MATLAB:nomem",
+          emlrtErrorWithMessageIdR2018a(&d_st, &l_emlrtRTEI, "MATLAB:nomem",
                                         "MATLAB:nomem", 0);
         } else {
-          emlrtErrorWithMessageIdR2018a(&d_st, &l_emlrtRTEI,
+          emlrtErrorWithMessageIdR2018a(&d_st, &m_emlrtRTEI,
                                         "Coder:toolbox:LAPACKCallErrorInfo",
                                         "Coder:toolbox:LAPACKCallErrorInfo", 5,
                                         4, 14, &b_fname[0], 12, na);
@@ -743,32 +540,24 @@ void qrsolve(const emlrtStack *sp, const ::coder::array<real_T, 2U> &A,
     }
     if (p) {
       na = b_B.size(0);
-      b_B.set_size(&kb_emlrtRTEI, &c_st, na);
+      b_B.set_size(&jc_emlrtRTEI, &c_st, na);
       for (i = 0; i < na; i++) {
         b_B[i] = rtNaN;
       }
     }
   }
-<<<<<<< HEAD
-  b_st.site = &hd_emlrtRSI;
-=======
-  b_st.site = &tc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
-  if ((1 <= ma) && (ma > 2147483646)) {
+  b_st.site = &cd_emlrtRSI;
+  if (ma > 2147483646) {
     c_st.site = &p_emlrtRSI;
     check_forloop_overflow_error(&c_st);
   }
   for (na = 0; na < ma; na++) {
     Y[jpvt[na] - 1] = b_B[na];
   }
-  for (j = ma; j >= 1; j--) {
+  for (int32_T j{ma}; j >= 1; j--) {
     i = jpvt[j - 1];
     Y[i - 1] = Y[i - 1] / b_A[(j + b_A.size(0) * (j - 1)) - 1];
-<<<<<<< HEAD
-    b_st.site = &id_emlrtRSI;
-=======
-    b_st.site = &uc_emlrtRSI;
->>>>>>> refs/remotes/origin/Pear-Branch
+    b_st.site = &dd_emlrtRSI;
     for (na = 0; na <= j - 2; na++) {
       Y[jpvt[na] - 1] = Y[jpvt[na] - 1] -
                         Y[jpvt[j - 1] - 1] * b_A[na + b_A.size(0) * (j - 1)];

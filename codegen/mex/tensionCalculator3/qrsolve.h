@@ -15,7 +15,6 @@
 #include "coder_array.h"
 #include "emlrt.h"
 #include "mex.h"
-#include "omp.h"
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>

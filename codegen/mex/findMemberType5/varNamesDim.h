@@ -12,8 +12,6 @@
 
 // Include files
 #include "rtwtypes.h"
-#include "coder_array.h"
-#include "coder_bounded_array.h"
 #include "emlrt.h"
 #include "mex.h"
 #include <cmath>
@@ -27,7 +25,7 @@ namespace matlab {
 namespace internal {
 namespace coder {
 namespace tabular {
-enum Continuity
+enum class Continuity : int32_T
 {
   unset = 0, // Default value
   continuous,
@@ -40,8 +38,12 @@ enum Continuity
 } // namespace internal
 } // namespace matlab
 } // namespace coder
+struct emxArray_char_T_1x0 {
+  int32_T size[2];
+};
+
 struct cell_wrap_4 {
-  coder::empty_bounded_array<char_T, 2U> f1;
+  emxArray_char_T_1x0 f1;
 };
 
 namespace coder {
@@ -53,10 +55,6 @@ namespace private_ {
 class varNamesDim {
 public:
   static void subs2inds(varNamesDim *updatedObj);
-  static void
-  logicalIndices2Numeric(const emlrtStack *sp,
-                         const boolean_T logicalIndices[6],
-                         ::coder::array<real_T, 2U> &numericIndices);
   cell_wrap_4 descrs[3];
   cell_wrap_4 units[3];
   Continuity continuity[3];

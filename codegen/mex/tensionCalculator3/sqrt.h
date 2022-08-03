@@ -12,9 +12,9 @@
 
 // Include files
 #include "rtwtypes.h"
+#include "coder_array.h"
 #include "emlrt.h"
 #include "mex.h"
-#include "omp.h"
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -22,7 +22,7 @@
 
 // Function Declarations
 namespace coder {
-void b_sqrt(const emlrtStack *sp, real_T x_data[], const int32_T *x_size);
+void b_sqrt(const emlrtStack *sp, ::coder::array<real_T, 1U> &x);
 
 }
 

@@ -1,5 +1,5 @@
-numberOfTrusses = 100; %must be even
-numberOfRuns = 180;
+numberOfTrusses = 500; %must be even
+numberOfRuns = 720;
 leftMostPoint = [-0.005,0];
 rightMostPoint = [0.455,0];
 safteyFactor = 0.8;
@@ -38,7 +38,7 @@ trussArray = prepTrussArray2(numberOfTrusses, leftMostPoint, rightMostPoint, loa
 trussArray = testTrussArray(trussArray, safteyFactor, maxCost);
 maxArray = zeros(1,numberOfRuns);
 meanArray = zeros(1,numberOfRuns);
-Video = VideoWriter('C:\Users\Mack\Documents\MATLAB\Truss Solver\Outputs\DP3 18','MPEG-4'); 
+Video = VideoWriter('C:\Users\Mack\OneDrive\Documents\MATLAB\trussSolver\Outputs\DP3 18','MPEG-4'); 
 Video.FrameRate = 6; 
 open(Video)
 for i = 1:numberOfRuns
@@ -67,7 +67,7 @@ for i = 1:numberOfRuns
     cur_plot.YDir = 'normal';
     plotZone(cur_plot, loadZone)
     cellfun(@(sad) plotZone(cur_plot, sad), restrictedZoneArray)
-    frame = getframe(gcf); %get frame
+    frame = getframe(gca); %get frame
     writeVideo(Video, frame);
     
     

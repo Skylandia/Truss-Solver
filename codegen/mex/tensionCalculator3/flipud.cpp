@@ -11,22 +11,21 @@
 // Include files
 #include "flipud.h"
 #include "rt_nonfinite.h"
+#include "coder_array.h"
 
 // Function Definitions
 namespace coder {
-void flipud(real_T x_data[], const int32_T *x_size)
+void flipud(::coder::array<real_T, 1U> &x)
 {
   int32_T m;
   int32_T md2;
-  m = *x_size - 1;
-  md2 = *x_size >> 1;
+  m = x.size(0) - 1;
+  md2 = x.size(0) >> 1;
   for (int32_T i{0}; i < md2; i++) {
     real_T xtmp;
-    int32_T b_i;
-    xtmp = x_data[i];
-    b_i = m - i;
-    x_data[i] = x_data[b_i];
-    x_data[b_i] = xtmp;
+    xtmp = x[i];
+    x[i] = x[m - i];
+    x[m - i] = xtmp;
   }
 }
 

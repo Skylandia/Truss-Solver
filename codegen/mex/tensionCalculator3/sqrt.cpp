@@ -10,36 +10,72 @@
 
 // Include files
 #include "sqrt.h"
+#include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
+#include "tensionCalculator3_data.h"
+#include "coder_array.h"
 #include "mwmathutil.h"
 
 // Variable Definitions
-static emlrtRTEInfo n_emlrtRTEI{
+static emlrtRSInfo vb_emlrtRSI{
+    16,     // lineNo
+    "sqrt", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\elfun\\sqrt.m" // pathName
+};
+
+static emlrtRSInfo wb_emlrtRSI{
+    33,                           // lineNo
+    "applyScalarFunctionInPlace", // fcnName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\eml\\+coder\\+"
+    "internal\\applyScalarFunctionInPlace.m" // pathName
+};
+
+static emlrtRTEInfo o_emlrtRTEI{
     13,     // lineNo
     9,      // colNo
     "sqrt", // fName
-    "/Applications/MATLAB_R2021b.app/toolbox/eml/lib/matlab/elfun/sqrt.m" // pName
+    "C:\\Program "
+    "Files\\MATLAB\\R2022a\\toolbox\\eml\\lib\\matlab\\elfun\\sqrt.m" // pName
 };
 
 // Function Definitions
 namespace coder {
-void b_sqrt(const emlrtStack *sp, real_T x_data[], const int32_T *x_size)
+void b_sqrt(const emlrtStack *sp, ::coder::array<real_T, 1U> &x)
 {
-  int32_T k;
+  emlrtStack b_st;
+  emlrtStack c_st;
+  emlrtStack st;
+  int32_T nx;
   boolean_T p;
+  st.prev = sp;
+  st.tls = sp->tls;
+  b_st.prev = &st;
+  b_st.tls = st.tls;
+  c_st.prev = &b_st;
+  c_st.tls = b_st.tls;
   p = false;
-  for (k = 0; k < *x_size; k++) {
-    if (p || (x_data[k] < 0.0)) {
+  nx = x.size(0);
+  for (int32_T k{0}; k < nx; k++) {
+    if (p || (x[k] < 0.0)) {
       p = true;
     }
   }
   if (p) {
     emlrtErrorWithMessageIdR2018a(
-        sp, &n_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
+        sp, &o_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
         "Coder:toolbox:ElFunDomainError", 3, 4, 4, "sqrt");
   }
-  for (k = 0; k < *x_size; k++) {
-    x_data[k] = muDoubleScalarSqrt(x_data[k]);
+  st.site = &vb_emlrtRSI;
+  nx = x.size(0);
+  b_st.site = &wb_emlrtRSI;
+  if (x.size(0) > 2147483646) {
+    c_st.site = &p_emlrtRSI;
+    check_forloop_overflow_error(&c_st);
+  }
+  for (int32_T k{0}; k < nx; k++) {
+    x[k] = muDoubleScalarSqrt(x[k]);
   }
 }
 

@@ -12,7 +12,7 @@ beamType = trussGraph.Edges.("Beam type");
 safteyFactor_Members = trussGraph.Edges.("Safety Factor");
 memLenghths = trussGraph.Edges.("Member Length");
 
-if nargin ==2
+if nargin == 2
     tenStrengh = tenStrengh * safteyFactor;
 end
 [compressionTable, tensionTable, ~, ~] = generateTrussTables();

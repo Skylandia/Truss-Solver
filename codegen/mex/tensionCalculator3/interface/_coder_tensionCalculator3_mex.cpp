@@ -16,6 +16,7 @@
 #include "tensionCalculator3_data.h"
 #include "tensionCalculator3_initialize.h"
 #include "tensionCalculator3_terminate.h"
+#include "omp.h"
 #include <stdexcept>
 
 void emlrtExceptionBridge();
@@ -58,9 +59,10 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
 
 emlrtCTX mexFunctionCreateRootTLS()
 {
-  emlrtCreateRootTLSR2021a(&emlrtRootTLSGlobal, &emlrtContextGlobal,
+  emlrtCreateRootTLSR2022a(&emlrtRootTLSGlobal, &emlrtContextGlobal,
                            &emlrtLockerFunction, omp_get_num_procs(),
-                           (void *)&emlrtExceptionBridge);
+                           (void *)&emlrtExceptionBridge,
+                           (const char_T *)"windows-1252", true);
   return emlrtRootTLSGlobal;
 }
 

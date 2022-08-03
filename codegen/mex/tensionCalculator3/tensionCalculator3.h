@@ -15,7 +15,6 @@
 #include "coder_array.h"
 #include "emlrt.h"
 #include "mex.h"
-#include "omp.h"
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -30,9 +29,9 @@ void emlrtLockerFunction(EmlrtLockeeFunction aLockee, emlrtConstCTX aTLS,
 void tensionCalculator3(const emlrtStack *sp,
                         const coder::array<real_T, 1U> &nodesX,
                         const coder::array<real_T, 1U> &nodesY, real_T numNodes,
-                        real_T numEdges, const real_T endNodes_data[],
-                        const int32_T endNodes_size[2], real_T weightMagnitude,
-                        real_T weightNode,
+                        real_T numEdges,
+                        const coder::array<real_T, 2U> &endNodes,
+                        real_T weightMagnitude, real_T weightNode,
                         coder::array<real_T, 1U> &tensionArray);
 
 // End of code generation (tensionCalculator3.h)
