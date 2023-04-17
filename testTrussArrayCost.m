@@ -1,4 +1,4 @@
-dfunction [trussArray] = testTrussArrayCost(trussArray, safteyFactor, minCapasity)
+function [trussArray] = testTrussArrayCost(trussArray, safteyFactor, minCapasity)
 %testTrussArray Tests
 %   Detailed explanation goes here
 
