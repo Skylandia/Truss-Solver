@@ -27,7 +27,7 @@
 edges = trussGraph.Edges;
 numNodes = trussGraph.numnodes;
 nodeThiccness = zeros(numNodes,1);
-parfor i = 1:numNodes
+for i = 1:numNodes
     edgesTemp = edges(any(edges.EndNodes == i, 2),:)
     curNodeThicc = 0;
     for j = 1:height(edgesTemp)
