@@ -1,15 +1,16 @@
-numberOfTrusses = 500; %must be even
+numberOfTrusses = 500; % must be even
 numberOfRuns = 720;
 gcp
 pctRunOnAll warning off
 
-trussArray = prepTrussArray(numberOfTrusses, [0,0],[0.450,0]);
+trussArray = prepTrussArray(numberOfTrusses, [0, 0], [0.450, 0]);
 trussArray = testTrussArray(trussArray, 0.8, 280000);
-maxArray = zeros(1,numberOfRuns);
-meanArray = zeros(1,numberOfRuns);
-Video = VideoWriter('DP3 13','MPEG-4'); 
+maxArray = zeros(1, numberOfRuns);
+meanArray = zeros(1, numberOfRuns);
+Video = VideoWriter("DP3 20", "MPEG-4"); 
 Video.FrameRate = 6; 
 open(Video)
+
 for i = 1:numberOfRuns
     maxArray(i) = max([trussArray.capasity]);
     meanArray(i) = mean([trussArray.capasity]);
