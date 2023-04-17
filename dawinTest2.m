@@ -1,78 +1,64 @@
-numberOfTrusses = 500; %must be even
-numberOfRuns = 720;
-leftMostPoint = [-0.005,0];
-rightMostPoint = [0.455,0];
-safteyFactor = 0.8;
-maxCost = 280000;
-loadZone = zones( ...
-    shapes.rectangle, ...
-    zoneType.load, ...
-    [0.150,0.150;0.200,-0.150]);
-%restricted zones
-leftEdge = zones( ...
-    shapes.rectangle, ...
-    zoneType.platform, ...
-    [-0.150,-0.001;0,-0.150]);
-rightEdge = zones( ...
-    shapes.rectangle, ...
-    zoneType.platform, ...
-    [0.450,-0.001;0.600,-0.150]);
-bottomForbiddenZone1 = zones( ...
-    shapes.rectangle, ...
-    zoneType.restricted, ...
-    [0.350,-0.001;0.450,-0.150]);
-bottomForbiddenZone2 = zones( ...
-    shapes.rectangle, ...
-    zoneType.restricted, ...
-    [0,-0.150;0.450,-0.160]);
-circleForbiddenZone = zones( ...
-    shapes.circle, ...
-    zoneType.restricted, ...
-    [0.025,0.025,0.125]);
-restrictedZoneArray = {leftEdge, rightEdge, bottomForbiddenZone1, bottomForbiddenZone2, circleForbiddenZone};
+truss_count = 500;                  % number of trusses per generation
+max_gens = 999;                     % number of generations until the program halts
+leftmost_point = [-0.010, 0];       % x, y coords of the left support (pivot)
+rightmost_point = [0.460, 0];       % x, y coords of the right support (roller)
+safety_factor = 0.8;                % 
+max_cost = 2.01;                    % dunno (was 280 000)
+max_loads = zeros(1, max_gens);     % records the load capacity for the best truss in each generation
+max_ratio = zeros(1, max_gens);     % records the load capacity over self-weight for each generation of trusses
 
-gcp
-pctRunOnAll warning off %this is a really crap idea
+load('region_definitions.mat')      % load variables with specifications for forbidden, loading, and support region/zones
 
-trussArray = prepTrussArray2(numberOfTrusses, leftMostPoint, rightMostPoint, loadZone, restrictedZoneArray);
-trussArray = testTrussArray(trussArray, safteyFactor, maxCost);
-maxArray = zeros(1,numberOfRuns);
-meanArray = zeros(1,numberOfRuns);
-Video = VideoWriter('C:\Users\Mack\OneDrive\Documents\MATLAB\trussSolver\Outputs\DP3 18','MPEG-4'); 
-Video.FrameRate = 6; 
-open(Video)
-for i = 1:numberOfRuns
-    maxArray(i) = max(cellfun(@(ahhhhh) ahhhhh.capasity, trussArray));
-    meanArray(i) = mean(cellfun(@(ahhhhh) ahhhhh.capasity, trussArray));
+gcp                         % start a new parallel (processing?) pool (whatever that means)
+pctRunOnAll warning off     % turn off warnings on the client and all parallel pool workers
+
+% first time population of trusses
+trusses = prepTrussArray2(truss_count, leftmost_point, rightmost_point, loading_region, restricted_zones);
+trusses = testTrussArray(trusses, safety_factor, max_cost);
+
+for current_gen = 1:max_gens
+    trusses = sortTrussArray(trusses);                          % sort by capacity / cost
+    best_truss = trusses{1};
+
+    % record the best and average truss load capacity for the current generation
+    max_loads(current_gen) = best_truss.capasity;
+    max_ratio(current_gen) = best_truss.capasity / best_truss.cost;
+
+    % plot mean and max array
+    subplot(2, 1, 1);
+    plot( ...
+        1:current_gen, max_loads(1:current_gen), ...
+        1:current_gen, max_ratio(1:current_gen) ...
+    )
+    legend( ...                                                                 % surely there is a better way...
+        { ...
+            ['Highest Truss Capacity: ', num2str(max_loads(current_gen))], ...
+            ['Highest Truss capacity/cost ratio: ', num2str(max_ratio(current_gen))] ...
+        }, ...
+        'Location', 'southeast' ...
+    )
+    set(gca, 'XAxisLocation', 'top', 'YAxisLocation', 'left');
+    xlabel('Generation #')
+    ylabel('Truss Capacity (N)')
     
-    % Video and Output Stuff
-    subplot(2,1,1);
-    plot(1:i, maxArray(1:i), 1:i, meanArray(1:i))
-    legend({['Highest Truss Capacity: ', num2str(maxArray(i))],['Mean Truss Capacity: ', num2str(meanArray(i))]},...
-        'Location','southeast')
-    set(gca,'XAxisLocation','top','YAxisLocation','left');
-    xlabel('Number of Generations')
-    ylabel('Truss Capacity')
-    subplot(2,1,2);
-    t = trussArray{1};
-    endNodes = t.endNodes;
-    nodes = [[t.nodesArray.x];[t.nodesArray.y]]';
+    % draw current best truss
+    subplot(2, 1, 2);
+    endNodes = best_truss.endNodes;
+    nodes = [[best_truss.nodesArray.x]; [best_truss.nodesArray.y]]';
     graph = generateTrussGraph2(nodes, endNodes);
     h = plotImageGraph(graph);
-    highlight(h,t.weightNode,'NodeColor','r')
+    highlight(h, best_truss.weightNode, 'NodeColor', 'r')
     title('Current Best Truss Design')
-    dim = [.15 .2 .2 .2];
-    str = {['Cost: ', num2str(t.cost)], ['Capacity: ', num2str(t.capasity)]};
+    
+    % draw support, loading, & forbidden zones
     cur_plot = gca;
     cur_plot.YDir = 'normal';
-    plotZone(cur_plot, loadZone)
-    cellfun(@(sad) plotZone(cur_plot, sad), restrictedZoneArray)
-    frame = getframe(gca); %get frame
-    writeVideo(Video, frame);
+    plotZone(cur_plot, loading_region)
+    cellfun(@(sad) plotZone(cur_plot, sad), restricted_zones)
     
-    
-    trussArray = sortTrussArray(trussArray);
-    trussArray = snapArray(trussArray, loadZone, restrictedZoneArray);
-    trussArray(numberOfTrusses/2 + 1:end) = testTrussArray(trussArray(numberOfTrusses/2 + 1:end), safteyFactor, maxCost);
+    % replace worse performing trusses with newly generated trusses for next gen
+    trusses = snapArray(trusses, loading_region, restricted_zones);  % I assume this gets rid of the worse performing trusses
+    trusses(truss_count/2 + 1:end) = ...                        % replace the bad ones with (hopefully) slightly better ones
+        testTrussArray(trusses(truss_count/2 + 1:end), safety_factor, max_cost);
 end
-close(Video)
+save('2023 Truss Comp v5')
