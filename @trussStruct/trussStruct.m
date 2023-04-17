@@ -11,7 +11,7 @@ classdef trussStruct
     end
     
     methods
-        function obj = trussStruct(edgesArray,nodesArray,weightNode)
+        function obj = trussStruct(edgesArray, nodesArray, weightNode)
             %trussStruct Construct an instance of this class
             %   Detailed explanation goes here
             if nargin == 0
@@ -108,67 +108,62 @@ classdef trussStruct
                 isPossible = true;
             end
         end
+
+        function json = toJson(obj)
+            json = "{";
+
+            json = json + '"width":"1920",';
+
+            json = json + '"joints":[';
+            for i = 1:obj.numNodes
+                json = json + "[" + (1000 * obj.nodesArray(i).x) + "," + (1000 * -obj.nodesArray(i).y) + "],";
+            end
+            json = extractBefore(json, json.strlength);
+            json = json + "],";
+
+           
+            json = json + '"members":[';
+            for i = 1:obj.numEdges
+                json = json + "[" + (obj.edgesArray(i).endNodes(1)-1) + "," + (obj.edgesArray(i).endNodes(2)-1) + "],";
+            end
+            json = extractBefore(json, json.strlength);
+            json = json + "],";
+
+            json = json + '"loads":[';
+            json = json + "[" + (obj.weightNode-1) + "," + (-90) + "," + (obj.capasity/2) + "]";
+            json = json + "],";
+
+            json = json + '"supports":[';
+            json = json + '[0, "p"], [' + (obj.numNodes-1) + ', "r"]';
+            json = json + "]";
+
+            json = json + "}";
+        end
         
         function cost = generateCost(obj)
-            [~, ~, ~, member_table]= generateTrussTables();
-            nodeThiccArray = [obj.nodesArray.Thiccness];
-            nodeThiccerThan5 = sum(nodeThiccArray>5);
-            runningTotal = nodeThiccerThan5 * 300 + (obj.numNodes - nodeThiccerThan5) * 150;
-            
+
+            [compressionTable, tensionTable, ~, ~] = generateTrussTables();
+            running_total = 10 * 0.021;                                             % 10 cross members weight
+            running_total = running_total + 2 * length(obj.nodesArray) * 0.025;     % weight of joins
+
             for i = 1:obj.numEdges
-                typeIndx=find(contains(member_table.("Member Type"),obj.edgesArray(i).beamType));
-                if obj.edgesArray(i).memberLength<= 0.09
-                    runningTotal = runningTotal+member_table.("<= 90mm long")(typeIndx);
-                else
-                    runningTotal = runningTotal+member_table.("> 90mm long")(typeIndx);
+                member_length = obj.edgesArray(i).memberLength;
+                if obj.edgesArray(i).forceInMember > 0              % member is in tension
+                    beam_thickness = tensionTable.("Member Thickness")(contains(tensionTable.("Member Type"), obj.edgesArray(i).beamType));
+                    member_length = beam_thickness * member_length + 2 * 0.012;
+                else                                                % member is in compression
+                    beam_thickness = compressionTable.("Member Thickness")(contains(compressionTable.("Member Type"), obj.edgesArray(i).beamType));
+                    member_length = beam_thickness * member_length + 2 * 0.008;
                 end
+                running_total = running_total + 2 * (member_length / 175) * 0.021;
             end
-            cost = runningTotal*2;
+            cost = running_total;
         end
         
         obj = optimiseTrussCapasity(obj, safteyFactor, maxCost)
         obj = mutateTruss2(obj, safteyFactor, maxCost)
-%             isPossible = obj.validateEdgeLengths(0.150);
-%             if ~isPossible
-%                 obj.cost = 0;
-%                 obj.capasity = 0;
-%             else
-%                 obj = obj.tensionCalculator(obj.capasity);
-%                 [~, isPossible] = obj.findMemberTypes(safteyFactor);
-%                 if ~isPossible
-%                     obj.cost = 0;
-%                     obj.capasity = 0;
-%                 else
-%                     while isPossible
-%                         [tempObj, isPossible] = obj.findMemberTypes(safteyFactor);
-%                         tempObj = tempObj.nodeThiccnessFinder2;
-%                         tempObj.cost = tempObj.generateCost;
-%                         if tempObj.validateNodeThiccs(7) && (tempObj.cost <= maxCost)
-%                             obj = tempObj;
-%                             minSafteyFactor = min([obj.edgesArray.safteyFactor]);
-%                             obj.capasity = obj.capasity * minSafteyFactor;
-%                             for i = 1:obj.numEdges
-%                                 obj.edgesArray(i).forceInMember =...
-%                                     obj.edgesArray(i).forceInMember * minSafteyFactor;
-%                             end
-%                         else
-%                             isPossible = false;
-%                         end
-%                     end
-%                     if isnan(obj.capasity)
-%                         obj.capasity = 0;
-%                         obj.cost = 0;
-%                     else
-%                         obj.capasity = obj.capasity * 2;
-%                     end
-%                 end
-%             end
                 
         function obj = mutateTruss(obj, bestObj)
-%             for i = 2:obj.numNodes-1
-%                 obj.nodesArray(i).x = obj.nodesArray(i).x + normrnd(0,0.00512);
-%                 obj.nodesArray(i).y = obj.nodesArray(i).y + normrnd(0,0.00512);
-%             end
             nodeLocations = [[obj.nodesArray.x]',[obj.nodesArray.y]'] + [[0,0];normrnd(0,0.00025, obj.numNodes-2, 2);[0,0]];
             connectionsMatrix = obj.endNodes;
             obj = generateTrussStruct(nodeLocations, connectionsMatrix, obj.weightNode);
