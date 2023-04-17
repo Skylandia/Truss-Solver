@@ -3,8 +3,8 @@ function [trussStructOut] = randomTruss(leftMostPoint,rightMostPoint)
 %   Detailed explanation goes here
 baseNodeCount = -1;
 trussLength = norm(rightMostPoint - leftMostPoint);
-while (baseNodeCount < 3) || (baseNodeCount > 49)
-    baseNodeCount = ceil(trussLength / normrnd(0.09,0.027));
+while (baseNodeCount < 7) || (baseNodeCount > 15)
+    baseNodeCount = ceil(normrnd(11, 2)); % switched to hardcoded mean; change this if trusslength changes
 end
 nodeGap = trussLength / baseNodeCount;
 weightNode = randi([0,1]) + baseNodeCount;
@@ -18,11 +18,11 @@ nodeArray(2:end-1,1) = (nodeGap / 2) * (2:(2*baseNodeCount-2))';
 nodeArray(1,:) = leftMostPoint;
 nodeArray(end,:) = rightMostPoint;
 %Makes trussGraph connection array
-connectionsArray = zeros(4*baseNodeCount-5,2);
-connectionsArray(1:(2*baseNodeCount-3),1) = 1:(2*baseNodeCount-3);
-connectionsArray(1:(2*baseNodeCount-3),2) = 3:(2*baseNodeCount-1);
-connectionsArray((2*baseNodeCount-2):end,1) = 1:(2*baseNodeCount-2);
-connectionsArray((2*baseNodeCount-2):end,2) = 2:(2*baseNodeCount-1);
+connectionsArray = zeros(4*baseNodeCount-5, 2);
+connectionsArray(1:(2*baseNodeCount-3), 1) = 1:(2*baseNodeCount-3);
+connectionsArray(1:(2*baseNodeCount-3), 2) = 3:(2*baseNodeCount-1);
+connectionsArray((2*baseNodeCount-2):end, 1) = 1:(2*baseNodeCount-2);
+connectionsArray((2*baseNodeCount-2):end, 2) = 2:(2*baseNodeCount-1);
 
 trussStructOut = generateTrussStruct(nodeArray, connectionsArray, weightNode);
 end
